@@ -1,0 +1,58 @@
+body {
+  margin: 0px;
+  background-color: #F1ECC8;
+}
+
+@font-face {
+  font-family: 'This Cafe';
+  src: url('./assets/fonts/This Cafe.ttf');
+}
+
+@font-face {
+  font-family: 'Gluten Black';
+  src: url(./assets/fonts/Gluten-Black.ttf);
+}
+
+@font-face {
+  font-family: 'Gluten Bold';
+  src: url(./assets/fonts/Gluten-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Gluten ExtraBold';
+  src: url(./assets/fonts/Gluten-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Gluten ExtraLight';
+  src: url(./assets/fonts/Gluten-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: 'Gluten Light';
+  src: url(./assets/fonts/Gluten-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Gluten Medium';
+  src: url(./assets/fonts/Gluten-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Gluten Regular';
+  src: url(./assets/fonts/Gluten-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Gluten SemiBold';
+  src: url(./assets/fonts/Gluten-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: 'Gluten Thin';
+  src: url(./assets/fonts/Gluten-Thin.ttf);
+}
+
+* {
+  font-family: 'Gluten Regular';
+}

@@ -1,0 +1,45 @@
+.pastelFlavourContainer {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+
+.pastelFlavourContainer p {
+  font-size: 3rem;
+  color: #10806e;
+}
+
+.pastelFlavours {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pastelFlavour {
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.pastelFlavour:hover {
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(246, 160, 17, 0.8);
+  transform: scale(1.05);
+  transition: ease-in-out transform 0.2s;
+}
+
+.pastelFlavour img {
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.pastelFlavour p {
+  font-size: 1.5rem;
+  color: #10806e;
+}
