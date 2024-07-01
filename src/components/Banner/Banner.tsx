@@ -13,8 +13,21 @@ function Banner() {
                     <img src={rapaz} alt='Rapaz com pastéis' />
                 </div>
             </div>
-            <div className='strip'>
-                vegana - cruelty free - deliciosa - aconchegante - sustentável - vegana - cruelty free - deliciosa - sustentavel - vegana - cruelty free - deliciosa - sustentavel
+            <div className='ticker'>
+                <div className='tickerItem'>SEM CRUELDADE</div>
+                <div className='tickerItem'>-</div>
+                <div className='tickerItem'>SEM PREÇO ABUSIVO</div>
+                <div className='tickerItem'>-</div>
+                <div className='tickerItem'>SEM GORDURA TRANSGÊNICA</div>
+                <div className='tickerItem'>-</div>
+                <div className='tickerItem'>SEM CONSERVANTES</div>
+                <div className='tickerItem'>-</div>
+                <div className='tickerItem'>SEM CORANTES</div>
+                <div className='tickerItem'>-</div>
+                <div className='tickerItem'>SEM ANTIBIOTICS</div>
+                <div className='tickerItem'>-</div>
+                <div className='tickerItem'>SEM HORMÔNIOS</div>
+                <div className='tickerItem'>-</div>
             </div>
         </>
     )

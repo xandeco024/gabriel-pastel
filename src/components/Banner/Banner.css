@@ -2,39 +2,44 @@
     background-color: #F6A011;
     width: 100%;
     height: 500px;
+
+    z-index: 0;
 }
 
 .bannerContent {
-    background-color: #AB3F3F;
-    width: 70%;
+    /* background-color: #AB3F3F; */
+    width: 65%;
     height: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
+.slogan{
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    width: fit-content;
+}
+
 .textContainer {
-    width: 6cap;
-    height: 100%;
+    width: 692.15px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-}
-
-.slogan{
-    font-size: 2.5rem;
-    margin-top: 100px;
-    margin-bottom: 50px;
 }
 
 .text {
-    font-size: 2rem;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+    text-align: justify;
 }
 
-.strip {
+.text:last-child {
+    margin-bottom: 0;
+}
+
+.ticker {
     background-color: #AB3F3F;
     width: 100%;
     height: 60px;
@@ -42,4 +47,13 @@
     color : white;
     font-size: 2rem;
     overflow: hidden;
+
+    position: relative;
+    display: inline-block;
+}
+
+.tickerItem {
+    display: inline-block;
+    height: 100%;
+    margin-right: 50px;
 }

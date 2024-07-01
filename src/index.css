@@ -41,7 +41,7 @@ body {
 @font-face {
   font-family: 'Gluten Regular';
   src: url(./assets/fonts/Gluten-Regular.ttf);
-}
+} 
 
 @font-face {
   font-family: 'Gluten SemiBold';
@@ -55,4 +55,7 @@ body {
 
 * {
   font-family: 'Gluten Regular';
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
