@@ -12,11 +12,17 @@ header {
 }
 
 header h1 {
-    margin-left: 50px;
-    font-size: 3.75rem;
+    margin-left: 32px;
+    font-size: 48px;
     color: #10806E;
 
-    font-family: 'This Cafe';
+    font-family: 'Holtwood One SC';
+}
+
+header img {
+    width: 94.54px;
+    height: 100px;
+    margin-left: 148px;
 }
 
 svg {
@@ -32,7 +38,7 @@ nav {
     display: flex;
     align-items: center;
 
-    margin-right: 50px;
+    margin-right: 148px;
     margin-left: auto;
 }
 
@@ -45,16 +51,16 @@ a {
 
 a:hover {
     color: #F6A011;
+    text-decoration: underline;
 }
 
 button {
     color: #10806E;
     background-color: #F1ECC8;
     font-size: 1.5rem;
-    border: 3px solid #10806E;
+    border: 4px solid #10806E;
     border-radius: 25px;
     padding: 10px 20px;
-    margin-right: 20px;
 }
 
 button:hover {

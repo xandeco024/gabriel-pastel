@@ -1,5 +1,7 @@
 import './Banner.css'
-import rapaz from './rapaz.png'
+
+import rapazSplash from './rapaz com splash.png'
+
 function Banner() {
     return (
         <>
@@ -10,7 +12,7 @@ function Banner() {
                         <p className='text'>Com a união de dois Gabrieis, que gostavam de pastéis, surge a Gabriel Pastel. </p>
                         <p className='text'>A lanchonete com o melhor pastel da região, 100% vegana, e com o preço que cabe no seu bolso.</p>
                     </div>
-                    <img src={rapaz} alt='Rapaz com pastéis' />
+                    <img src={rapazSplash} alt='Rapaz com pastéis' />
                 </div>
             </div>
             <div className='ticker'>

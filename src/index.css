@@ -9,6 +9,11 @@ body {
 }
 
 @font-face {
+  font-family: 'Holtwood One SC';
+  src: url(./assets/fonts/HoltwoodOneSC.ttf);
+}
+
+@font-face {
   font-family: 'Gluten Black';
   src: url(./assets/fonts/Gluten-Black.ttf);
 }

@@ -13,12 +13,13 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+
+    position: relative;
 }
 
-.slogan{
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    width: fit-content;
+.bannerContent img {
+    margin-right: -64px;
+    margin-left: auto;
 }
 
 .textContainer {
@@ -27,7 +28,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: absolute;
+    margin-top: 10%;
 }
+
+.slogan{
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    width: fit-content;
+}
+
 
 .text {
     font-size: 1.75rem;
