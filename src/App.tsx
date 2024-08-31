@@ -1,9 +1,9 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import './App.css'
 
 import Header from './components/Header/Header'
 import Banner from './components/Banner/Banner'
-import PremadePasteis from './components/Premade Pasteis/PremadePasteis'
+import PastelOnYourWay from './components/Pastel on your way/PastelOnYourWay'
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
       <div>
         <Header/>
         <Banner/>
-        {/* <PremadePasteis/> */}
+        <PastelOnYourWay/>
       </div>
     </>
   )

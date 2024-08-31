@@ -12,7 +12,7 @@ import romiltoBrocolis from '../../assets/pastel flavours/romiltoBrocolis.webp'
 import romiltoCalabresa from '../../assets/pastel flavours/romiltoCalabresa.webp'
 import romiltoJaca from '../../assets/pastel flavours/romiltoJaca.webp'
 import romiltoPalmito from '../../assets/pastel flavours/romiltoPalmito.webp'
-import romiltoPizza from '../../assets/pastel flavours/romiltoPizza.webp'
+//import romiltoPizza from '../../assets/pastel flavours/romiltoPizza.webp'
 import romiltoShimeji from '../../assets/pastel flavours/romiltoShimeji.webp'
 import romiltoSoja from '../../assets/pastel flavours/romiltoSoja.webp'
 

@@ -54,7 +54,7 @@ a:hover {
     text-decoration: underline;
 }
 
-button {
+.orderNowBtn {
     color: #10806E;
     background-color: #F1ECC8;
     font-size: 1.5rem;
@@ -63,8 +63,9 @@ button {
     padding: 10px 20px;
 }
 
-button:hover {
+.orderNowBtn:hover {
     cursor: pointer;
-    color: #F6A011;
+    color: #F1ECC8;
     border-color: #F6A011;
+    background-color: #F6A011;
 }
