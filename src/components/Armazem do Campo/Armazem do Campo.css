@@ -1,0 +1,25 @@
+.armazemDoCampoContainer {
+    width: 100%;
+    height: 1080px;
+
+    background-color: aqua;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.content {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.armazemDoCampoContainer img {
+    width: 50%;
+    height: 100%;
+}
