@@ -1,15 +1,12 @@
-.armazemDoCampoContainer {
+.ADCContainer {
     width: 100%;
     height: 1080px;
-
-    background-color: aqua;
-
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.content {
+.ADCTextContainer {
     width: 50%;
     height: 100%;
 
@@ -19,7 +16,29 @@
     justify-content: center;
 }
 
-.armazemDoCampoContainer img {
+.ADCTitle {
+    font-family: 'Holtwood One SC', serif;
+    text-align: center !important;
+    margin-bottom: 55px;
+}
+
+.ADCContainer p {
+    font-size: 32px;
+    width: 80%;
+    line-height: 150%;
+    text-align: justify;
+}
+
+
+
+.ADCImgContainer {
     width: 50%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ADCImgContainer img {
+    width: 80%;
 }
