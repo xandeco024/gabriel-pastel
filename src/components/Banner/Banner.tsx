@@ -18,22 +18,6 @@ function Banner() {
                     <img src={rapazSplash} alt='Rapaz com pastéis' />
                 </div>
             </div>
-            <div className='ticker'>
-                <div className='tickerItem'>SEM CRUELDADE</div>
-                <div className='tickerItem'>-</div>
-                <div className='tickerItem'>SEM PREÇO ABUSIVO</div>
-                <div className='tickerItem'>-</div>
-                <div className='tickerItem'>SEM GORDURA TRANSGÊNICA</div>
-                <div className='tickerItem'>-</div>
-                <div className='tickerItem'>SEM CONSERVANTES</div>
-                <div className='tickerItem'>-</div>
-                <div className='tickerItem'>SEM CORANTES</div>
-                <div className='tickerItem'>-</div>
-                <div className='tickerItem'>SEM ANTIBIOTICOS</div>
-                <div className='tickerItem'>-</div>
-                <div className='tickerItem'>SEM HORMÔNIOS</div>
-                <div className='tickerItem'>-</div>
-            </div>
         </>
     )
 }
