@@ -5,7 +5,7 @@
     height: 60px;
 
     color : white;
-    font-size: 2.5rem;
+    font-size: 2rem;
 
     overflow: hidden;
     user-select: none;
@@ -22,7 +22,13 @@
     justify-content: space-between;
     gap: 2rem;
     align-items: center;
-    animation: scroll 20s linear infinite;
+    animation: scroll 40s linear infinite;
+    animation-delay: -40s;
+}
+
+.tickerContainer ul:nth-child(2) {
+    animation: scroll2 40s linear infinite;
+    animation-delay: -20s;
 }
 
 .tickerContainer:hover ul {
@@ -32,18 +38,23 @@
 .tickerItem {
     flex-shrink: 0;
     white-space: nowrap;
+    font-family: 'Holtwood One SC', serif;
 }
 
 @keyframes scroll {
-    /* to {
-        transform: translateX(calc(-100% - 2rem));
-    } */
-
     0% {
-        transform: translateX(0%);
+        transform: translateX(100%);
     }
-
     100% {
         transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-200%);
     }
 }

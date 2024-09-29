@@ -20,7 +20,7 @@ function Ticker() {
                 <li className='tickerItem'>-</li>
             </ul>
 
-            {/* <ul aria-hidden='true'>
+            <ul aria-hidden='true'>
                 <li className='tickerItem'>SEM CRUELDADE</li>
                 <li className='tickerItem'>-</li>
                 <li className='tickerItem'>SEM PREÇO ABUSIVO</li>
@@ -34,8 +34,9 @@ function Ticker() {
                 <li className='tickerItem'>SEM ANTIBIOTICOS</li>
                 <li className='tickerItem'>-</li>
                 <li className='tickerItem'>SEM HORMÔNIOS</li>
-                <li className='tickerItem'>-</li>
-            </ul> */}
+                <li className='tickerItem'>-</li> 
+                {/* esse "-" é comido pq eu nao calculei bem a animacao e eu nao vou calcular. */}
+            </ul>
         </div>
     )
 }
