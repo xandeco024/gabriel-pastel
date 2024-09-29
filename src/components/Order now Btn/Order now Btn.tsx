@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface btnProps {
-    color: string;
-    backgroundColor: string;
-    hoverColor: string;
-    hoverBackgroundColor: string;
-}
+// interface btnProps {
+//     color: string;
+//     backgroundColor: string;
+//     hoverColor: string;
+//     hoverBackgroundColor: string;
+// }
 
 //function OrderNowBtn({color, backgroundColor, hoverColor, hoverBackgroundColor}: btnProps) {
 function OrderNowBtn() {
