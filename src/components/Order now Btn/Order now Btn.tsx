@@ -7,8 +7,8 @@ interface btnProps {
     hoverBackgroundColor: string;
 }
 
-function OrderNowBtn({color, backgroundColor, hoverColor, hoverBackgroundColor}: btnProps) {
-
+//function OrderNowBtn({color, backgroundColor, hoverColor, hoverBackgroundColor}: btnProps) {
+function OrderNowBtn() {
     const btnStyle: React.CSSProperties = {
         fontSize: '32px',
         color: '#F6A011',
