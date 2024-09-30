@@ -1,27 +1,33 @@
 import React from 'react';
 
-// interface btnProps {
-//     color: string;
-//     backgroundColor: string;
-//     hoverColor: string;
-//     hoverBackgroundColor: string;
-// }
+//THATS ART
 
-//function OrderNowBtn({color, backgroundColor, hoverColor, hoverBackgroundColor}: btnProps) {
-function OrderNowBtn() {
+interface btnProps {
+    size: string;
+    color: string;
+    backgroundColor: string;
+    hoverColor: string;
+}
+
+function OrderNowBtn({size, color, backgroundColor, hoverColor}: btnProps) {
+
+    const [hover, setHover] = React.useState(false);
+
     const btnStyle: React.CSSProperties = {
-        fontSize: '32px',
-        color: '#F6A011',
-        backgroundColor: '#f1ecc8',
-        border: '4px solid #F6A011',
+        fontSize: size,
+        color: hover? backgroundColor : color,
+        backgroundColor: hover? hoverColor : backgroundColor,
+        borderColor: hover? hoverColor : color,
+        border: '3px solid',
         borderRadius: '30px',
         width: 'fit-content',
-        padding: '10px 20px',
+        padding: `calc(${size} * .4) calc(${size} * .8)`,
         cursor: 'pointer',
+        transition: 'all .2s ease-in-out'
     };
 
     return (
-        <button style={btnStyle}>PEÇA JÁ!</button>
+        <button style={btnStyle} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>PEÇA JÁ!</button>
     )
 }
 
