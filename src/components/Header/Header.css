@@ -1,6 +1,6 @@
 header {
     width: 100%;
-    height: 120px;
+    height: 90px;
     background-color: #F1ECC8;
 
     display: flex;
@@ -12,60 +12,35 @@ header {
 }
 
 header h1 {
-    margin-left: 32px;
-    font-size: 48px;
+    margin-left: 1rem;
+    font-size: 2.25rem;
     color: #10806E;
 
     font-family: 'Holtwood One SC';
 }
 
 header img {
-    width: 94.54px;
-    height: 100px;
-    margin-left: 148px;
-}
-
-svg {
-    width: 50px;
-    height: 50px;
-}
-
-svg path {
-    fill: #10806E;
+    height: 90%;
+    margin-left: 4rem;
 }
 
 nav {
     display: flex;
     align-items: center;
 
-    margin-right: 148px;
+    margin-right: 4rem;
     margin-left: auto;
 }
 
 a {
     text-decoration: none;
     color: #10806E;
-    font-size: 1.75rem;
-    margin-right: 30px;
+    font-size: 1.25rem;
+    margin-right: 2rem;
+    transition: all 0.2s ease-in-out;
 }
 
 a:hover {
     color: #F6A011;
     text-decoration: underline;
-}
-
-.orderNowBtn {
-    color: #10806E;
-    background-color: #F1ECC8;
-    font-size: 1.5rem;
-    border: 4px solid #10806E;
-    border-radius: 25px;
-    padding: 10px 20px;
-}
-
-.orderNowBtn:hover {
-    cursor: pointer;
-    color: #F1ECC8;
-    border-color: #F6A011;
-    background-color: #F6A011;
 }

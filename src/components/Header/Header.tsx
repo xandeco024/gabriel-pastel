@@ -1,5 +1,6 @@
 import './Header.css'
 
+import OrderNowBtn from '../Order now Btn/Order now btn';
 import logo from '../../assets/logo.png'
 
 function Header() {
@@ -12,7 +13,7 @@ function Header() {
                     <a href="#">HOME</a>
                     <a href="#">NOSSO IMPACTO</a>
                     <a href="#">NOSSA HISTÓRIA</a>
-                    <button className="orderNowBtn">PEÇA JÁ!</button>
+                    <OrderNowBtn size='1.25rem' color='#10806E' backgroundColor='#F1ECC8' hoverColor='#F6A011'/>
                 </nav>
             </header>
         </>

@@ -16,6 +16,10 @@
     justify-content: center;
 }
 
+.ADCTextContainer:last-child {
+    margin-left: 50px;
+}   
+
 .ADCTitle {
     font-family: 'Holtwood One SC', serif;
     text-align: center !important;
@@ -23,13 +27,11 @@
 }
 
 .ADCContainer p {
-    font-size: 32px;
+    font-size: 1.25rem;
     width: 80%;
     line-height: 150%;
     text-align: justify;
 }
-
-
 
 .ADCImgContainer {
     width: 50%;

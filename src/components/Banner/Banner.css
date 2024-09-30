@@ -1,65 +1,44 @@
-.main {
+.bannerContainer {
     background-color: #F6A011;
     width: 100%;
-    height: 500px;
-    z-index: 0;
-}
-
-.bannerContent {
-    /* background-color: #AB3F3F; */
-    width: 65%;
-    height: 100%;
-    margin: 0 auto;
+    height: 450px;
     display: flex;
-    justify-content: space-between;
 
+    padding: 0 15%;
+
+    justify-content: space-between;
+    
     position: relative;
 }
 
-.bannerContent img {
-    margin-right: -160px;
-    margin-left: auto;
+.bannerContainer img {
+    height: 95%;
+    position: absolute;
+    z-index: 0;
+    right: 15%;
+    bottom: 0;
 }
 
-.textContainer {
-    width: 692.15px;
+.bannerTextContainer {
+    width: 623px;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
-    margin-top: 6%;
+    z-index: 1;
 }
 
-.slogan{
-    font-size: 2.5rem;
+.bannerSlogan{
+    font-size: 2.25rem;
     margin-bottom: 30px;
     width: fit-content;
     color: #2c221c;
 }
 
-.text {
-    font-size: 1.75rem;
-    margin-bottom: 0px;
+.bannerP {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
     text-align: justify;
     line-height: 150%;
     color: #2c221c;
-}
-
-.orderNowBtn2 {
-    color: #ffffff;
-    font-size: 1.5rem;
-    border: 4px solid #ffffff;
-    border-radius: 25px;
-    padding: 10px 20px;
-    background-color: #F6A011;
-    width: fit-content;
-    margin-top: 30px;
-}
-
-.orderNowBtn2:hover {
-    cursor: pointer;
-    color: #F6A011;
-    border-color: #ffffff;
-    background-color: #ffffff;
 }
