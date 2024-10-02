@@ -4,6 +4,7 @@
     height: 450px;
     display: flex;
 
+    margin-top: 90px;
     padding: 0 15%;
 
     justify-content: space-between;
