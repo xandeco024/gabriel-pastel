@@ -7,9 +7,10 @@ interface btnProps {
     color: string;
     backgroundColor: string;
     hoverColor: string;
+    className?: string;
 }
 
-function OrderNowBtn({size, color, backgroundColor, hoverColor}: btnProps) {
+function OrderNowBtn({size, color, backgroundColor, hoverColor, className}: btnProps) {
 
     const [hover, setHover] = React.useState(false);
 
@@ -27,7 +28,7 @@ function OrderNowBtn({size, color, backgroundColor, hoverColor}: btnProps) {
     };
 
     return (
-        <button style={btnStyle} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>PEÇA JÁ!</button>
+        <button style={btnStyle} className={className} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>PEÇA JÁ!</button>
     )
 }
 

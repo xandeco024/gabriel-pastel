@@ -1,58 +1,49 @@
-.pastelOnYourWayContainer {
+.POYWContainer {
     width: 100%;
-    height: 1080px;
-    margin: 0px;
+    height: 80vh;
     display: flex;
+    align-items: center;
 }
 
-.pastelOnYourWayContainer img {
-    width: 1110px;
-    height: 1086px;
-    margin-top: -50px;
-}
+.POYWTextContainer {
+    width: 50%;
+    height: 100%;
 
-.pastelOnYourWayTextContainer
-{
-    width: 752px;
-    height: auto;
-    margin-top: auto;
-    margin-bottom: auto;
     display: flex;
     flex-direction: column;
-    margin-left: -200px;
+    align-items: center;
+    justify-content: center;
 }
 
-.pastelOnYourWayTitle
-{
+.POYWTitle {
     font-family: 'Holtwood One SC';
-    font-size: 32px;
-    text-align: center;
-    color: #2c221c;
+    text-align: center !important;
+    font-size: 1.75rem !important;
 }
 
-.pastelOnYourWayText
-{
-    font-size: 32px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: justify;
+.POYWContainer p {
+    font-size: 1.25rem;
+    width: 80%;
     line-height: 150%;
+    text-align: justify;
     color: #2c221c;
+    margin-bottom: 55px;
 }
 
-.orderNowBtn3 {
-    color: #F6A011;
-    font-size: 1.5rem;
-    border: 4px solid #F6A011;
-    border-radius: 25px;
-    padding: 10px 20px;
-    background-color: #f1ecc8;
-    width: fit-content;
+.POYWBtn {
+    margin-right: 10%;
     margin-left: auto;
 }
 
-.orderNowBtn3:hover {
-    cursor: pointer;
-    color: #FFFFFF;
-    background-color: #F6A011;
+.POYWImgContainer {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.POYWImgContainer img {
+    width: 90%;
 }

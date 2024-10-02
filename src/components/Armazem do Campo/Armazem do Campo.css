@@ -1,9 +1,8 @@
 .ADCContainer {
     width: 100%;
-    height: 1080px;
+    height: 80vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 
 .ADCTextContainer {
@@ -16,14 +15,10 @@
     justify-content: center;
 }
 
-.ADCTextContainer:last-child {
-    margin-left: 50px;
-}   
-
 .ADCTitle {
     font-family: 'Holtwood One SC', serif;
     text-align: center !important;
-    margin-bottom: 55px;
+    font-size: 1.75rem !important;
 }
 
 .ADCContainer p {
@@ -31,6 +26,12 @@
     width: 80%;
     line-height: 150%;
     text-align: justify;
+    margin-bottom: 55px;
+}
+
+.ADCBtn {
+    margin-right: auto;
+    margin-left: 10%;
 }
 
 .ADCImgContainer {
