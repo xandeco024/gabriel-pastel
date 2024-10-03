@@ -22,33 +22,39 @@
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.nosei {
-    width: 30%;
-    height: 100px;
-
-    display: flex;
-    align-items: center;
-
-    margin-left: 55px;
+.footerContent {
+    width: 20%;
+    height: 60%;
 }
 
-.nosei p {
-    color: #FFFFFF;
-    font-size: 1.25rem;
-    margin-left: 35px;
-}
-
-.socialMedia {
-    width: 30%;
-    height: 120px;
-    margin-right: 55px;
+.footerContent:first-child {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+.footerContent img {
+    width: 8rem;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.footerContent p {
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    text-align: justify;
+}
+
+.footerTitle {
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    font-size: 1.75rem !important;
+    text-align: center !important;
 }
 
 .socialMediaIcons {

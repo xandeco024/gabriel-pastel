@@ -11,12 +11,42 @@ function Footer() {
                     <img src={preFooter} alt="Pre Footer"/>
                 </div>
                 <div className='footerContainer'>
-                    <div className="nosei">
+                    <div className="footerContent">
                         <img src={logo} alt="Logo Gabriel Pastel"/>
                         <p>Fazemos nosso melhor para transformar o mundo num lugar melhor.</p>
                     </div>
-                    <div className="socialMedia">
-                        <p>Nossas redes sociais</p>
+                    <div className="footerContent">
+                        <p className='footerTitle'>Funcionamento</p>
+                        <ul>
+                            <li>
+                                <p>Segunda a Sexta</p>
+                                <p>18h - 23h</p>
+                            </li>
+                            <li>
+                                <p>Sábado</p>
+                                <p>18h - 23h</p>
+                            </li>
+                            <li>
+                                <p>Domingo</p>
+                                <p>18h - 23h</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="footerContent">
+                        <p className='footerTitle' >Contato</p>
+                        <div className="contact">
+                            <div>
+                                <p>Telefone</p>
+                                <p>(11) 95113-8721</p>
+                            </div>
+                            <div>
+                                <p>Email</p>
+                                <p>alepbravo1702@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="footerContent">
+                        <p className='footerTitle'>Redes Sociais</p>
                         <div className="socialMediaIcons">
                             <a href="https://api.whatsapp.com/send/?phone=%2B5511951138721&text=Olá%2C%20vim%20pelo%20site%20Gabriel%20Pastel%20e%20gostaria%20de%20fazer%20um%20pedido%20de%20pastel.%20Poderia%20me%20ajudar%3F&type=phone_number&app_absent=0">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
