@@ -19,18 +19,19 @@ function Footer() {
                         <p className='footerTitle'>Funcionamento</p>
                         <ul>
                             <li>
-                                <p>Segunda a Sexta</p>
-                                <p>18h - 23h</p>
+                                <p>Segunda a Quinta 12h - 22h</p>
                             </li>
                             <li>
-                                <p>Sábado</p>
-                                <p>18h - 23h</p>
+                                <p>Sexta e Sábado 12h - 00h</p>
                             </li>
                             <li>
-                                <p>Domingo</p>
-                                <p>18h - 23h</p>
+                                <p>Domingo 12h - 22h</p>
                             </li>
                         </ul>
+                    </div>
+                    <div className="footerContent">
+                        <p className='footerTitle'>Endereço</p>
+                        <p>Rua dos bobos, 0 - Rochdale, Osasco - SP</p>
                     </div>
                     <div className="footerContent">
                         <p className='footerTitle' >Contato</p>
