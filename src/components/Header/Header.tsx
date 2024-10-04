@@ -1,6 +1,6 @@
 import './Header.css'
 
-import OrderNowBtn from '../Order now Btn/Order now btn';
+import OrderNowBtn from '../Order now Btn/Order now Btn';
 import logo from '../../assets/logo.png'
 
 function Header() {

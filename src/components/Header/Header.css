@@ -1,47 +1,152 @@
-header {
-    width: 100%;
-    height: 90px;
-    background-color: #F1ECC8;
-
-    display: flex;
-    align-items: center;
-
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-    position: fixed;
-    z-index: 1000;
-    top: 0;
+@media (max-width: 1280px)
+{
+    header {
+        width: 100%;
+        height: 90px;
+        background-color: #F1ECC8;
+    
+        display: flex;
+        align-items: center;
+    
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+    }
+    
+    header h1 {
+        margin-left: 1rem;
+        font-size: 2.25rem;
+        color: #10806E;
+    
+        font-family: 'Holtwood One SC';
+    }
+    
+    header img {
+        height: 90%;
+        margin-left: 4rem;
+    }
+    
+    nav {
+        display: flex;
+        align-items: center;
+    
+        margin-right: 4rem;
+        margin-left: auto;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #10806E;
+        font-size: 1.25rem;
+        margin-right: 2rem;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    a:hover {
+        color: #F6A011;
+        text-decoration: underline;
+    }
 }
 
-header h1 {
-    margin-left: 1rem;
-    font-size: 2.25rem;
-    color: #10806E;
-
-    font-family: 'Holtwood One SC';
+@media (min-width: 1280px) {
+    header {
+        width: 100%;
+        height: 90px;
+        background-color: #F1ECC8;
+    
+        display: flex;
+        align-items: center;
+    
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+    }
+    
+    header h1 {
+        margin-left: 1rem;
+        font-size: 2.25rem;
+        color: #10806E;
+    
+        font-family: 'Holtwood One SC';
+    }
+    
+    header img {
+        height: 90%;
+        margin-left: 4rem;
+    }
+    
+    nav {
+        display: flex;
+        align-items: center;
+    
+        margin-right: 4rem;
+        margin-left: auto;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #10806E;
+        font-size: 1.25rem;
+        margin-right: 2rem;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    a:hover {
+        color: #F6A011;
+        text-decoration: underline;
+    }
 }
 
-header img {
-    height: 90%;
-    margin-left: 4rem;
+@media (max-width: 1024px) {
+    
 }
 
-nav {
-    display: flex;
-    align-items: center;
+@media (max-width: 768px)
+{
 
-    margin-right: 4rem;
-    margin-left: auto;
 }
 
-a {
-    text-decoration: none;
-    color: #10806E;
-    font-size: 1.25rem;
-    margin-right: 2rem;
-    transition: all 0.2s ease-in-out;
-}
+@media (max-width: 480px)
+{
+    header {
+        width: 100%;
+        height: 80px;
+        background-color: #F1ECC8;
+    
+        display: flex;
+        align-items: center;
 
-a:hover {
-    color: #F6A011;
-    text-decoration: underline;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+    }
+    
+    header h1 {
+        display: none;
+    }
+    
+    header img {
+        height: 90%;
+        margin-left: 2rem;
+    }
+    
+    nav {
+        display: none;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #10806E;
+        font-size: 1.25rem;
+        margin-right: 2rem;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    a:hover {
+        color: #F6A011;
+        text-decoration: underline;
+    }
 }

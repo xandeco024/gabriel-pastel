@@ -1,7 +1,7 @@
 import './Armazem do Campo.css'
 
 import armazem from './armazem.png'
-import OrderNowBtn from '../Order now Btn/Order now btn.tsx'
+import OrderNowBtn from '../Order now Btn/Order now Btn.tsx'
 
 function ArmazemDoCampo() {
     return (

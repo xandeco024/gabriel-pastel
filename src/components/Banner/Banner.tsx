@@ -1,7 +1,7 @@
 import './Banner.css'
 
 import rapazSplash from './rapaz com splash.png'
-import OrderNowBtn from '../Order now Btn/Order now btn';
+import OrderNowBtn from '../Order now Btn/Order now Btn';
 
 function Banner() {
     return (
