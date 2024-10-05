@@ -35,7 +35,7 @@ function Header() {
                 <a href="#">HOME</a>
                 <a href="#">NOSSO IMPACTO</a>
                 <a href="#">NOSSA HISTÓRIA</a>
-                <OrderNowBtn size='1.25rem' color='#10806E' backgroundColor='#F1ECC8' hoverColor='#F6A011'/>
+                <OrderNowBtn size='2rem' color='#10806E' backgroundColor='#F1ECC8' hoverColor='#F6A011'/>
                 <div className='headerMenuFooter'>
                     <img src={preFooter} alt="Pre Footer" className='headerMenuPreFooter'/>
                     <div className='headerMenuFooterFiller'></div>
