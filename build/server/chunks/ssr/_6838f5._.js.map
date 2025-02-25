@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/alepb/Desktop/Projetos/Web/gabriel-pastel/app/layout.tsx"],"sourcesContent":["import type { Metadata } from 'next'\r\nimport React from 'react'\r\nimport { gluten } from './fonts'\r\n\r\nexport const metadata: Metadata = {\r\n    title: {\r\n        template: '%s | Gabriel Pastel',\r\n        default: 'Gabriel Pastel',\r\n    },\r\n    description: 'O pastel que te leva até o céu! (do jeito bom)',\r\n}\r\n\r\nexport default function RootLayout({\r\n    children,\r\n    }: {\r\n    children: React.ReactNode\r\n    }) {\r\n    return (\r\n        <html lang=\"en\">\r\n            <head>\r\n                <title>Gabriel Pastel</title>\r\n            </head>\r\n            <body>\r\n                <div id=\"root\">{children}</div>\r\n            </body>\r\n        </html>\r\n    )\r\n}"],"names":[],"mappings":";;;;;;AAIO,MAAM,WAAqB;IAC9B,OAAO;QACH,UAAU;QACV,SAAS;IACb;IACA,aAAa;AACjB;AAEe,SAAS,WAAW,EAC/B,QAAQ,EAGP;IACD,qBACI,8OAAC;QAAK,MAAK;;0BACP,8OAAC;0BACG,cAAA,8OAAC;8BAAM;;;;;;;;;;;0BAEX,8OAAC;0BACG,cAAA,8OAAC;oBAAI,IAAG;8BAAQ;;;;;;;;;;;;;;;;;AAIhC"}},
+    {"offset": {"line": 58, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 69, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/alepb/Desktop/Projetos/Web/gabriel-pastel/node_modules/next/src/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = require('../../module.compiled').vendored[\n  'react-rsc'\n].ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":";AAAAA,OAAOC,OAAO,GAAGC,QAAQ,0HAAyBC,QAAQ,CACxD,YACD,CAACC,kBAAkB","ignoreList":[0]}},
+    {"offset": {"line": 71, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

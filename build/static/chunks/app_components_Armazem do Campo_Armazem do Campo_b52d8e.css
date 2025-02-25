@@ -1,0 +1,49 @@
+/* [project]/app/components/Armazem do Campo/Armazem do Campo.css [app-client] (css) */
+.ADCContainer {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.ADCTextContainer {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ADCTitle {
+  font-family: Holtwood One SC, serif;
+  text-align: center !important;
+  font-size: 1.75rem !important;
+}
+
+.ADCContainer p {
+  font-size: 1.25rem;
+  width: 80%;
+  line-height: 150%;
+  text-align: justify;
+  margin-bottom: 55px;
+}
+
+.ADCBtn {
+  margin-right: auto;
+  margin-left: 10%;
+}
+
+.ADCImgContainer {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ADCImgContainer img {
+  width: 80%;
+}
+
+/*# sourceMappingURL=app_components_Armazem%20do%20Campo_Armazem%20do%20Campo_b52d8e.css.map*/

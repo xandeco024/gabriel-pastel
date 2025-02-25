@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/app/components/armazem-do-campo/armazem-do-campo.css"],"sourcesContent":[".ADCContainer {\r\n    width: 100%;\r\n    height: 80vh;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.ADCTextContainer {\r\n    width: 50%;\r\n    height: 100%;\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.ADCTitle {\r\n    font-family: 'Holtwood One SC', serif;\r\n    text-align: center !important;\r\n    font-size: 1.75rem !important;\r\n}\r\n\r\n.ADCContainer p {\r\n    font-size: 1.25rem;\r\n    width: 80%;\r\n    line-height: 150%;\r\n    text-align: justify;\r\n    margin-bottom: 55px;\r\n}\r\n\r\n.ADCBtn {\r\n    margin-right: auto;\r\n    margin-left: 10%;\r\n}\r\n\r\n.ADCImgContainer {\r\n    width: 50%;\r\n    height: 100%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.ADCImgContainer img {\r\n    width: 80%;\r\n}"],"names":[],"mappings":"AAAA;;;;;;;AAOA;;;;;;;;;AAUA;;;;;;AAMA;;;;;;;;AAQA;;;;;AAKA;;;;;;;;AAQA"}},
+    {"offset": {"line": 47, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

@@ -1,0 +1,60 @@
+/* [project]/src/components/Ticker/Ticker.css [app-client] (css) */
+.tickerContainer {
+  background-color: #ab3f3f;
+  width: 100%;
+  height: 60px;
+  color: #fff;
+  font-size: 1.75rem;
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  gap: 1.75rem;
+  padding-block: 10px;
+}
+
+.tickerContainer ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.75rem;
+  align-items: center;
+  animation: 40s linear infinite scroll;
+  animation-delay: -40s;
+}
+
+.tickerContainer ul:nth-child(2) {
+  animation: 40s linear infinite scroll2;
+  animation-delay: -20s;
+}
+
+.tickerContainer:hover ul {
+  animation-play-state: paused;
+}
+
+.tickerItem {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-family: Holtwood One SC, serif;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll2 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+/*# sourceMappingURL=src_components_Ticker_Ticker_b52d8e.css.map*/

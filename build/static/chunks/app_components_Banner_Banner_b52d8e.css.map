@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/app/components/Banner/Banner.css"],"sourcesContent":[".bannerContainer {\r\n    background-color: #F6A011;\r\n    width: 100%;\r\n    height: 450px;\r\n    display: flex;\r\n\r\n    margin-top: 90px;\r\n    padding: 0 10%;\r\n\r\n    justify-content: space-between;\r\n    \r\n    position: relative;\r\n}\r\n\r\n.pastelDude {\r\n    width: auto;\r\n    height: 95%;\r\n    position: absolute;\r\n    z-index: 0;\r\n    right: 25%;\r\n    bottom: 0;\r\n}\r\n\r\n.bannerTextContainer {\r\n    width: 623px;\r\n    height: auto;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    z-index: 1;\r\n}\r\n\r\n.bannerSlogan{\r\n    font-size: 2.25rem;\r\n    margin: 0 0 30px;\r\n    width: fit-content;\r\n    color: #2c221c;\r\n}\r\n\r\n.bannerP {\r\n    font-size: 1.25rem;\r\n    margin: 0 0 25px;\r\n    text-align: justify;\r\n    line-height: 150%;\r\n    color: #2c221c;\r\n}"],"names":[],"mappings":"AAAA;;;;;;;;;;;AAcA;;;;;;;;;AASA;;;;;;;;;AASA;;;;;;;AAOA"}},
+    {"offset": {"line": 44, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

@@ -1,0 +1,111 @@
+/* [project]/src/components/Footer/Footer.css [app-client] (css) */
+.preFooterContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: end;
+}
+
+.preFooterContainer img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: cover;
+  object-position: left;
+}
+
+.footerContainer {
+  height: 320px;
+  width: 100%;
+  background-color: #099b84;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footerContent {
+  width: 15%;
+  height: 60%;
+}
+
+.footerContent:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerContent img {
+  width: 8rem;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.footerContent p {
+  color: #fff;
+  font-size: 1.25rem;
+  text-align: justify;
+  line-height: 150%;
+}
+
+.footerContent li::marker {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.footerTitle {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.75rem !important;
+  text-align: center !important;
+}
+
+.socialMediaIcons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.socialMediaIcons a {
+  margin-right: 0;
+  width: 10%;
+  aspect-ratio: 1;
+}
+
+.socialMediaIcons svg {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  fill: #fff;
+}
+
+.socialMediaIcons path {
+  fill: #fff;
+}
+
+.socialMedia p {
+  color: #fff;
+  font-size: 1.75rem;
+  width: 100%;
+  text-align: center;
+}
+
+.rightsContainer {
+  width: 100%;
+  height: 80px;
+  background-color: #f6a011;
+  display: flex;
+  align-items: center;
+}
+
+.rightsContainer p {
+  color: #fff;
+  font-size: 1.25rem;
+  margin-left: 55px;
+}
+
+/*# sourceMappingURL=src_components_Footer_Footer_b52d8e.css.map*/
