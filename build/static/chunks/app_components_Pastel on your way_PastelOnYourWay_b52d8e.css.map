@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/app/components/Pastel on your way/PastelOnYourWay.css"],"sourcesContent":[".POYWContainer {\r\n    width: 100%;\r\n    height: 80vh;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.POYWTextContainer {\r\n    width: 50%;\r\n    height: 100%;\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.POYWTitle {\r\n    font-family: 'Holtwood One SC';\r\n    text-align: center !important;\r\n    font-size: 1.75rem !important;\r\n}\r\n\r\n.POYWContainer p {\r\n    font-size: 1.25rem;\r\n    width: 80%;\r\n    line-height: 150%;\r\n    text-align: justify;\r\n    color: #2c221c;\r\n    margin-bottom: 55px;\r\n}\r\n\r\n.POYWBtn {\r\n    margin-right: 10%;\r\n    margin-left: auto;\r\n}\r\n\r\n.POYWImgContainer {\r\n    width: 50%;\r\n    height: 100%;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.POYWImgContainer img {\r\n    width: 90%;\r\n}"],"names":[],"mappings":"AAAA;;;;;;;AAOA;;;;;;;;;AAUA;;;;;;AAMA;;;;;;;;;AASA;;;;;AAKA;;;;;;;;AASA"}},
-    {"offset": {"line": 48, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}
