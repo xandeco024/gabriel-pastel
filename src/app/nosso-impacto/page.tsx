@@ -1,5 +1,6 @@
 "use client"
 
+import OrderNowBtn from '@/components/ui/order-now-btn';
 import { Leaf, PawPrint, ThermometerSun, Droplet, Recycle, Heart } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -307,7 +308,7 @@ export default function OurImpactPage() {
                                 type="number"
                                 name="eatenPasteis"
                                 min="1"
-                                defaultValue={10}
+                                placeholder='hmmm pasteizinhos'
                                 onChange={(e) => setEatenPasteis(Number(e.target.value))}
                                 className="w-full px-4 h-10 border border-vegYellow/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-vegYellow"
                                 aria-label="Quantos pastéis veganos você já comeu?"
@@ -358,12 +359,7 @@ export default function OurImpactPage() {
                         Cada pastel vegano que você escolhe é um passo em direção a um mundo mais sustentável, ético e saudável.
                         Junte-se a nós nessa jornada!
                     </p>
-                    <Link
-                        href="#"
-                        className="inline-flex items-center justify-center rounded-full bg-[#F58A07] px-8 py-4 text-lg font-medium text-white shadow-lg hover:bg-[#F58A07]/90 transition-all duration-200 hover:shadow-xl"
-                        >
-                        PEDIR AGORA
-                    </Link>
+                    <OrderNowBtn size='xl2' bgColor='bg-vegYellow' borderColor='border-vegYellow' textColor='text-white' hoverBgColor='hover:bg-vegYellow hover:border-vegYellow' hoverTextColor='hover:text-white'/>
                 </div>
             </div>
         </div>

@@ -3,12 +3,14 @@
 import { cn } from '@/lib/utils';
 import { gluten } from '@/assets/fonts';
 import { ButtonHTMLAttributes } from 'react';
+import { useRouter } from 'next/navigation';
 
 type ButtonSize = 'lg' | 'xl' | 'xl2';
 
 interface OrderNowBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize;
     borderColor?: string;
+    bgColor?: string;
     textColor?: string;
     hoverBgColor?: string;
     hoverTextColor?: string;
@@ -24,12 +26,16 @@ const sizeStyles: Record<ButtonSize, string> = {
 export default function OrderNowBtn({
     size = 'xl',
     borderColor = 'border-vegGreen-light',
+    bgColor = '',
     textColor = 'text-vegGreen-light',
     hoverBgColor = 'hover:bg-vegYellow hover:border-vegYellow',
     hoverTextColor = 'hover:text-background',
     className,
     ...props
 }: OrderNowBtnProps) {
+    
+    const router = useRouter();
+
     return (
         <button
             className={cn(
@@ -38,6 +44,7 @@ export default function OrderNowBtn({
                 'transition-all duration-200',
                 'transform hover:scale-105',
                 sizeStyles[size],
+                bgColor,
                 borderColor,
                 textColor,
                 hoverBgColor,
@@ -45,6 +52,8 @@ export default function OrderNowBtn({
                 className
             )}
             {...props}
+
+            onClick={() => { router.push('/pedido') }}
         >
             PEÇA JÁ!
         </button>
