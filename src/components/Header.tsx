@@ -1,6 +1,6 @@
 "use client";
 
-import OrderNowBtn from './ui/order-now-btn/order-now-btn';
+import OrderNowBtn from './ui/order-now-btn';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -44,7 +44,9 @@ export default function Header() {
                 <Link href="/pedido">
                     <span className="hover:text-vegYellow hover:underline transition-all duration-200">PEDIDO</span>
                 </Link>
-                <OrderNowBtn size='1.25rem' color='#10806E' backgroundColor='#F1ECC8' hoverColor='#F6A011'/>
+                {/* <OrderNowBtn size='1.25rem' color='#10806E' backgroundColor='#F1ECC8' hoverColor='#F6A011'/> */}
+
+                <OrderNowBtn size='xl'/>
             </nav>
         </div>
         // <>

@@ -1,6 +1,6 @@
 import './Banner.css'
 
-import OrderNowBtn from '../ui/order-now-btn/order-now-btn';
+import OrderNowBtn from '../ui/order-now-btn/order-now-btn-o';
 import Image from 'next/image';
 
 function Banner() {

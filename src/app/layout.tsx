@@ -3,7 +3,7 @@ import React from 'react'
 import { gluten, holtwood } from '../assets/fonts'
 import './globals.css'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer/Footer'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
     title: {

@@ -1,8 +1,27 @@
+"use client"
+
 import { Leaf, PawPrint, ThermometerSun, Droplet, Recycle, Heart } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react';
 
 export default function OurImpactPage() {
+
+    const [eatenPasteis, setEatenPasteis] = useState(0);
+    const [savedAnimals, setSavedAnimals] = useState(0);
+    const [savedWaterL, setSavedWaterL] = useState(0);
+    const [savedCO2Kg, setSavedCO2Kg] = useState(0);
+
+    const lifePerPastel = 1/700;
+    const waterPerPastelLiters = 1500;
+    const co2PerPastelKg = 6;
+
+    const calculateImpact = () => {
+        setSavedAnimals(eatenPasteis * lifePerPastel);
+        setSavedWaterL(eatenPasteis * waterPerPastelLiters);
+        setSavedCO2Kg(eatenPasteis * co2PerPastelKg);
+    }
+
     return (
         <div className="min-h-screen mt-24 pt-24 flex flex-col items-center space-y-48">
             {/* page header container */}
@@ -146,7 +165,7 @@ export default function OurImpactPage() {
             </div>
 
             {/* O que os bichinhos dizem Section */}
-            <div className="flex flex-col items-center w-full text-center px-48 space-y-12">
+            <div className="flex flex-col items-center w-full text-center px-60 space-y-12">
                 <div className="flex flex-col items-center w-2/3 space-y-4">
                     <h2 className="text-3xl font-holtwood">O QUE OS BICHINHOS DIZEM?</h2>
                     <p className="text-xl font-gluten text-vegBrown-light font-light">
@@ -160,7 +179,7 @@ export default function OurImpactPage() {
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
                         <div className="relative h-48 overflow-hidden bg-vegYellow/20">
                             <Image
-                                src="/mother-and-baby-cow-in-grass-mimosa.jpg"
+                                src="/testimony-animals/mother-and-baby-cow-in-grass-mimosa.jpg"
                                 alt="Mimosa a vaca"
                                 fill
                                 className="object-cover"
@@ -169,7 +188,7 @@ export default function OurImpactPage() {
                         <div className="p-6">
                             <h3 className="text-xl font-holtwood mb-2 text-vegYellow">MIMOSA</h3>
                             <p className="text-vegBrown-light font-light mb-4">
-                                "Graças ao Gabriel Pastel, meu leite agora alimenta meus filhotes. Finalmente, sou mãe de verdade."
+                                "Graças à Gabriel Pastel, meu leite agora alimenta meus filhotes. Finalmente, sou mãe de verdade."
                             </p>
                             <div className="flex items-center text-sm text-vegGreen">
                                 <Heart className="w-4 h-4 mr-1" />
@@ -182,7 +201,7 @@ export default function OurImpactPage() {
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
                         <div className="relative h-48 overflow-hidden bg-vegYellow/20">
                             <Image
-                                src="/Wing-clipping_1-nilda.webp"
+                                src="/testimony-animals/Wing-clipping_1-nilda.webp"
                                 alt="Nilda a galinha"
                                 fill
                                 className="object-cover"
@@ -204,7 +223,7 @@ export default function OurImpactPage() {
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
                         <div className="relative h-48 overflow-hidden bg-vegYellow/20">
                             <Image
-                                src="/Porcupine-fish-Diodon-hystox-guilherme.webp"
+                                src="/testimony-animals/Porcupine-fish-Diodon-hystox-guilherme.webp"
                                 alt="Guilherme o peixe"
                                 fill
                                 className="object-cover"
@@ -224,7 +243,7 @@ export default function OurImpactPage() {
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
                         <div className="relative h-48 overflow-hidden bg-vegYellow/20">
                             <Image
-                                src="/porquinho-casal-jorge-zoe.webp"
+                                src="/testimony-animals/porquinho-casal-jorge-zoe.webp"
                                 alt="Jorge e Zoe os porquinhos"
                                 fill
                                 className="object-cover"
@@ -241,102 +260,112 @@ export default function OurImpactPage() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    {/* Contador de Impacto - New Section */}
-                    <section className="py-16 md:py-24 bg-[#00A388]/10">
-                    <div className="container mx-auto px-4 md:px-6 text-center">
-                        <h2 className="text-3xl font-bold mb-12">NOSSO IMPACTO EM NÚMEROS</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        <div className="space-y-2">
-                            <div className="text-4xl md:text-5xl font-bold text-[#F58A07]">5.280</div>
-                            <p className="text-lg text-[#555]">Animais poupados</p>
-                        </div>
-                        <div className="space-y-2">
-                            <div className="text-4xl md:text-5xl font-bold text-[#F58A07]">79M</div>
-                            <p className="text-lg text-[#555]">Litros de água economizados</p>
-                        </div>
-                        <div className="space-y-2">
-                            <div className="text-4xl md:text-5xl font-bold text-[#F58A07]">316T</div>
-                            <p className="text-lg text-[#555]">CO² não emitido</p>
-                        </div>
-                        <div className="space-y-2">
-                            <div className="text-4xl md:text-5xl font-bold text-[#F58A07]">2.4T</div>
-                            <p className="text-lg text-[#555]">Embalagens biodegradáveis</p>
-                        </div>
-                        </div>
+            {/* Contador de Impacto - New Section */}
+            <div className=" w-full py-16 md:py-24 bg-vegGreen/10">
+                <div className="mx-auto px-4     md:px-6 text-center">
+                    <h2 className="text-3xl font-holtwood mb-12">NOSSO IMPACTO EM NÚMEROS</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="space-y-2">
+                        <div className="text-4xl md:text-5xl font-bold text-vegYellow">+22</div>
+                        <p className="text-lg text-vegBrown-light">Vidas animais poupadas</p>
                     </div>
-                    </section>
+                    <div className="space-y-2">
+                        <div className="text-4xl md:text-5xl font-bold text-vegYellow">23,4M</div>
+                        <p className="text-lg text-vegBrown-light">Litros de água economizados</p>
+                    </div>
+                    <div className="space-y-2">
+                        <div className="text-4xl md:text-5xl font-bold text-vegYellow">93,6T</div>
+                        <p className="text-lg text-vegBrown-light">CO² não emitido</p>
+                    </div>
+                    <div className="space-y-2">
+                        <div className="text-4xl md:text-5xl font-bold text-vegYellow">1,56T</div>
+                        <p className="text-lg text-vegBrown-light">Resíduos evitados com embalagens</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
 
-                    {/* Calculadora de Impacto - New Section */}
-                    <section className="py-16 md:py-24">
-                    <div className="container mx-auto px-4 md:px-6">
-                        <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-                        <div className="bg-[#F58A07] p-6 text-white text-center">
-                            <h2 className="text-2xl font-bold">CALCULE SEU IMPACTO POSITIVO</h2>
-                            <p className="mt-2">Descubra quanto você já ajudou o planeta comendo pastéis veganos!</p>
-                        </div>
-                        <div className="p-6 md:p-8">
-                            <div className="grid gap-6 md:grid-cols-2">
-                            <div>
-                                <label className="block text-sm font-medium text-[#555] mb-2">
+
+            {/* Calculadora de Impacto - New Section */}
+            <div className="py-16 md:py-24">
+                <div className="mx-auto px-4 md:px-6">
+                    <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div className="bg-vegYellow p-6 text-white text-center">
+                        <h2 className="text-2xl font-holtwood">CALCULE SEU IMPACTO POSITIVO</h2>
+                        <p className="mt-2">Descubra quanto você já ajudou o planeta comendo pastéis veganos!</p>
+                    </div>
+                    <div className="p-6 md:p-8">
+                        <div className="grid gap-6 md:grid-cols-2">
+                        <div>
+                            <label className="block text-sm font-medium text-[#555] mb-2">
                                 Quantos pastéis veganos você já comeu?
-                                </label>
-                                <input
+                            </label>
+                            <input
                                 type="number"
+                                name="eatenPasteis"
                                 min="1"
-                                defaultValue="10"
-                                className="w-full px-4 py-2 border border-[#00A388]/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A388]"
+                                defaultValue={10}
+                                onChange={(e) => setEatenPasteis(Number(e.target.value))}
+                                className="w-full px-4 h-10 border border-vegYellow/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-vegYellow"
                                 aria-label="Quantos pastéis veganos você já comeu?"
-                                />
-                            </div>
-                            <div className="flex items-end">
-                                <button className="w-full bg-[#00A388] text-white px-4 py-2 rounded-lg hover:bg-[#00A388]/90 transition-colors">
+                            />
+                        </div>
+                        <div className="flex items-end">
+                            <button className="w-full bg-vegGreen text-white px-4 h-10 rounded-lg hover:bg-vegGreen/90 transition-colors" onClick={calculateImpact}>
                                 Calcular Impacto
-                                </button>
-                            </div>
-                            </div>
+                            </button>
+                        </div>
+                        </div>
 
-                            <div className="mt-8 grid gap-4 md:grid-cols-3">
-                            <div className="bg-[#F58A07]/10 p-4 rounded-lg text-center">
-                                <Heart className="w-8 h-8 text-[#F58A07] mx-auto mb-2" />
-                                <div className="text-2xl font-bold text-[#F58A07]">2.5</div>
-                                <p className="text-sm text-[#555]">Animais poupados</p>
-                            </div>
-                            <div className="bg-[#00A388]/10 p-4 rounded-lg text-center">
-                                <Droplet className="w-8 h-8 text-[#00A388] mx-auto mb-2" />
-                                <div className="text-2xl font-bold text-[#00A388]">15.000L</div>
-                                <p className="text-sm text-[#555]">Água economizada</p>
-                            </div>
-                            <div className="bg-[#F58A07]/10 p-4 rounded-lg text-center">
-                                <ThermometerSun className="w-8 h-8 text-[#F58A07] mx-auto mb-2" />
-                                <div className="text-2xl font-bold text-[#F58A07]">60kg</div>
-                                <p className="text-sm text-[#555]">CO² não emitido</p>
-                            </div>
-                            </div>
+                        <div className="mt-8 grid gap-4 md:grid-cols-3">
+                        <div className="bg-vegYellow/10 p-4 rounded-lg text-center space-y-2">
+                            <Heart className="w-8 h-8 text-vegYellow mx-auto" />
+                            <div className="text-xl font-holtwood text-vegYellow">{savedAnimals.toFixed(2)}</div>
+                            <p className="text-sm text-vegBrown-light">Animais poupados</p>
+                        </div>
+                        <div className="bg-vegGreen/10 p-4 rounded-lg text-center space-y-2">
+                            <Droplet className="w-8 h-8 text-vegGreen mx-auto" />
+                            <div className="text-xl font-holtwood text-vegGreen">{savedWaterL}L</div>
+                            <p className="text-sm text-vegBrown-light">Água economizada</p>
+                        </div>
+                        <div className="bg-vegYellow/10 p-4 rounded-lg text-center space-y-2">
+                            <ThermometerSun className="w-8 h-8 text-vegYellow mx-auto" />
+                            <div className="text-xl font-holtwood text-vegYellow">{savedCO2Kg}kg</div>
+                            <p className="text-sm text-vegBrown-light">CO² não emitido</p>
                         </div>
                         </div>
+
+                        {eatenPasteis >= 100000 && (
+                            <div className="mt-8 text-center">
+                                <p className="text-lg text-vegBrown-light">
+                                    Você realmente gosta de pasteis hein?!
+                                </p>
+                            </div>
+                        )}
                     </div>
-                    </section>
+                    </div>
+                </div>
+            </div>
 
-                    {/* CTA Section */}
-                    <section className="py-16 md:py-24 bg-[#F58A07]/10">
-                    <div className="container mx-auto px-4 md:px-6 text-center">
-                        <h2 className="text-2xl font-bold text-[#333] md:text-3xl mb-6">FAÇA PARTE DESSA MUDANÇA</h2>
-                        <p className="text-lg text-[#555] max-w-2xl mx-auto mb-8">
+            {/* CTA Section */}
+            <div className="py-16 md:py-24 bg-vegYellow/10 w-full">
+                <div className="container mx-auto px-4 md:px-6 text-center">
+                    <h2 className="text-2xl font-holtwood text-vegBrown-dark md:text-3xl mb-6">FAÇA PARTE DESSA MUDANÇA</h2>
+                    <p className="text-lg text-vegBrown-light max-w-2xl mx-auto mb-8">
                         Cada pastel vegano que você escolhe é um passo em direção a um mundo mais sustentável, ético e saudável.
                         Junte-se a nós nessa jornada!
-                        </p>
-                        <Link
+                    </p>
+                    <Link
                         href="#"
                         className="inline-flex items-center justify-center rounded-full bg-[#F58A07] px-8 py-4 text-lg font-medium text-white shadow-lg hover:bg-[#F58A07]/90 transition-all duration-200 hover:shadow-xl"
                         >
                         PEDIR AGORA
-                        </Link>
-                    </div>
-                    </section>
+                    </Link>
                 </div>
             </div>
-            
         </div>
     )
 }
