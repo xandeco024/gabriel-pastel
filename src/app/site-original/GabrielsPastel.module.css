@@ -1,0 +1,119 @@
+@font-face {
+  font-family: 'AdumusRegular';
+  src: url('/fonts/Adumu.ttf') format('truetype');
+}
+
+.header {
+  padding: 5px;
+  background-color: #ff0000;
+  text-align: center;
+  display: flex;
+  font-size: 30px;
+  font-family: 'AdumusRegular', sans-serif;
+  color: #FFFFFF;
+  letter-spacing: 5px;
+  text-shadow: 4px 4px #000000;   
+}
+
+.header > div {
+  float: left;
+  margin: 0px;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+.nav {
+  background-color: #b30000;
+  text-align: center;
+}
+
+.nav a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.nav a:hover {
+  background-color: #cc0000;  
+}
+
+.topsell {
+  background-color: #FFFFFF;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1%;
+}
+      
+.column1 {
+  float: left;
+  color: #000000;
+  padding: 20px 20px;
+  width: 50%;
+  background-color: #ffe6e6;
+  text-align: justify;
+  margin: 72px;
+  font-size: 20px;
+  height: 316px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.column {    
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #FFFFFF;
+  color: #000000;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.column > div {
+  flex: 1 1 400px;
+  margin: 5px;
+  padding: 20px;
+}
+
+.column > div:hover {
+  background-color: #ff3333;  
+}
+
+.explaning {
+  margin-top: 2%;
+  background-color: #ffe6e6;
+  text-align: justify;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  height: 500px;
+}
+
+.row::after {
+  content: "";    
+  display: table;
+  clear: both;    
+}
+
+@media screen and (max-width:600px) {
+  .column {
+      width: 100%;
+  }
+}
+
+.footer {
+  padding: 20px;
+  background-color: #b30000;
+  text-align: center;
+  color: #FFFFFF;
+}

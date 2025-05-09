@@ -308,7 +308,7 @@ export default function OurImpactPage() {
                                 type="number"
                                 name="eatenPasteis"
                                 min="1"
-                                placeholder='hmmm pasteizinhos'
+                                placeholder='hmmm pasteis'
                                 onChange={(e) => setEatenPasteis(Number(e.target.value))}
                                 className="w-full px-4 h-10 border border-vegYellow/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-vegYellow"
                                 aria-label="Quantos pastéis veganos você já comeu?"

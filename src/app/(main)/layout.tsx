@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import React from 'react'
-import { gluten, holtwood } from '../assets/fonts'
-import './globals.css'
+import { gluten, holtwood } from '@/assets/fonts'
+import '@/app/globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
     title: {
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     },
 }
 
-export default function RootLayout({
+export default function Layout({
     children,
     }: {
     children: React.ReactNode
@@ -27,7 +29,9 @@ export default function RootLayout({
                 <title>Gabriel Pastel</title>
             </head>
             <body>
+                <Header/>
                 <div id="root">{children}</div>
+                <Footer/>
             </body>
         </html>
     )

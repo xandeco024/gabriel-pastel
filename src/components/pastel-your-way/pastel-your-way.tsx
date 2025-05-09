@@ -1,4 +1,4 @@
-import OrderNowBtn from '../ui/order-now-btn/order-now-btn-o';
+import OrderNowBtn from '../ui/order-now-btn';
 import './pastel-your-way.css';
 
 import Image from 'next/image';
@@ -15,7 +15,7 @@ function PastelYourWay() {
                     <p className='POYWTitle'>PASTEL DO SEU JEITO</p>
                     <p className='POYWText'>Na Gabriel pastel, é você quem escolhe os recheios do seu pastel, te dando a liberdade para criar sabores unicos e deliciosos!
                     O limite é a sua imaginação!</p>
-                    <OrderNowBtn className='POYWBtn' size='1.25rem' color='#F6A011' backgroundColor='#f1ecc8' hoverColor='#F6A011'/>
+                    {/* <OrderNowBtn className='POYWBtn' size='1.25rem' color='#F6A011' backgroundColor='#f1ecc8' hoverColor='#F6A011'/> */}
                 </div>
             </div>
         </>

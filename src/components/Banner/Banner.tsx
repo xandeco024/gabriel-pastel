@@ -1,6 +1,6 @@
 import './Banner.css'
 
-import OrderNowBtn from '../ui/order-now-btn/order-now-btn-o';
+import OrderNowBtn from '../ui/order-now-btn';
 import Image from 'next/image';
 
 function Banner() {
@@ -11,7 +11,7 @@ function Banner() {
                     <p className='bannerSlogan text-vegYellow'>&ldquo;O PASTEL QUE TE LEVA ATÉ O CÉU&rdquo;</p>
                     <p className='bannerP'>Com a união de dois Gabrieis, que gostavam de pastéis, surge a Gabriel Pastel. </p>
                     <p className='bannerP'>A lanchonete com o melhor pastel da região, 100% vegana, e com o preço que cabe no seu bolso.</p>
-                    <OrderNowBtn size='1.25rem' color='#FFFFFF' backgroundColor='#F6A011' hoverColor='#FFFFFF'/>
+                    {/* <OrderNowBtn size='1.25rem' color='#FFFFFF' backgroundColor='#F6A011' hoverColor='#FFFFFF'/> */}
                 </div>
                 {/* <img src={rapazSplash} alt='Rapaz com pastéis' /> */}
                 <Image src="/banner/pastel-dude-splash.png" alt='Rapaz com pastéis' width={818} height={554} quality={100} className='pastelDude'/>

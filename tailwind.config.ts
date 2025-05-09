@@ -41,6 +41,7 @@ const config: Config = {
       fontFamily: {
         gluten: ['var(--font-gluten)'],
         holtwood: ['var(--font-holtwood)'],
+        adumu: ['var(--font-adumu)'],
       },
     },
   },
