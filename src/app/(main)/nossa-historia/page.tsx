@@ -42,10 +42,12 @@ export default function OurHistoryPage() {
                                 </div>
                                 <h2 className="text-3xl font-holtwood mb-4">O INÍCIO NA ETEC</h2>
                                 <p className="text-xl text-vegBrown-light font-light">
-                                A Gabriel Pastel nasceu de um trabalho de Marketing na ETEC.<br></br>
-                                A missão era simples:
-                                criar uma marca. Mas como o professor também dava aula de desenvolvimento web, ele uniu as
-                                disciplinas e nos desafiou a construir um site para essa marca.
+                                    A Gabriel Pastel nasceu de um trabalho de Marketing na ETEC.
+                                </p>
+                                <p className="text-xl text-vegBrown-light font-light mt-4">
+                                    A missão era simples:
+                                    criar uma marca. Mas como o professor também dava aula de desenvolvimento web, ele uniu as
+                                    disciplinas e nos desafiou a construir um site para essa marca.
                                 </p>
                             </div>
                             <div className="relative">
@@ -87,9 +89,11 @@ export default function OurHistoryPage() {
                             </div>
                             <h2 className="text-3xl font-holtwood mb-4">DOIS GABRIÉIS, UMA IDEIA</h2>
                             <p className="text-xl text-vegBrown-light font-light">
-                            O programador que vos fala, Gabriel Alexander, juntou-se ao seu grande parceiro Gabriel Paiva.
-                            Depois de muita reflexão e brainstorming... Gabriel... Gabriel com cara de quê? Pastel! E assim,
-                            surgiu a Gabriel Pastel, fruto de uma ideia divertida e cheia de sabor!
+                                O programador que vos fala, Gabriel Alexander, juntou-se ao seu grande parceiro Gabriel Paiva.
+                            </p>
+                            <p className="text-xl text-vegBrown-light font-light mt-4">
+                                Depois de muita reflexão e brainstorming... Gabriel... Gabriel com cara de quê? Pastel! E assim,
+                                surgiu a Gabriel Pastel, fruto de uma ideia divertida e cheia de sabor!
                             </p>
                         </div>
                         </div>
