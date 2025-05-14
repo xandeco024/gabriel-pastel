@@ -3,7 +3,6 @@
 import OrderNowBtn from '@/components/ui/order-now-btn';
 import { Leaf, PawPrint, ThermometerSun, Droplet, Recycle, Heart } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useState } from 'react';
 
 export default function OurImpactPage() {
@@ -189,7 +188,7 @@ export default function OurImpactPage() {
                         <div className="p-6">
                             <h3 className="text-xl font-holtwood mb-2 text-vegYellow">MIMOSA</h3>
                             <p className="text-vegBrown-light font-light mb-4">
-                                "Graças à Gabriel Pastel, meu leite agora alimenta meus filhotes. Finalmente, sou mãe de verdade."
+                                &quot;Graças à Gabriel Pastel, meu leite agora alimenta meus filhotes. Finalmente, sou mãe de verdade.&quot;
                             </p>
                             <div className="flex items-center text-sm text-vegGreen">
                                 <Heart className="w-4 h-4 mr-1" />
@@ -211,7 +210,7 @@ export default function OurImpactPage() {
                         <div className="p-6">
                             <h3 className="text-xl font-holtwood mb-2 text-vegYellow">NILDA</h3>
                             <p className="text-vegBrown-light font-light mb-4">
-                                "Minhas asas não são mais cortadas para caber na gaiola. Hoje, eu voo - do meu jeito."
+                                &quot;Minhas asas não são mais cortadas para caber na gaiola. Hoje, eu voo - do meu jeito.&quot;
                             </p>
                             <div className="flex items-center text-sm text-vegGreen">
                                 <Heart className="w-4 h-4 mr-1" />
@@ -232,7 +231,7 @@ export default function OurImpactPage() {
                         </div>
                         <div className="p-6">
                             <h3 className="text-xl font-holtwood mb-2 text-vegYellow">GUILHERME</h3>
-                            <p className="text-vegBrown-light font-light mb-4">"Blú blú."</p>
+                            <p className="text-vegBrown-light font-light mb-4">&quot;Blú blú.&quot;</p>
                             <div className="flex items-center text-sm text-vegGreen">
                                 <Heart className="w-4 h-4 mr-1" />
                                 <span>Peixe que continua nadando livremente</span>
@@ -253,7 +252,7 @@ export default function OurImpactPage() {
                         <div className="p-6">
                             <h3 className="text-xl font-holtwood mb-2 text-vegYellow">JORGE E ZOE</h3>
                             <p className="text-vegBrown-light font-light mb-4">
-                                "Agora eu consigo aproveitar a lama com minha família sem me preocupar em virarmos bacon!"
+                                &quot;Agora eu consigo aproveitar a lama com minha família sem me preocupar em virarmos bacon!&quot;
                             </p>
                             <div className="flex items-center text-sm text-vegGreen">
                                 <Heart className="w-4 h-4 mr-1" />

@@ -1,4 +1,3 @@
-import OrderNowBtn from '../ui/order-now-btn';
 import './pastel-your-way.css';
 
 import Image from 'next/image';

@@ -1,6 +1,5 @@
 import './armazem-do-campo.css'
 
-import OrderNowBtn from '../ui/order-now-btn'
 import Image from 'next/image'
 
 function ArmazemDoCampo() {

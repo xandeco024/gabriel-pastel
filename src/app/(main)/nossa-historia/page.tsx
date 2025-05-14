@@ -11,6 +11,7 @@ import {
 } from "lucide-react"
 
 import Link from "next/link"
+import OrderNowBtn from "@/components/ui/order-now-btn";
 
 export default function OurHistoryPage() {
     return (
@@ -28,7 +29,7 @@ export default function OurHistoryPage() {
             </div>
 
             {/* Timeline Section */}
-            <div className="container mx-auto px-4 md:px-6">
+            <div className="container mx-auto px-60">
                 <div className="relative">
                     {/* Timeline line */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-vegGreen/20"></div>
@@ -73,7 +74,7 @@ export default function OurHistoryPage() {
                         <div className="md:grid md:grid-cols-2 gap-8 items-center">
                         <div className="order-2 md:order-1 relative">
                             {/* <div className="absolute -z-10 h-64 w-64 rounded-full bg-vegGreen/20 -left-10 -top-10"></div> */}
-                            <div className="bg-white p-4 rounded-xl shadow-lg">
+                            {/* <div className="bg-white p-4 rounded-xl shadow-lg">
                             <Image
                                 src="/placeholder.svg?height=300&width=400"
                                 alt="Os dois Gabriéis, Gabriel Paiva e Gabriel Alexander"
@@ -81,7 +82,7 @@ export default function OurHistoryPage() {
                                 height={300}
                                 className="rounded-lg h-auto"
                             />
-                            </div>
+                            </div> */}
                         </div>
                         <div className="order-1 md:order-2 mb-8 md:mb-0">
                             <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1 text-md font-semibold text-vegYellow mb-4">
@@ -213,36 +214,36 @@ export default function OurHistoryPage() {
             </div>
 
             {/* Values Section */}
-            <div className="py-16 md:py-24 bg-[#00A388]/5">
+            <div className="py-16 md:py-24 bg-vegGreen/10">
                 <div className="container mx-auto px-4 md:px-6 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-12">NOSSOS VALORES</h2>
+                    <h2 className="text-2xl md:text-3xl font-holtwood mb-12">NOSSOS VALORES</h2>
                     <div className="grid md:grid-cols-3 gap-8">
-                    <div className="bg-white p-6 rounded-xl shadow-md">
-                        <div className="w-16 h-16 bg-[#F58A07]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Heart className="h-8 w-8 text-[#F58A07]" />
+                    <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
+                        <div className="w-16 h-16 bg-vegYellow/10 rounded-full flex items-center justify-center mx-auto">
+                        <Heart className="h-8 w-8 text-vegYellow" />
                         </div>
-                        <h3 className="text-xl font-bold mb-4">COMPAIXÃO</h3>
-                        <p className="text-[#555]">
+                        <h3 className="text-xl font-holtwood">COMPAIXÃO</h3>
+                        <p className="text-vegBrown-light">
                         Acreditamos que todos os seres merecem respeito e compaixão. Por isso, nossos pastéis são 100% livres
                         de crueldade animal.
                         </p>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-md">
-                        <div className="w-16 h-16 bg-[#00A388]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Leaf className="h-8 w-8 text-[#00A388]" />
+                    <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
+                        <div className="w-16 h-16 bg-vegGreen/15 rounded-full flex items-center justify-center mx-auto">
+                        <Leaf className="h-8 w-8 text-vegGreen-light" />
                         </div>
-                        <h3 className="text-xl font-bold mb-4">SUSTENTABILIDADE</h3>
-                        <p className="text-[#555]">
+                        <h3 className="text-xl font-holtwood">SUSTENTABILIDADE</h3>
+                        <p className="text-vegBrown-light">
                         Nosso compromisso com o planeta se reflete em cada aspecto do nosso negócio, desde os ingredientes até
                         as embalagens biodegradáveis.
                         </p>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-md">
-                        <div className="w-16 h-16 bg-[#F58A07]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Utensils className="h-8 w-8 text-[#F58A07]" />
+                    <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
+                        <div className="w-16 h-16 bg-vegYellow/15 rounded-full flex items-center justify-center mx-auto">
+                        <Utensils className="h-8 w-8 text-vegYellow" />
                         </div>
-                        <h3 className="text-xl font-bold mb-4">SABOR</h3>
-                        <p className="text-[#555]">
+                        <h3 className="text-xl font-holtwood">SABOR</h3>
+                        <p className="text-vegBrown-light">
                         Provamos que comida ética e sustentável também pode ser deliciosa. Nossos pastéis são uma explosão de
                         sabores que conquistam até os mais céticos.
                         </p>
@@ -252,108 +253,99 @@ export default function OurHistoryPage() {
             </div>
 
             {/* Tech Stack Section */}
-            <div className="py-16 md:py-24">
-                <div className="container mx-auto px-4 md:px-6">
+            <div className="py-16 md:py-24 px-60">
+                <div className="container mx-auto">
                     <div className="md:grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <div className="inline-block rounded-full bg-[#00A388]/20 px-4 py-1 text-sm font-medium text-[#00A388] mb-4">
+                        <div className="inline-block rounded-full bg-vegGreen/15 px-4 py-1 text-sm font-medium text-vegGreen-light   mb-4">
                         TECNOLOGIA
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold mb-6">DE HTML BÁSICO A REACT</h2>
-                        <p className="text-lg text-[#555] mb-6">
+                        <h2 className="text-2xl md:text-3xl font-holtwood mb-6">DE HTML BÁSICO A REACT</h2>
+                        <p className="text-lg text-vegBrown-light mb-6">
                         A evolução da Gabriel Pastel também reflete o crescimento profissional do seu criador. O que começou
                         com HTML e CSS básicos se transformou em uma aplicação moderna construída com:
                         </p>
                         <ul className="space-y-4">
-                        <li className="flex items-start">
-                            <div className="mr-4 mt-1 text-[#F58A07]">
-                            <Code size={20} />
-                            </div>
-                            <div>
-                            <h3 className="font-medium">React & TypeScript</h3>
-                            <p className="text-[#555]">Para uma interface dinâmica e tipagem segura</p>
-                            </div>
-                        </li>
-                        <li className="flex items-start">
-                            <div className="mr-4 mt-1 text-[#F58A07]">
-                            <Code size={20} />
-                            </div>
-                            <div>
-                            <h3 className="font-medium">Next.js</h3>
-                            <p className="text-[#555]">Framework React para renderização híbrida e otimização</p>
-                            </div>
-                        </li>
-                        <li className="flex items-start">
-                            <div className="mr-4 mt-1 text-[#F58A07]">
-                            <Code size={20} />
-                            </div>
-                            <div>
-                            <h3 className="font-medium">Tailwind CSS</h3>
-                            <p className="text-[#555]">Para estilização rápida e responsiva</p>
-                            </div>
-                        </li>
-                        <li className="flex items-start">
-                            <div className="mr-4 mt-1 text-[#F58A07]">
-                            <Code size={20} />
-                            </div>
-                            <div>
-                            <h3 className="font-medium">Banco de Dados</h3>
-                            <p className="text-[#555]">Para armazenamento e gerenciamento de dados</p>
-                            </div>
-                        </li>
+                            <li className="flex items-start">
+                                <div className="mr-4 mt-1 text-vegYellow">
+                                    <Code size={20} />
+                                    </div>
+                                    <div>
+                                    <h3 className="font-medium">React & TypeScript</h3>
+                                    <p className="text-vegBrown-light">Para uma interface dinâmica e tipagem segura</p>
+                                </div>
+                            </li>
+                            <li className="flex items-start">
+                                <div className="mr-4 mt-1 text-vegYellow">
+                                    <Code size={20} />
+                                    </div>
+                                    <div>
+                                    <h3 className="font-medium">Next.js</h3>
+                                    <p className="text-vegBrown-light">Framework React para renderização híbrida e otimização</p>
+                                </div>
+                            </li>   
+                            <li className="flex items-start">
+                                <div className="mr-4 mt-1 text-vegYellow">
+                                    <Code size={20} />
+                                    </div>
+                                    <div>
+                                    <h3 className="font-medium">Banco de Dados</h3>
+                                    <p className="text-vegBrown-light">Para armazenamento e gerenciamento de dados</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <div className="mt-8 md:mt-0 relative">
-                        <div className="absolute -z-10 h-64 w-64 rounded-full bg-[#00A388]/20 -right-10 -bottom-10"></div>
+                        {/* <div className="absolute -z-10 h-64 w-64 rounded-full bg-vegGreen/15 -right-10 -bottom-10"></div> */}
                         <div className="bg-white p-6 rounded-xl shadow-lg">
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-[#F58A07]/5 p-4 rounded-lg flex items-center justify-center">
-                            <Image
-                                src="/placeholder.svg?height=80&width=80"
-                                alt="React Logo"
-                                width={80}
-                                height={80}
-                                className="h-16 w-auto"
-                            />
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="bg-vegYellow/15 p-4 rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-200">
+                                    <Image
+                                        src="/techlogos/react.png"
+                                        alt="React Logo"
+                                        width={80}
+                                        height={80}
+                                        className="h-16 w-auto"
+                                    />
+                                </div>
+                                <div className="bg-vegYellow/15 p-4 rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-200">
+                                    <Image
+                                        src="/techlogos/typescript.png"
+                                        alt="TypeScript Logo"
+                                        width={80}
+                                        height={80}
+                                        className="h-16 w-auto"
+                                    />
+                                </div>
+                                <div className="bg-vegYellow/15 p-4 rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-200">
+                                    <Image
+                                        src="/techlogos/nextjs.png"
+                                        alt="Next.js Logo"
+                                        width={80}
+                                        height={80}
+                                        className="h-16 w-auto"
+                                    />
+                                </div>
+                                <div className="bg-vegYellow/15 p-4 rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-200">
+                                    <Image
+                                        src="/techlogos/neon.png"
+                                        alt="Neon Database Logo"
+                                        width={80}
+                                        height={80}
+                                        className="h-16 w-auto"
+                                    />
+                                </div>
                             </div>
-                            <div className="bg-[#F58A07]/5 p-4 rounded-lg flex items-center justify-center">
-                            <Image
-                                src="/placeholder.svg?height=80&width=80"
-                                alt="TypeScript Logo"
-                                width={80}
-                                height={80}
-                                className="h-16 w-auto"
-                            />
+                            <div className="mt-12 text-center">
+                                <Link
+                                href="https://github.com/xandeco024/gabriel-pastel"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-vegGreen-light hover:text-vegYellow hover:scale-105 text-xl transition-all duration-200"
+                                >
+                                <Github className="mr-2 h-5 w-5" /> Ver código no GitHub
+                                </Link>
                             </div>
-                            <div className="bg-[#F58A07]/5 p-4 rounded-lg flex items-center justify-center">
-                            <Image
-                                src="/placeholder.svg?height=80&width=80"
-                                alt="Next.js Logo"
-                                width={80}
-                                height={80}
-                                className="h-16 w-auto"
-                            />
-                            </div>
-                            <div className="bg-[#F58A07]/5 p-4 rounded-lg flex items-center justify-center">
-                            <Image
-                                src="/placeholder.svg?height=80&width=80"
-                                alt="Tailwind CSS Logo"
-                                width={80}
-                                height={80}
-                                className="h-16 w-auto"
-                            />
-                            </div>
-                        </div>
-                        <div className="mt-6 text-center">
-                            <Link
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-[#00A388] hover:text-[#00A388]/80 font-medium"
-                            >
-                            <Github className="mr-2 h-5 w-5" /> Ver código no GitHub
-                            </Link>
-                        </div>
                         </div>
                     </div>
                     </div>
@@ -363,17 +355,12 @@ export default function OurHistoryPage() {
             {/* CTA Section */}
             <div className="py-16 md:py-24 bg-[#F58A07]/10">
                 <div className="container mx-auto px-4 md:px-6 text-center">
-                    <h2 className="text-2xl font-bold text-[#333] md:text-3xl mb-6">FAÇA PARTE DESSA HISTÓRIA</h2>
-                    <p className="text-lg text-[#555] max-w-2xl mx-auto mb-8">
-                    A Gabriel Pastel continua evoluindo e queremos que você faça parte dessa jornada. Experimente nossos
-                    deliciosos pastéis veganos e ajude a escrever os próximos capítulos dessa história!
+                    <h2 className="text-2xl font-holtwood text-vegBrown-dark md:text-3xl mb-6">FAÇA PARTE DESSA HISTÓRIA</h2>
+                    <p className="text-lg text-vegBrown-light max-w-2xl mx-auto mb-8">
+                        A Gabriel Pastel continua evoluindo e queremos que você faça parte dessa jornada. Experimente nossos
+                        deliciosos pastéis veganos e ajude a escrever os próximos capítulos dessa história!
                     </p>
-                    <Link
-                    href="#"
-                    className="inline-flex items-center justify-center rounded-full bg-[#F58A07] px-8 py-4 text-lg font-medium text-white shadow-lg hover:bg-[#F58A07]/90 transition-all duration-200 hover:shadow-xl"
-                    >
-                    PEDIR AGORA
-                    </Link>
+                    <OrderNowBtn size='xl2' bgColor='bg-vegYellow' borderColor='border-vegYellow' textColor='text-white' hoverBgColor='hover:bg-vegYellow hover:border-vegYellow' hoverTextColor='hover:text-white'/>
                 </div>
             </div>
         </div>
