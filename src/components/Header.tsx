@@ -39,9 +39,9 @@ export default function Header() {
                 <Link href="/nosso-impacto">
                     <span className="hover:text-vegYellow hover:underline transition-all duration-200">NOSSO IMPACTO</span>
                 </Link>
-                <Link href="/pedido">
+                {/* <Link href="/pedido">
                     <span className="hover:text-vegYellow hover:underline transition-all duration-200">PEDIDO</span>
-                </Link>
+                </Link> */}
                 {/* <OrderNowBtn size='1.25rem' color='#10806E' backgroundColor='#F1ECC8' hoverColor='#F6A011'/> */}
 
                 <OrderNowBtn size='xl'/>

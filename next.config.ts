@@ -2,9 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: 'export',
   reactStrictMode: true,
-  basePath: '/gabriel-pastel',
+  // Configurações para produção - descomente apenas quando for fazer deploy
+  // output: 'export',
+  // basePath: '/gabriel-pastel',
 };
 
 export default nextConfig;

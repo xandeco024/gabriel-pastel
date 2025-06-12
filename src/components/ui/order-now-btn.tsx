@@ -53,7 +53,7 @@ export default function OrderNowBtn({
             )}
             {...props}
 
-            onClick={() => { router.push('/pedido') }}
+            onClick={() => { router.push('/monte-seu-pastel') }}
         >
             PEÇA JÁ!
         </button>
