@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import React from 'react'
 import { gluten, holtwood } from '../assets/fonts'
 import './globals.css'
+import { SessionProvider } from '@/components/SessionProvider'
 
 export const metadata: Metadata = {
     title: {
@@ -27,7 +28,9 @@ export default function RootLayout({
                 <title>Gabriel Pastel</title>
             </head>
             <body>
-                <div id="root">{children}</div>
+                <SessionProvider>
+                    <div id="root">{children}</div>
+                </SessionProvider>
             </body>
         </html>
     )

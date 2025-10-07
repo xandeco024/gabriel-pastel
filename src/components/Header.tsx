@@ -3,14 +3,35 @@
 import OrderNowBtn from './ui/order-now-btn';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSession, signOut } from "next-auth/react";
+import { useState, useEffect, useRef } from 'react';
 
 export default function Header() {
+    const { data: session, status } = useSession();
+    const [userMenuOpen, setUserMenuOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
 
-    // const [menu, setMenu] = useState(false)
+    const handleSignOut = () => {
+        signOut({ callbackUrl: '/' });
+        setUserMenuOpen(false);
+    };
 
-    // const toggleMenu = () => {
-    //     setMenu(!menu)
-    // }
+    // Fechar menu ao clicar fora
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setUserMenuOpen(false);
+            }
+        };
+
+        if (userMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [userMenuOpen]);
 
     return (
         // header
@@ -39,12 +60,64 @@ export default function Header() {
                 <Link href="/nosso-impacto">
                     <span className="hover:text-vegYellow hover:underline transition-all duration-200">NOSSO IMPACTO</span>
                 </Link>
-                {/* <Link href="/pedido">
-                    <span className="hover:text-vegYellow hover:underline transition-all duration-200">PEDIDO</span>
-                </Link> */}
-                {/* <OrderNowBtn size='1.25rem' color='#10806E' backgroundColor='#F1ECC8' hoverColor='#F6A011'/> */}
 
                 <OrderNowBtn size='xl'/>
+
+                {/* User Auth Section */}
+                {status === "loading" ? (
+                    <div className="text-vegGreen-light">...</div>
+                ) : session ? (
+                    <div className="relative" ref={menuRef}>
+                        <button
+                            onClick={() => setUserMenuOpen(!userMenuOpen)}
+                            className="flex items-center gap-2 text-vegGreen-light hover:text-vegYellow transition-colors duration-200 bg-pastel px-3 py-2 rounded-lg border border-vegGreen/20"
+                        >
+                            <span className="text-lg">👤</span>
+                            <span className="hidden lg:block text-sm font-medium">
+                                Olá, {session.user?.name?.split(' ')[0] || 'Usuário'}!
+                            </span>
+                            <span className="text-xs">▼</span>
+                        </button>
+
+                        {userMenuOpen && (
+                            <div className="absolute right-0 mt-2 w-48 bg-pastel rounded-lg shadow-lg border border-vegGreen/20 z-50">
+                                <div className="p-3 border-b border-vegGreen/20">
+                                    <p className="text-sm font-medium text-foreground">{session.user?.name}</p>
+                                    <p className="text-xs text-vegGreen-light">{session.user?.email}</p>
+                                </div>
+                                <div className="py-2">
+                                    <Link href="/profile" className="block px-4 py-2 text-sm text-vegGreen hover:bg-background transition-colors">
+                                        Meu Perfil
+                                    </Link>
+                                    <Link href="/orders" className="block px-4 py-2 text-sm text-vegGreen hover:bg-background transition-colors">
+                                        Meus Pedidos
+                                    </Link>
+                                    <button
+                                        onClick={handleSignOut}
+                                        className="w-full text-left px-4 py-2 text-sm text-vegRed hover:bg-background transition-colors"
+                                    >
+                                        Sair
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                ) : (
+                    <div className="flex items-center gap-3">
+                        <Link
+                            href="/auth/signin"
+                            className="text-sm font-medium text-vegGreen-light hover:text-vegYellow transition-colors duration-200"
+                        >
+                            ENTRAR
+                        </Link>
+                        <Link
+                            href="/auth/signup"
+                            className="text-sm font-medium bg-vegGreen text-background px-4 py-2 rounded-lg hover:bg-vegGreen-dark transition-all duration-200 shadow-md"
+                        >
+                            CRIAR CONTA
+                        </Link>
+                    </div>
+                )}
             </nav>
         </div>
         // <>
