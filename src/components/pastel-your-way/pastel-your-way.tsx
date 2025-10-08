@@ -8,7 +8,7 @@ function PastelYourWay() {
             <div className='POYWContainer'>
                 <div className='POYWImgContainer'>
                     {/* <img src={pastelYourWay} alt='Pasteizinhos'/> */}
-                    <Image src="/pastelSplash.png" alt="Pasteizinhos" width={925} height={793} quality={100} className='POYWImg'/>
+                    <Image src="/homepage/pastelSplash.png" alt="Pasteizinhos" width={925} height={793} quality={100} className='POYWImg'/>
                 </div>
                 <div className='POYWTextContainer'>
                     <p className='POYWTitle'>PASTEL DO SEU JEITO</p>

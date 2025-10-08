@@ -51,7 +51,7 @@ export default function Header() {
 
             {/* menu */}
             <nav className="flex items-center gap-4 mr-4 text-xl text-vegGreen-light">
-                <Link href="/">
+                <Link href="/home">
                     <span className="hover:text-vegYellow hover:underline transition-all duration-200">HOME</span>
                 </Link>
                 <Link href="/nossa-historia">

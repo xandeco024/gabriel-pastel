@@ -89,25 +89,8 @@ export default function SignIn() {
                 <div className="w-full border-t border-vegGreen/30" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-3 bg-pastel text-vegGreen font-medium">Ou entre com</span>
+                <span className="px-3 bg-pastel text-vegGreen font-medium">Login seguro com email e senha</span>
               </div>
-            </div>
-
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              <button
-                type="button"
-                onClick={() => signIn("google")}
-                className="w-full inline-flex justify-center py-3 px-4 border-2 border-vegGreen/30 rounded-lg shadow-sm bg-background text-sm font-medium text-vegGreen hover:bg-vegGreen hover:text-background transition-all duration-200"
-              >
-                🌱 Google
-              </button>
-              <button
-                type="button"
-                onClick={() => signIn("github")}
-                className="w-full inline-flex justify-center py-3 px-4 border-2 border-vegGreen/30 rounded-lg shadow-sm bg-background text-sm font-medium text-vegGreen hover:bg-vegGreen hover:text-background transition-all duration-200"
-              >
-                🍃 GitHub
-              </button>
             </div>
           </div>
         </form>

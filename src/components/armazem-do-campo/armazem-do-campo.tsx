@@ -13,7 +13,7 @@ function ArmazemDoCampo() {
                 </div>
                 <div className='ADCImgContainer'>
                     {/* <img src={armazem} alt="Armazém do Campo"/> */}
-                    <Image src="/armazem.png" alt="Produtos da Armazém do Campo" width={776} height={520} quality={100} className='ADCImg'/>
+                    <Image src="/homepage/armazem.png" alt="Produtos da Armazém do Campo" width={776} height={520} quality={100} className='ADCImg'/>
                 </div>
             </div>
         </>

@@ -54,7 +54,7 @@ export default function OurImpactPage() {
                 {/* imagem */}
                 <div className="relative w-[400px] h-[400px] overflow-hidden rounded-lg">
                     <Image 
-                        src="/farm-sanctuary-credit_jo-anne_mcarthur.webp"
+                        src="/testimony-animals/farm-sanctuary-credit_jo-anne_mcarthur.webp"
                         alt="Fazenda Santuário - Crédito: Jo-Anne McArthur"
                         fill
                         className="object-cover"
@@ -113,7 +113,7 @@ export default function OurImpactPage() {
                 {/* imagem */}
                 <div className="relative w-[400px] h-[400px] overflow-hidden rounded-lg justify-self-end">
                     <Image 
-                        src="/Kristen-MacMillanleft_Lor.jpg"
+                        src="/testimony-animals/Kristen-MacMillanleft_Lor.jpg"
                         alt="Moças vendo plantação de soja - Crédito: Kristen MacMillan"
                         fill
                         className="object-cover"

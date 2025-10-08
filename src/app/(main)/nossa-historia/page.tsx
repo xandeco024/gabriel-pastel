@@ -55,7 +55,7 @@ export default function OurHistoryPage() {
                                 {/* <div className="absolute -z-10 h-64 w-64 rounded-full bg-vegYellow/20 -right-10 -top-10"></div> */}
                                 {/* <div className="bg-white p-4 rounded-xl shadow-lg">
                                 <Image
-                                    src="/etec-identidade.jpg"
+                                    src="/nossa-historia/etec-identidade.jpg"
                                     alt="ETEC logo"
                                     width={400}
                                     height={300}
