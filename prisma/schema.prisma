@@ -15,10 +15,134 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(cuid())
-  email    String @unique
-  name     String?
-  password String  // bcrypt hash (string)
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String  // bcrypt hash (string)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  // Relacionamentos
+  orders    Order[]
+}
+
+model Ingredient {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String
+  imageUrl    String
+  isVegan     Boolean  @default(true)
+  isOrganic   Boolean  @default(true)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relacionamentos
+  premadePasteis PremadePastelIngredient[]
+  customPasteis  CustomPastelIngredient[]
+}
+
+model PremadePastel {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  imageUrl    String
+  price       Decimal  @db.Decimal(10, 2)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relacionamentos
+  ingredients PremadePastelIngredient[]
+  orderItems  OrderItem[]
+}
+
+model PremadePastelIngredient {
+  id              String        @id @default(cuid())
+  premadePastelId String
+  ingredientId    String
+
+  premadePastel   PremadePastel @relation(fields: [premadePastelId], references: [id], onDelete: Cascade)
+  ingredient      Ingredient    @relation(fields: [ingredientId], references: [id])
+
+  @@unique([premadePastelId, ingredientId])
+}
+
+model CustomPastel {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  // Relacionamentos
+  ingredients CustomPastelIngredient[]
+  orderItems  OrderItem[]
+}
+
+model CustomPastelIngredient {
+  id             String       @id @default(cuid())
+  customPastelId String
+  ingredientId   String
+
+  customPastel CustomPastel @relation(fields: [customPastelId], references: [id], onDelete: Cascade)
+  ingredient   Ingredient   @relation(fields: [ingredientId], references: [id])
+
+  @@unique([customPastelId, ingredientId])
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  userId        String?     // nullable para permitir pedidos de convidados
+  user          User?       @relation(fields: [userId], references: [id])
+
+  status        OrderStatus @default(PENDING)
+  total         Decimal     @db.Decimal(10, 2)
+
+  // Informações de entrega/contato
+  customerName  String
+  customerEmail String
+  customerPhone String?
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  // Relacionamentos
+  orderItems    OrderItem[]
+}
+
+enum OrderStatus {
+  PENDING      // Pedido criado, aguardando pagamento
+  CONFIRMED    // Pagamento confirmado
+  PREPARING    // Em preparação
+  READY        // Pronto para retirada/entrega
+  DELIVERED    // Entregue
+  CANCELLED    // Cancelado
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  // Tipo de pastel
+  type          PastelType
+
+  // Se for pré-pronto
+  premadePastelId String?
+  premadePastel   PremadePastel? @relation(fields: [premadePastelId], references: [id])
+
+  // Se for customizado
+  customPastelId  String?
+  customPastel    CustomPastel?  @relation(fields: [customPastelId], references: [id])
+
+  quantity      Int
+  unitPrice     Decimal  @db.Decimal(10, 2)
+  totalPrice    Decimal  @db.Decimal(10, 2)
+
+  createdAt     DateTime @default(now())
+}
+
+enum PastelType {
+  CUSTOM
+  PREMADE
 }

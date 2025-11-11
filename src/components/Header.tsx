@@ -86,10 +86,10 @@ export default function Header() {
                                     <p className="text-xs text-vegGreen-light">{session.user?.email}</p>
                                 </div>
                                 <div className="py-2">
-                                    <Link href="/profile" className="block px-4 py-2 text-sm text-vegGreen hover:bg-background transition-colors">
+                                    <Link href="/perfil" className="block px-4 py-2 text-sm text-vegGreen hover:bg-background transition-colors">
                                         Meu Perfil
                                     </Link>
-                                    <Link href="/orders" className="block px-4 py-2 text-sm text-vegGreen hover:bg-background transition-colors">
+                                    <Link href="/perfil/pedidos" className="block px-4 py-2 text-sm text-vegGreen hover:bg-background transition-colors">
                                         Meus Pedidos
                                     </Link>
                                     <button
