@@ -88,6 +88,24 @@ const config: Config = {
             transform: "translateY(-15px) rotate(var(--tw-rotate))",
           },
         },
+        "splash-morph": {
+          "0%, 100%": {
+            transform: "scale(1) rotate(0deg)",
+            filter: "blur(0px)",
+          },
+          "25%": {
+            transform: "scale(1.05) rotate(2deg)",
+            filter: "blur(1px)",
+          },
+          "50%": {
+            transform: "scale(0.98) rotate(-1deg)",
+            filter: "blur(0.5px)",
+          },
+          "75%": {
+            transform: "scale(1.03) rotate(1deg)",
+            filter: "blur(1.5px)",
+          },
+        },
       },
       animation: {
         "dropdown-in": "dropdown-in 0.2s ease-out forwards",
@@ -96,6 +114,7 @@ const config: Config = {
         in: "fade-in 0.2s ease-out",
         "float-slow": "float-slow 6s ease-in-out infinite",
         "float-slower": "float-slower 8s ease-in-out infinite",
+        "splash-morph": "splash-morph 8s ease-in-out infinite",
       },
     },
   },

@@ -1,93 +1,175 @@
 import Image from "next/image";
+import { MapPin, Clock, Phone, Mail, Leaf } from "lucide-react";
 
 function Footer() {
   return (
-    <>
-      <footer className="mt-60">
-        <div className="w-full h-auto flex items-end">
-          <Image
-            src="/footer/mountains.png"
-            width={1920}
-            height={240}
-            quality={100}
-            alt="mountains to make the footer preetier"
-            className="w-full h-auto m-0 object-cover object-left"
+    <footer className="mt-60 relative">
+      {/* SVG Mountains - efeito de montes suaves com 3 camadas bem visíveis */}
+      <div className="w-full h-auto relative">
+        <svg
+          viewBox="0 0 1920 320"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-auto"
+          preserveAspectRatio="none"
+        >
+          {/* Monte de trás - bem escuro e bem alto */}
+          <path
+            d="M0 320L0 140C200 100 400 60 600 40C800 20 1000 30 1200 70C1400 110 1600 140 1800 125C1920 118 1920 118 1920 118L1920 320Z"
+            fill="#064d40"
           />
-        </div>
-        <div className="h-[320px] w-full bg-[#099B84] flex justify-evenly items-center">
-          <div className="w-[15%] h-[60%] flex flex-col justify-center items-center">
-            <Image
-              src="/icon.png"
-              alt="Logo Gabriel Pastel"
-              width={104}
-              height={110}
-              quality={100}
-              className="w-32 h-auto mb-4"
-            />
-            <p className="text-white text-xl text-justify leading-[150%] m-0">
+          {/* Monte do meio - tom médio escuro */}
+          <path
+            d="M0 320L0 200C250 170 450 140 650 125C850 110 1050 130 1250 160C1450 190 1650 208 1850 200C1920 197 1920 197 1920 197L1920 320Z"
+            fill="#087a68"
+          />
+          {/* Monte da frente - cor do footer */}
+          <path
+            d="M0 320L0 260C200 252 400 245 600 240C800 235 1000 225 1200 215C1400 225 1600 243 1800 250C1920 253 1920 253 1920 253L1920 320Z"
+            fill="#10806e"
+          />
+        </svg>
+      </div>
+
+      {/* Conteúdo principal do footer */}
+      <div className="w-full bg-vegGreen py-16 px-[10%]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          {/* Logo e Missão */}
+          <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
+            <div className="relative mb-6">
+              <Image
+                src="/icon.png"
+                alt="Logo Gabriel Pastel"
+                width={104}
+                height={110}
+                quality={100}
+                className="w-28 h-auto drop-shadow-lg"
+              />
+              <Leaf className="absolute -top-2 -right-2 w-8 h-8 text-vegYellow opacity-60 rotate-12" />
+            </div>
+            <p className="text-background text-center lg:text-left text-base leading-relaxed font-medium">
               Fazemos nosso melhor para transformar o mundo num lugar melhor.
             </p>
           </div>
-          <div className="w-[15%] h-[60%]">
-            <p className="text-white mb-4 text-[1.75rem] text-center">
-              Funcionamento
-            </p>
-            <ul className="[&>li]:text-white [&>li]:text-xl [&>li]:marker:text-white [&>li]:marker:text-3xl">
-              <li>
-                <p>Segunda a Quinta 12h - 22h</p>
+
+          {/* Funcionamento */}
+          <div>
+            <div className="flex items-center gap-2 mb-6">
+              <Clock className="w-6 h-6 text-vegYellow" />
+              <h3 className="text-background text-2xl font-bold">
+                Funcionamento
+              </h3>
+            </div>
+            <ul className="space-y-3">
+              <li className="text-background/90 text-base flex items-start gap-2">
+                <span className="text-vegYellow mt-1">•</span>
+                <span>
+                  Segunda a Quinta
+                  <br />
+                  12h - 22h
+                </span>
               </li>
-              <li>
-                <p>Sexta e Sábado 12h - 00h</p>
+              <li className="text-background/90 text-base flex items-start gap-2">
+                <span className="text-vegYellow mt-1">•</span>
+                <span>
+                  Sexta e Sábado
+                  <br />
+                  12h - 00h
+                </span>
               </li>
-              <li>
-                <p>Domingo 12h - 22h</p>
+              <li className="text-background/90 text-base flex items-start gap-2">
+                <span className="text-vegYellow mt-1">•</span>
+                <span>
+                  Domingo
+                  <br />
+                  12h - 22h
+                </span>
               </li>
             </ul>
           </div>
-          <div className="w-[15%] h-[60%]">
-            <p className="text-white mb-4 text-[1.75rem] text-center">
-              Endereço
+
+          {/* Endereço */}
+          <div>
+            <div className="flex items-center gap-2 mb-6">
+              <MapPin className="w-6 h-6 text-vegYellow" />
+              <h3 className="text-background text-2xl font-bold">Endereço</h3>
+            </div>
+            <p className="text-background/90 text-base leading-relaxed">
+              Rua dos bobos, 0<br />
+              Rochdale, Osasco - SP
             </p>
-            <p className="text-white text-xl text-justify leading-[150%] m-0">
-              Rua dos bobos, 0 - Rochdale, Osasco - SP
-            </p>
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 text-vegYellow hover:text-background transition-colors font-semibold"
+            >
+              Ver no mapa
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
           </div>
-          <div className="w-[15%] h-[60%]">
-            <p className="text-white mb-4 text-[1.75rem] text-center">
-              Contato
-            </p>
-            <div className="contact">
+
+          {/* Contato */}
+          <div>
+            <div className="flex items-center gap-2 mb-6">
+              <Phone className="w-6 h-6 text-vegYellow" />
+              <h3 className="text-background text-2xl font-bold">Contato</h3>
+            </div>
+            <div className="space-y-4">
               <div>
-                <p className="text-white text-xl text-justify leading-[150%] m-0">
+                <p className="text-background/70 text-sm font-semibold mb-1">
                   Telefone
                 </p>
-                <p className="text-white text-xl text-justify leading-[150%] m-0">
+                <a
+                  href="tel:+5511951138721"
+                  className="text-background/90 text-base hover:text-vegYellow transition-colors"
+                >
                   (11) 95113-8721
-                </p>
+                </a>
               </div>
               <div>
-                <p className="text-white text-xl text-justify leading-[150%] m-0">
+                <p className="text-background/70 text-sm font-semibold mb-1">
                   Email
                 </p>
-                <p className="text-white text-xl text-justify leading-[150%] m-0">
+                <a
+                  href="mailto:alepbravo1702@gmail.com"
+                  className="text-background/90 text-base hover:text-vegYellow transition-colors break-all"
+                >
                   alepbravo1702@gmail.com
-                </p>
+                </a>
               </div>
             </div>
           </div>
-          <div className="w-[15%] h-[60%]">
-            <p className="text-white mb-4 text-[1.75rem] text-center">
+
+          {/* Redes Sociais */}
+          <div>
+            <h3 className="text-background text-2xl font-bold mb-6">
               Redes Sociais
-            </p>
-            <div className="flex justify-around items-center w-full h-auto mt-2.5">
+            </h3>
+            <div className="grid grid-cols-4 gap-4">
               <a
                 href="https://api.whatsapp.com/send/?phone=%2B5511951138721&text=Olá%2C%20vim%20pelo%20site%20Gabriel%20Pastel%20e%20gostaria%20de%20fazer%20um%20pedido%20de%20pastel.%20Poderia%20me%20ajudar%3F&type=phone_number&app_absent=0"
-                className="w-[10%] aspect-square"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                aria-label="WhatsApp"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  className="cursor-pointer w-full h-full text-white fill-white"
+                  className="w-6 h-6 text-background group-hover:text-vegGreen transition-colors"
                 >
                   <g fill="none" fillRule="evenodd">
                     <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
@@ -100,12 +182,15 @@ function Footer() {
               </a>
               <a
                 href="https://www.instagram.com/xandeco420/"
-                className="w-[10%] aspect-square"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                aria-label="Instagram"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  className="cursor-pointer w-full h-full text-white fill-white"
+                  className="w-6 h-6 text-background group-hover:text-vegGreen transition-colors"
                 >
                   <path
                     fill="currentColor"
@@ -115,12 +200,15 @@ function Footer() {
               </a>
               <a
                 href="https://www.tiktok.com/@cozinhadoromilto"
-                className="w-[10%] aspect-square"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                aria-label="TikTok"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  className="cursor-pointer w-full h-full text-white fill-white"
+                  className="w-6 h-6 text-background group-hover:text-vegGreen transition-colors"
                 >
                   <path
                     fill="currentColor"
@@ -130,12 +218,15 @@ function Footer() {
               </a>
               <a
                 href="https://www.youtube.com/@xandeco420"
-                className="w-[10%] aspect-square"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                aria-label="YouTube"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  className="cursor-pointer w-full h-full text-white fill-white"
+                  className="w-6 h-6 text-background group-hover:text-vegGreen transition-colors"
                 >
                   <g fill="none" fillRule="evenodd">
                     <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
@@ -149,14 +240,20 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="w-full h-20 bg-[#F6A011] flex items-center">
-          <p className="text-white text-xl ml-[55px]">
-            © 2024, Osasco - Todos os direitos reservados, Gabriel Alexander
-            Pinheiro Bravo
+      </div>
+
+      {/* Copyright bar */}
+      <div className="w-full bg-vegYellow py-6 px-[10%]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-vegBrown-dark text-sm text-center md:text-left font-medium">
+            © 2024, Osasco - Todos os direitos reservados
+          </p>
+          <p className="text-vegBrown-dark text-sm font-semibold">
+            Gabriel Alexander Pinheiro Bravo
           </p>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }
 

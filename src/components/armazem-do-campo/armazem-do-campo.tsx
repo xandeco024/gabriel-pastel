@@ -1,23 +1,77 @@
-import './armazem-do-campo.css'
+"use client";
 
-import Image from 'next/image'
+import "./armazem-do-campo.css";
+
+import Image from "next/image";
+import OrderNowBtn from "@/components/ui/order-now-btn";
+import { Leaf } from "lucide-react";
+import { useEffect, useState } from "react";
 
 function ArmazemDoCampo() {
-    return (
-        <>
-            <div className="ADCContainer">
-                <div className='ADCTextContainer'>
-                    <p className='ADCTitle'>SEU PASTEL SEM VENENO</p>
-                    <p>Nossos pastéis são preparados com ingredientes frescos e orgânicos fornecidos pelo Armazém do Campo, uma iniciativa do MST, que utiliza práticas agroecológicas que respeitam o meio ambiente e garantem a saúde dos consumidores.</p>
-                    {/* <OrderNowBtn className='ADCBtn' size='1.25rem' color='#F6A011' backgroundColor='#f1ecc8' hoverColor='#F6A011'/> */}
-                </div>
-                <div className='ADCImgContainer'>
-                    {/* <img src={armazem} alt="Armazém do Campo"/> */}
-                    <Image src="/homepage/armazem.png" alt="Produtos da Armazém do Campo" width={776} height={520} quality={100} className='ADCImg'/>
-                </div>
-            </div>
-        </>
-    )
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById("armazem-section");
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top < windowHeight * 0.8) {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  return (
+    <>
+      <div
+        id="armazem-section"
+        className={`relative w-full min-h-[600px] bg-pastel flex items-center justify-between px-[10%] py-20 my-12 overflow-hidden transition-all duration-1000 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
+        <div className="w-[45%] flex flex-col justify-center space-y-6">
+          <h2 className="font-gluten text-5xl text-vegGreen leading-tight flex items-center gap-4">
+            <Leaf className="w-12 h-12" />
+            SEU PASTEL SEM VENENO
+          </h2>
+          <p className="text-xl text-vegBrown-dark/80 leading-relaxed">
+            Nossos pastéis são preparados com{" "}
+            <span className="font-bold text-vegGreen">
+              ingredientes frescos e orgânicos
+            </span>{" "}
+            fornecidos pelo{" "}
+            <span className="font-bold text-vegOrange">Armazém do Campo</span>,
+            uma iniciativa do MST.
+          </p>
+          <p className="text-xl text-vegBrown-dark/80 leading-relaxed">
+            Utilizamos práticas agroecológicas que respeitam o meio ambiente e
+            garantem a saúde dos consumidores.
+          </p>
+          <div className="mt-4">
+            <OrderNowBtn />
+          </div>
+        </div>
+
+        <div className="relative w-[45%] flex items-center justify-center">
+          <Image
+            src="/homepage/armazem.png"
+            alt="Produtos da Armazém do Campo"
+            width={776}
+            height={520}
+            quality={100}
+            className="w-full h-auto drop-shadow-2xl rounded-2xl"
+          />
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default ArmazemDoCampo
+export default ArmazemDoCampo;
