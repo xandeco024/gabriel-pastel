@@ -72,12 +72,30 @@ const config: Config = {
             opacity: "1",
           },
         },
+        "float-slow": {
+          "0%, 100%": {
+            transform: "translateY(0px) rotate(var(--tw-rotate))",
+          },
+          "50%": {
+            transform: "translateY(-20px) rotate(var(--tw-rotate))",
+          },
+        },
+        "float-slower": {
+          "0%, 100%": {
+            transform: "translateY(0px) rotate(var(--tw-rotate))",
+          },
+          "50%": {
+            transform: "translateY(-15px) rotate(var(--tw-rotate))",
+          },
+        },
       },
       animation: {
         "dropdown-in": "dropdown-in 0.2s ease-out forwards",
         "zoom-in-95": "zoom-in-95 0.2s ease-out forwards",
         "fade-in": "fade-in 0.2s ease-out forwards",
         in: "fade-in 0.2s ease-out",
+        "float-slow": "float-slow 6s ease-in-out infinite",
+        "float-slower": "float-slower 8s ease-in-out infinite",
       },
     },
   },
