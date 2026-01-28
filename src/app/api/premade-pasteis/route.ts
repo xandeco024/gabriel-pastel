@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
 
 export async function GET() {
   try {
@@ -15,9 +15,9 @@ export async function GET() {
         },
       },
       orderBy: {
-        name: 'asc',
+        name: "asc",
       },
-    })
+    });
 
     // Formatar resposta para facilitar uso no frontend
     const formatted = premadePasteis.map((pastel) => ({
@@ -28,14 +28,14 @@ export async function GET() {
       imageUrl: pastel.imageUrl,
       price: pastel.price,
       ingredients: pastel.ingredients.map((pi) => pi.ingredient),
-    }))
+    }));
 
-    return NextResponse.json(formatted)
+    return NextResponse.json(formatted);
   } catch (error) {
-    console.error('Error fetching premade pasteis:', error)
+    console.error("Error fetching premade pasteis:", error);
     return NextResponse.json(
-      { error: 'Failed to fetch premade pasteis' },
-      { status: 500 }
-    )
+      { error: "Failed to fetch premade pasteis" },
+      { status: 500 },
+    );
   }
 }

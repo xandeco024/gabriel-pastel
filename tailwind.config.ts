@@ -77,7 +77,7 @@ const config: Config = {
         "dropdown-in": "dropdown-in 0.2s ease-out forwards",
         "zoom-in-95": "zoom-in-95 0.2s ease-out forwards",
         "fade-in": "fade-in 0.2s ease-out forwards",
-        "in": "fade-in 0.2s ease-out",
+        in: "fade-in 0.2s ease-out",
       },
     },
   },

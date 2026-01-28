@@ -11,7 +11,11 @@ interface AuthModalProps {
   initialMode?: "signin" | "signup";
 }
 
-export default function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModalProps) {
+export default function AuthModal({
+  isOpen,
+  onClose,
+  initialMode = "signin",
+}: AuthModalProps) {
   const [mode, setMode] = useState<"signin" | "signup">(initialMode);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -26,14 +30,14 @@ export default function AuthModal({ isOpen, onClose, initialMode = "signin" }: A
   // Bloquear scroll do body quando modal está aberto
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     // Cleanup: garantir que o scroll seja restaurado ao desmontar
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
@@ -141,20 +145,30 @@ export default function AuthModal({ isOpen, onClose, initialMode = "signin" }: A
         <div className="p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-holtwood text-vegGreen mb-2">GABRIEL PASTEL</h1>
+            <h1 className="text-3xl font-holtwood text-vegGreen mb-2">
+              GABRIEL PASTEL
+            </h1>
             <h2 className="text-xl font-semibold text-foreground">
               {mode === "signin" ? "Entre na sua conta" : "Criar conta"}
             </h2>
             <p className="text-vegGreen-light mt-2">
-              {mode === "signin" ? "Bem-vindo de volta!" : "Junte-se à nossa família! 🌱"}
+              {mode === "signin"
+                ? "Bem-vindo de volta!"
+                : "Junte-se à nossa família! 🌱"}
             </p>
           </div>
 
           {/* Form */}
-          <form onSubmit={mode === "signin" ? handleSignIn : handleSignUp} className="space-y-4">
+          <form
+            onSubmit={mode === "signin" ? handleSignIn : handleSignUp}
+            className="space-y-4"
+          >
             {mode === "signup" && (
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-foreground mb-2"
+                >
                   Nome completo
                 </label>
                 <input
@@ -170,7 +184,10 @@ export default function AuthModal({ isOpen, onClose, initialMode = "signin" }: A
             )}
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Email
               </label>
               <input
@@ -185,7 +202,10 @@ export default function AuthModal({ isOpen, onClose, initialMode = "signin" }: A
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Senha
               </label>
               <input
@@ -194,7 +214,9 @@ export default function AuthModal({ isOpen, onClose, initialMode = "signin" }: A
                 required
                 minLength={6}
                 className="w-full px-4 py-3 border-2 border-vegGreen/30 rounded-lg placeholder-vegGreen/50 text-foreground bg-white focus:outline-none focus:ring-2 focus:ring-vegGreen focus:border-vegGreen transition-colors"
-                placeholder={mode === "signup" ? "Mínimo 6 caracteres" : "Sua senha"}
+                placeholder={
+                  mode === "signup" ? "Mínimo 6 caracteres" : "Sua senha"
+                }
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -212,9 +234,25 @@ export default function AuthModal({ isOpen, onClose, initialMode = "signin" }: A
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <svg
+                    className="animate-spin h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
                   </svg>
                   {mode === "signin" ? "Entrando..." : "Criando conta..."}
                 </span>
