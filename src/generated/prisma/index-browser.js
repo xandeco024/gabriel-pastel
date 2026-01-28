@@ -129,6 +129,72 @@ exports.Prisma.UserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.IngredientScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  imageUrl: 'imageUrl',
+  isVegan: 'isVegan',
+  isOrganic: 'isOrganic',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PremadePastelScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  imageUrl: 'imageUrl',
+  price: 'price',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PremadePastelIngredientScalarFieldEnum = {
+  id: 'id',
+  premadePastelId: 'premadePastelId',
+  ingredientId: 'ingredientId'
+};
+
+exports.Prisma.CustomPastelScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.CustomPastelIngredientScalarFieldEnum = {
+  id: 'id',
+  customPastelId: 'customPastelId',
+  ingredientId: 'ingredientId'
+};
+
+exports.Prisma.OrderScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  status: 'status',
+  total: 'total',
+  customerName: 'customerName',
+  customerEmail: 'customerEmail',
+  customerPhone: 'customerPhone',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OrderItemScalarFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  type: 'type',
+  premadePastelId: 'premadePastelId',
+  customPastelId: 'customPastelId',
+  quantity: 'quantity',
+  unitPrice: 'unitPrice',
+  totalPrice: 'totalPrice',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -143,10 +209,29 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.OrderStatus = exports.$Enums.OrderStatus = {
+  PENDING: 'PENDING',
+  CONFIRMED: 'CONFIRMED',
+  PREPARING: 'PREPARING',
+  READY: 'READY',
+  DELIVERED: 'DELIVERED',
+  CANCELLED: 'CANCELLED'
+};
 
+exports.PastelType = exports.$Enums.PastelType = {
+  CUSTOM: 'CUSTOM',
+  PREMADE: 'PREMADE'
+};
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Ingredient: 'Ingredient',
+  PremadePastel: 'PremadePastel',
+  PremadePastelIngredient: 'PremadePastelIngredient',
+  CustomPastel: 'CustomPastel',
+  CustomPastelIngredient: 'CustomPastelIngredient',
+  Order: 'Order',
+  OrderItem: 'OrderItem'
 };
 
 /**

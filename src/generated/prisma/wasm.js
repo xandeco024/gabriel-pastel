@@ -101,6 +101,72 @@ exports.Prisma.UserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.IngredientScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  imageUrl: 'imageUrl',
+  isVegan: 'isVegan',
+  isOrganic: 'isOrganic',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PremadePastelScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  imageUrl: 'imageUrl',
+  price: 'price',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PremadePastelIngredientScalarFieldEnum = {
+  id: 'id',
+  premadePastelId: 'premadePastelId',
+  ingredientId: 'ingredientId'
+};
+
+exports.Prisma.CustomPastelScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.CustomPastelIngredientScalarFieldEnum = {
+  id: 'id',
+  customPastelId: 'customPastelId',
+  ingredientId: 'ingredientId'
+};
+
+exports.Prisma.OrderScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  status: 'status',
+  total: 'total',
+  customerName: 'customerName',
+  customerEmail: 'customerEmail',
+  customerPhone: 'customerPhone',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OrderItemScalarFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  type: 'type',
+  premadePastelId: 'premadePastelId',
+  customPastelId: 'customPastelId',
+  quantity: 'quantity',
+  unitPrice: 'unitPrice',
+  totalPrice: 'totalPrice',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -115,10 +181,29 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.OrderStatus = exports.$Enums.OrderStatus = {
+  PENDING: 'PENDING',
+  CONFIRMED: 'CONFIRMED',
+  PREPARING: 'PREPARING',
+  READY: 'READY',
+  DELIVERED: 'DELIVERED',
+  CANCELLED: 'CANCELLED'
+};
 
+exports.PastelType = exports.$Enums.PastelType = {
+  CUSTOM: 'CUSTOM',
+  PREMADE: 'PREMADE'
+};
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Ingredient: 'Ingredient',
+  PremadePastel: 'PremadePastel',
+  PremadePastelIngredient: 'PremadePastelIngredient',
+  CustomPastel: 'CustomPastel',
+  CustomPastelIngredient: 'CustomPastelIngredient',
+  Order: 'Order',
+  OrderItem: 'OrderItem'
 };
 /**
  * Create the Client
@@ -168,13 +253,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        String   @id @default(cuid())\n  email     String   @unique\n  name      String?\n  password  String // bcrypt hash (string)\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
-  "inlineSchemaHash": "5a2f26855584ce236cc2e402330dde5cd06f26fd473a5b0d71266e79ca158567",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        String   @id @default(cuid())\n  email     String   @unique\n  name      String?\n  password  String // bcrypt hash (string)\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  // Relacionamentos\n  orders Order[]\n}\n\nmodel Ingredient {\n  id          String   @id @default(cuid())\n  name        String   @unique\n  slug        String   @unique\n  description String\n  imageUrl    String\n  isVegan     Boolean  @default(true)\n  isOrganic   Boolean  @default(true)\n  isActive    Boolean  @default(true)\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n\n  // Relacionamentos\n  premadePasteis PremadePastelIngredient[]\n  customPasteis  CustomPastelIngredient[]\n}\n\nmodel PremadePastel {\n  id          String   @id @default(cuid())\n  name        String   @unique\n  slug        String   @unique\n  description String?\n  imageUrl    String\n  price       Decimal  @db.Decimal(10, 2)\n  isActive    Boolean  @default(true)\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n\n  // Relacionamentos\n  ingredients PremadePastelIngredient[]\n  orderItems  OrderItem[]\n}\n\nmodel PremadePastelIngredient {\n  id              String @id @default(cuid())\n  premadePastelId String\n  ingredientId    String\n\n  premadePastel PremadePastel @relation(fields: [premadePastelId], references: [id], onDelete: Cascade)\n  ingredient    Ingredient    @relation(fields: [ingredientId], references: [id])\n\n  @@unique([premadePastelId, ingredientId])\n}\n\nmodel CustomPastel {\n  id        String   @id @default(cuid())\n  createdAt DateTime @default(now())\n\n  // Relacionamentos\n  ingredients CustomPastelIngredient[]\n  orderItems  OrderItem[]\n}\n\nmodel CustomPastelIngredient {\n  id             String @id @default(cuid())\n  customPastelId String\n  ingredientId   String\n\n  customPastel CustomPastel @relation(fields: [customPastelId], references: [id], onDelete: Cascade)\n  ingredient   Ingredient   @relation(fields: [ingredientId], references: [id])\n\n  @@unique([customPastelId, ingredientId])\n}\n\nmodel Order {\n  id     String  @id @default(cuid())\n  userId String? // nullable para permitir pedidos de convidados\n  user   User?   @relation(fields: [userId], references: [id])\n\n  status OrderStatus @default(PENDING)\n  total  Decimal     @db.Decimal(10, 2)\n\n  // Informações de entrega/contato\n  customerName  String\n  customerEmail String\n  customerPhone String?\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  // Relacionamentos\n  orderItems OrderItem[]\n}\n\nenum OrderStatus {\n  PENDING // Pedido criado, aguardando pagamento\n  CONFIRMED // Pagamento confirmado\n  PREPARING // Em preparação\n  READY // Pronto para retirada/entrega\n  DELIVERED // Entregue\n  CANCELLED // Cancelado\n}\n\nmodel OrderItem {\n  id      String @id @default(cuid())\n  orderId String\n  order   Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)\n\n  // Tipo de pastel\n  type PastelType\n\n  // Se for pré-pronto\n  premadePastelId String?\n  premadePastel   PremadePastel? @relation(fields: [premadePastelId], references: [id])\n\n  // Se for customizado\n  customPastelId String?\n  customPastel   CustomPastel? @relation(fields: [customPastelId], references: [id])\n\n  quantity   Int\n  unitPrice  Decimal @db.Decimal(10, 2)\n  totalPrice Decimal @db.Decimal(10, 2)\n\n  createdAt DateTime @default(now())\n}\n\nenum PastelType {\n  CUSTOM\n  PREMADE\n}\n",
+  "inlineSchemaHash": "74e16aae2787dfc7322a31b013c3ba898007c6331c0e7da44ffa8e12bd942155",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"orders\",\"kind\":\"object\",\"type\":\"Order\",\"relationName\":\"OrderToUser\"}],\"dbName\":null},\"Ingredient\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"slug\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"imageUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"isVegan\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"isOrganic\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"isActive\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"premadePasteis\",\"kind\":\"object\",\"type\":\"PremadePastelIngredient\",\"relationName\":\"IngredientToPremadePastelIngredient\"},{\"name\":\"customPasteis\",\"kind\":\"object\",\"type\":\"CustomPastelIngredient\",\"relationName\":\"CustomPastelIngredientToIngredient\"}],\"dbName\":null},\"PremadePastel\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"slug\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"imageUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"price\",\"kind\":\"scalar\",\"type\":\"Decimal\"},{\"name\":\"isActive\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"ingredients\",\"kind\":\"object\",\"type\":\"PremadePastelIngredient\",\"relationName\":\"PremadePastelToPremadePastelIngredient\"},{\"name\":\"orderItems\",\"kind\":\"object\",\"type\":\"OrderItem\",\"relationName\":\"OrderItemToPremadePastel\"}],\"dbName\":null},\"PremadePastelIngredient\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"premadePastelId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"ingredientId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"premadePastel\",\"kind\":\"object\",\"type\":\"PremadePastel\",\"relationName\":\"PremadePastelToPremadePastelIngredient\"},{\"name\":\"ingredient\",\"kind\":\"object\",\"type\":\"Ingredient\",\"relationName\":\"IngredientToPremadePastelIngredient\"}],\"dbName\":null},\"CustomPastel\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"ingredients\",\"kind\":\"object\",\"type\":\"CustomPastelIngredient\",\"relationName\":\"CustomPastelToCustomPastelIngredient\"},{\"name\":\"orderItems\",\"kind\":\"object\",\"type\":\"OrderItem\",\"relationName\":\"CustomPastelToOrderItem\"}],\"dbName\":null},\"CustomPastelIngredient\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"customPastelId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"ingredientId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"customPastel\",\"kind\":\"object\",\"type\":\"CustomPastel\",\"relationName\":\"CustomPastelToCustomPastelIngredient\"},{\"name\":\"ingredient\",\"kind\":\"object\",\"type\":\"Ingredient\",\"relationName\":\"CustomPastelIngredientToIngredient\"}],\"dbName\":null},\"Order\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"OrderToUser\"},{\"name\":\"status\",\"kind\":\"enum\",\"type\":\"OrderStatus\"},{\"name\":\"total\",\"kind\":\"scalar\",\"type\":\"Decimal\"},{\"name\":\"customerName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"customerEmail\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"customerPhone\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"orderItems\",\"kind\":\"object\",\"type\":\"OrderItem\",\"relationName\":\"OrderToOrderItem\"}],\"dbName\":null},\"OrderItem\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"orderId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"order\",\"kind\":\"object\",\"type\":\"Order\",\"relationName\":\"OrderToOrderItem\"},{\"name\":\"type\",\"kind\":\"enum\",\"type\":\"PastelType\"},{\"name\":\"premadePastelId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"premadePastel\",\"kind\":\"object\",\"type\":\"PremadePastel\",\"relationName\":\"OrderItemToPremadePastel\"},{\"name\":\"customPastelId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"customPastel\",\"kind\":\"object\",\"type\":\"CustomPastel\",\"relationName\":\"CustomPastelToOrderItem\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"unitPrice\",\"kind\":\"scalar\",\"type\":\"Decimal\"},{\"name\":\"totalPrice\",\"kind\":\"scalar\",\"type\":\"Decimal\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

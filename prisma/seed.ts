@@ -1,4 +1,5 @@
 import { PrismaClient } from '../src/generated/prisma'
+import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
@@ -13,8 +14,21 @@ async function main() {
   await prisma.premadePastelIngredient.deleteMany()
   await prisma.premadePastel.deleteMany()
   await prisma.ingredient.deleteMany()
+  await prisma.user.deleteMany()
 
   console.log('✅ Dados antigos limpos')
+
+  // Criar usuário de teste
+  console.log('👤 Criando usuário de teste...')
+  const hashedPassword = await bcrypt.hash('123456', 10)
+  const testUser = await prisma.user.create({
+    data: {
+      email: 'teste@teste.com',
+      name: 'Usuário Teste',
+      password: hashedPassword,
+    },
+  })
+  console.log('✅ Usuário criado:', testUser.email, '/ senha: 123456')
 
   // Criar ingredientes
   console.log('📦 Criando ingredientes...')
