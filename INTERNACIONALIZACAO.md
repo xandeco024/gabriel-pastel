@@ -11,6 +11,7 @@ Este documento descreve como implementar suporte a múltiplos idiomas no Gabriel
 ### Por Que Implementar?
 
 #### Vantagens
+
 - 🌎 **Alcance global**: Atenda usuários de diferentes países
 - 💰 **Mais vendas**: 75% dos usuários preferem comprar em seu idioma nativo
 - 🔍 **SEO**: Melhore rankeamento em buscas locais
@@ -18,6 +19,7 @@ Este documento descreve como implementar suporte a múltiplos idiomas no Gabriel
 - 🎯 **Diferencial competitivo**: Destaque-se da concorrência
 
 #### Para Gabriel Pastel
+
 - 🇧🇷 **Português** (idioma principal)
 - 🇺🇸 **Inglês** (turistas, imigrantes, exportação)
 - 🇪🇸 **Espanhol** (América Latina, mercado crescente)
@@ -27,6 +29,7 @@ Este documento descreve como implementar suporte a múltiplos idiomas no Gabriel
 ## 📚 Bibliotecas Disponíveis
 
 ### 1. **next-intl** ⭐ (Recomendado)
+
 - ✅ Feito especificamente para Next.js App Router
 - ✅ Type-safe (TypeScript)
 - ✅ Server + Client Components
@@ -35,15 +38,18 @@ Este documento descreve como implementar suporte a múltiplos idiomas no Gabriel
 - ✅ Bem mantido e documentado
 
 ### 2. **next-i18next**
+
 - ⚠️ Melhor para Pages Router (antigo)
 - ❌ Não otimizado para App Router
 
 ### 3. **react-i18next**
+
 - ✅ Biblioteca clássica
 - ⚠️ Requer configuração extra para Next.js
 - ✅ Muito popular (comunidade grande)
 
 ### 4. **Intl API Nativa**
+
 - ✅ Sem dependências
 - ❌ Muito trabalhoso
 - ❌ Sem gerenciamento de traduções
@@ -83,6 +89,7 @@ src/
 ## 📝 3. Criar Arquivos de Tradução
 
 ### src/i18n/messages/pt.json
+
 ```json
 {
   "common": {
@@ -257,6 +264,7 @@ src/
 ```
 
 ### src/i18n/messages/en.json
+
 ```json
 {
   "common": {
@@ -359,6 +367,7 @@ src/
 ```
 
 ### src/i18n/messages/es.json
+
 ```json
 {
   "common": {
@@ -410,77 +419,80 @@ src/
 ## ⚙️ 4. Configuração
 
 ### src/i18n/request.ts
+
 ```typescript
-import { getRequestConfig } from 'next-intl/server'
-import { notFound } from 'next/navigation'
+import { getRequestConfig } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 // Idiomas suportados
-export const locales = ['pt', 'en', 'es'] as const
-export type Locale = typeof locales[number]
+export const locales = ["pt", "en", "es"] as const;
+export type Locale = (typeof locales)[number];
 
 // Idioma padrão
-export const defaultLocale: Locale = 'pt'
+export const defaultLocale: Locale = "pt";
 
 // Nomes dos idiomas para exibir no seletor
 export const localeNames: Record<Locale, string> = {
-  pt: 'Português',
-  en: 'English',
-  es: 'Español',
-}
+  pt: "Português",
+  en: "English",
+  es: "Español",
+};
 
 export default getRequestConfig(async ({ locale }) => {
   // Validar que o locale é suportado
-  if (!locales.includes(locale as Locale)) notFound()
+  if (!locales.includes(locale as Locale)) notFound();
 
   return {
-    messages: (await import(`./messages/${locale}.json`)).default
-  }
-})
+    messages: (await import(`./messages/${locale}.json`)).default,
+  };
+});
 ```
 
 ### src/middleware.ts
+
 ```typescript
-import createMiddleware from 'next-intl/middleware'
-import { locales, defaultLocale } from './i18n/request'
+import createMiddleware from "next-intl/middleware";
+import { locales, defaultLocale } from "./i18n/request";
 
 export default createMiddleware({
   // Lista de todos os locales suportados
   locales,
-  
+
   // Locale padrão se nenhum for detectado
   defaultLocale,
-  
+
   // Detectar locale automaticamente do header Accept-Language
   localeDetection: true,
-})
+});
 
 export const config = {
   // Aplicar middleware em todas as rotas exceto:
   matcher: [
     // Incluir todas as rotas
-    '/((?!api|_next|_vercel|.*\\..*).*)',
+    "/((?!api|_next|_vercel|.*\\..*).*)",
     // Incluir rotas dinâmicas com locale
-    '/(pt|en|es)/:path*',
+    "/(pt|en|es)/:path*",
   ],
-}
+};
 ```
 
 ### next.config.ts
+
 ```typescript
 import type { NextConfig } from "next";
-import createNextIntlPlugin from 'next-intl/plugin'
+import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**',
-      }
-    ]
-  }
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
 };
 
 export default withNextIntl(nextConfig);
@@ -517,6 +529,7 @@ src/app/
 ```
 
 ### src/app/[locale]/layout.tsx
+
 ```typescript
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -561,6 +574,7 @@ export default async function LocaleLayout({
 ## 🎨 6. Usar Traduções nos Componentes
 
 ### Server Components
+
 ```typescript
 // src/app/[locale]/(main)/home/page.tsx
 import { useTranslations } from 'next-intl'
@@ -579,6 +593,7 @@ export default function HomePage() {
 ```
 
 ### Client Components
+
 ```typescript
 "use client"
 
@@ -598,6 +613,7 @@ export default function AuthModal() {
 ```
 
 ### Com Interpolação
+
 ```typescript
 const t = useTranslations('builder')
 
@@ -612,6 +628,7 @@ const t = useTranslations('builder')
 ```
 
 ### Pluralização
+
 ```typescript
 // messages/pt.json
 {
@@ -631,6 +648,7 @@ t('items', { count: cart.length })
 ## 🌐 7. Seletor de Idioma
 
 ### src/components/LanguageSelector.tsx
+
 ```typescript
 "use client"
 
@@ -706,6 +724,7 @@ export default function LanguageSelector() {
 ```
 
 ### Adicionar ao Header
+
 ```typescript
 // src/components/Header.tsx
 import LanguageSelector from './LanguageSelector'
@@ -714,10 +733,10 @@ export default function Header() {
   return (
     <header>
       {/* ... outros elementos ... */}
-      
+
       {/* Seletor de idioma */}
       <LanguageSelector />
-      
+
       {/* ... menu de usuário ... */}
     </header>
   )
@@ -729,6 +748,7 @@ export default function Header() {
 ## 💰 8. Formatação de Moedas
 
 ### useFormatter Hook
+
 ```typescript
 import { useFormatter } from 'next-intl'
 
@@ -752,22 +772,23 @@ export default function PriceDisplay({ amount }: { amount: number }) {
 ```
 
 ### Configurar moeda por locale
+
 ```typescript
 // src/i18n/request.ts
 export const currencyByLocale: Record<Locale, string> = {
-  pt: 'BRL',
-  en: 'USD',
-  es: 'USD',
-}
+  pt: "BRL",
+  en: "USD",
+  es: "USD",
+};
 
 // Uso:
-const locale = useLocale()
-const currency = currencyByLocale[locale as Locale]
+const locale = useLocale();
+const currency = currencyByLocale[locale as Locale];
 
 format.number(amount, {
-  style: 'currency',
+  style: "currency",
   currency,
-})
+});
 ```
 
 ---
@@ -804,6 +825,7 @@ export default function OrderDate({ date }: { date: Date }) {
 ## 🔗 10. Links com Locale
 
 ### Componente Link Customizado
+
 ```typescript
 // src/components/LocaleLink.tsx
 "use client"
@@ -811,10 +833,10 @@ export default function OrderDate({ date }: { date: Date }) {
 import Link from 'next/link'
 import { useLocale } from 'next-intl'
 
-export default function LocaleLink({ 
-  href, 
-  children, 
-  ...props 
+export default function LocaleLink({
+  href,
+  children,
+  ...props
 }: {
   href: string
   children: React.ReactNode
@@ -834,6 +856,7 @@ export default function LocaleLink({
 ```
 
 ### Uso
+
 ```typescript
 import LocaleLink from '@/components/LocaleLink'
 
@@ -852,39 +875,41 @@ import LocaleLink from '@/components/LocaleLink'
 ## 🔍 11. SEO Multi-idioma
 
 ### Metadata por Locale
+
 ```typescript
 // src/app/[locale]/(main)/home/page.tsx
-import { getTranslations } from 'next-intl/server'
-import type { Metadata } from 'next'
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 
-export async function generateMetadata({ 
-  params: { locale } 
-}: { 
-  params: { locale: string } 
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
 }): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: 'home' })
+  const t = await getTranslations({ locale, namespace: "home" });
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title: t("title"),
+    description: t("description"),
     alternates: {
       canonical: `/${locale}/home`,
       languages: {
-        'pt': '/pt/home',
-        'en': '/en/home',
-        'es': '/es/home',
+        pt: "/pt/home",
+        en: "/en/home",
+        es: "/es/home",
       },
     },
     openGraph: {
-      title: t('title'),
-      description: t('description'),
+      title: t("title"),
+      description: t("description"),
       locale: locale,
     },
-  }
+  };
 }
 ```
 
 ### hreflang Tags
+
 ```typescript
 // src/app/[locale]/layout.tsx
 export default async function LocaleLayout({ params }: any) {
@@ -908,21 +933,22 @@ export default async function LocaleLayout({ params }: any) {
 ## 🍪 12. Persistir Preferência
 
 ### Usar Cookies
+
 ```typescript
 // middleware.ts
-import createMiddleware from 'next-intl/middleware'
-import { NextRequest } from 'next/server'
+import createMiddleware from "next-intl/middleware";
+import { NextRequest } from "next/server";
 
 export default createMiddleware({
-  locales: ['pt', 'en', 'es'],
-  defaultLocale: 'pt',
-  
+  locales: ["pt", "en", "es"],
+  defaultLocale: "pt",
+
   // Usar cookie para persistir escolha
-  localePrefix: 'as-needed',
-  
+  localePrefix: "as-needed",
+
   // Função customizada para detectar locale
   localeDetection: true,
-})
+});
 ```
 
 O next-intl já gerencia cookies automaticamente! Quando o usuário escolhe um idioma, ele fica salvo.
@@ -938,10 +964,10 @@ import { getTranslations } from 'next-intl/server'
 import LocaleLink from '@/components/LocaleLink'
 import type { Metadata } from 'next'
 
-export async function generateMetadata({ 
-  params: { locale } 
-}: { 
-  params: { locale: string } 
+export async function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'home' })
 
@@ -962,7 +988,7 @@ export default function HomePage() {
         <h1 className="text-6xl font-holtwood text-vegBrown-dark mb-6">
           {t('title')}
         </h1>
-        
+
         <p className="text-2xl mb-8">
           {t.rich('subtitle', {
             strong: (chunks) => <strong className="text-vegGreen">{chunks}</strong>
@@ -975,7 +1001,7 @@ export default function HomePage() {
           })}
         </p>
 
-        <LocaleLink 
+        <LocaleLink
           href="/monte-seu-pastel"
           className="px-8 py-4 bg-vegGreen hover:bg-vegYellow text-white rounded-lg text-xl font-semibold"
         >
@@ -1005,11 +1031,13 @@ export default function HomePage() {
 ## 🚀 14. Passo a Passo para Implementar
 
 ### 1. Instalar
+
 ```bash
 npm install next-intl
 ```
 
 ### 2. Criar estrutura
+
 ```bash
 mkdir -p src/i18n/messages
 touch src/i18n/request.ts
@@ -1020,6 +1048,7 @@ touch src/middleware.ts
 ```
 
 ### 3. Mover rotas
+
 ```bash
 # Mover tudo de app/ para app/[locale]/
 mv src/app/\(main\) src/app/temp
@@ -1028,25 +1057,31 @@ mv src/app/temp src/app/\[locale\]/\(main\)
 ```
 
 ### 4. Criar arquivos de tradução
+
 - Copiar JSONs acima para `src/i18n/messages/`
 
 ### 5. Configurar
+
 - Copiar `src/i18n/request.ts`
 - Copiar `src/middleware.ts`
 - Atualizar `next.config.ts`
 
 ### 6. Atualizar layouts
+
 - `src/app/[locale]/layout.tsx` com `NextIntlClientProvider`
 
 ### 7. Traduzir componentes
+
 - Substituir textos hardcoded por `t('key')`
 - Adicionar chaves correspondentes nos JSONs
 
 ### 8. Criar seletor de idioma
+
 - Componente `LanguageSelector`
 - Adicionar ao Header
 
 ### 9. Testar
+
 - Navegar para `/pt`, `/en`, `/es`
 - Trocar idioma pelo seletor
 - Verificar traduções
@@ -1056,11 +1091,13 @@ mv src/app/temp src/app/\[locale\]/\(main\)
 ## 💡 Dicas e Boas Práticas
 
 ### Organização
+
 - ✅ Agrupe traduções por contexto (nav, auth, home, etc)
 - ✅ Use namespaces para evitar conflitos
 - ✅ Mantenha JSONs organizados e indentados
 
 ### Traduções
+
 - ✅ Use chaves descritivas (`button.submit` não `btn1`)
 - ✅ Evite traduzir nomes próprios (Gabriel Pastel)
 - ✅ Contextualize (adicione comentários nos JSONs)
@@ -1068,16 +1105,19 @@ mv src/app/temp src/app/\[locale\]/\(main\)
 - ❌ Não traduza valores técnicos (enums, etc)
 
 ### Performance
+
 - ✅ next-intl faz code splitting automático
 - ✅ Apenas o JSON do idioma atual é carregado
 - ✅ Traduções são cache-friendly
 
 ### SEO
+
 - ✅ Use hreflang tags
 - ✅ Metadata por locale
 - ✅ Sitemap multi-idioma
 
 ### UX
+
 - ✅ Detecte idioma do navegador automaticamente
 - ✅ Persista escolha do usuário
 - ✅ Seletor de idioma visível
@@ -1088,24 +1128,28 @@ mv src/app/temp src/app/\[locale\]/\(main\)
 ## 🎯 Prioridades para Gabriel Pastel
 
 ### Fase 1: Setup Básico
+
 1. ✅ Instalar next-intl
 2. ✅ Criar estrutura [locale]
 3. ✅ Traduzir apenas 3 idiomas principais
 4. ✅ Seletor de idioma no header
 
 ### Fase 2: Traduzir Conteúdo
+
 1. ✅ Navegação e header
 2. ✅ Página home
 3. ✅ Sistema de autenticação
 4. ✅ Builder de pastéis
 
 ### Fase 3: Refinamento
+
 1. ✅ Formatação de moedas
 2. ✅ Formatação de datas
 3. ✅ SEO multi-idioma
 4. ✅ Mensagens de toast
 
 ### Fase 4: Conteúdo Dinâmico
+
 1. ✅ Ingredientes do banco (traduzir no schema)
 2. ✅ Descrições de pastéis
 3. ✅ Emails transacionais
@@ -1115,11 +1159,13 @@ mv src/app/temp src/app/\[locale\]/\(main\)
 ## 🔮 Recursos Adicionais
 
 ### Documentação
+
 - [next-intl Docs](https://next-intl-docs.vercel.app/)
 - [Next.js i18n](https://nextjs.org/docs/app/building-your-application/routing/internationalization)
 - [Intl API MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
 
 ### Ferramentas
+
 - [i18n Ally](https://marketplace.visualstudio.com/items?itemName=lokalise.i18n-ally) (VS Code extension)
 - [Google Translate API](https://cloud.google.com/translate) (tradução automática)
 - [Lokalise](https://lokalise.com/) (gerenciar traduções em equipe)

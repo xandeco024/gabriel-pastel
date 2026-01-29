@@ -18,6 +18,7 @@ Gabriel Pastel nasceu da união de dois Gabriéis apaixonados por pastéis. A la
 ## ✨ Principais Funcionalidades
 
 ### 🎨 Design System
+
 - Interface moderna com Tailwind CSS
 - Paleta de cores vegana customizada
 - Tipografia com fontes Holtwood e Gluten
@@ -25,6 +26,7 @@ Gabriel Pastel nasceu da união de dois Gabriéis apaixonados por pastéis. A la
 - Responsividade completa
 
 ### 🔐 Autenticação
+
 - Sistema de login e cadastro com NextAuth
 - Autenticação por credenciais
 - Medidor de força de senha inteligente
@@ -32,6 +34,7 @@ Gabriel Pastel nasceu da união de dois Gabriéis apaixonados por pastéis. A la
 - Sessões JWT seguras
 
 ### 🛒 Sistema de Pedidos
+
 - Monte seu pastel personalizado
 - Pastéis pré-montados com receitas especiais
 - Carrinho de compras interativo
@@ -39,17 +42,20 @@ Gabriel Pastel nasceu da união de dois Gabriéis apaixonados por pastéis. A la
 - Função "Pedir novamente"
 
 ### 👤 Perfil do Usuário
+
 - Dashboard pessoal
 - Gerenciamento de informações
 - Histórico de pedidos detalhado
 - Contador de impacto individual (animais salvos, água economizada)
 
 ### 📊 Calculadora de Impacto
+
 - Calcule o impacto ambiental de se tornar vegano
 - Estatísticas de animais salvos, água economizada, CO2 reduzido
 - Interface interativa e educativa
 
 ### 📖 Páginas Institucionais
+
 - **Nossa História**: Timeline da jornada dos Gabriéis
 - **Nosso Impacto**: Estatísticas de impacto ambiental e social
 - **Armazém do Campo**: Parceria com fornecedores orgânicos
@@ -59,22 +65,26 @@ Gabriel Pastel nasceu da união de dois Gabriéis apaixonados por pastéis. A la
 ## 🛠️ Tecnologias
 
 ### Core
+
 - **[Next.js 15](https://nextjs.org/)** - Framework React com App Router
 - **[React 19](https://react.dev/)** - Biblioteca UI
 - **[TypeScript](https://www.typescriptlang.org/)** - Type safety
 
 ### Styling
+
 - **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS
 - **[Lucide React](https://lucide.dev/)** - Ícones SVG
 - Custom design tokens (vegGreen, vegYellow, vegOrange, vegRed, vegBrown)
 
 ### Backend & Database
+
 - **[Prisma](https://www.prisma.io/)** - ORM TypeScript-first
 - **[PostgreSQL](https://www.postgresql.org/)** - Banco de dados relacional
 - **[NextAuth.js](https://next-auth.js.org/)** - Autenticação
 - **[bcryptjs](https://github.com/dcodeIO/bcrypt.js)** - Hash de senhas
 
 ### Utils
+
 - **[Sonner](https://sonner.emilkowal.ski/)** - Toast notifications
 - **[clsx](https://github.com/lukeed/clsx)** + **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** - Class management
 
@@ -83,22 +93,26 @@ Gabriel Pastel nasceu da união de dois Gabriéis apaixonados por pastéis. A la
 ## 🚀 Como Rodar o Projeto
 
 ### Pré-requisitos
-- Node.js 18+ 
+
+- Node.js 18+
 - PostgreSQL
 - npm ou yarn ou pnpm
 
 ### 1. Clone o repositório
+
 ```bash
 git clone https://github.com/xandeco024/gabriel-pastel.git
 cd gabriel-pastel
 ```
 
 ### 2. Instale as dependências
+
 ```bash
 npm install
 ```
 
 ### 3. Configure as variáveis de ambiente
+
 Crie um arquivo `.env` na raiz do projeto:
 
 ```env
@@ -111,6 +125,7 @@ NEXTAUTH_SECRET="sua-chave-secreta-super-segura-aqui"
 ```
 
 ### 4. Configure o banco de dados
+
 ```bash
 # Gerar Prisma Client
 npx prisma generate
@@ -123,6 +138,7 @@ npm run db:seed
 ```
 
 ### 5. Inicie o servidor de desenvolvimento
+
 ```bash
 npm run dev
 ```
@@ -183,25 +199,30 @@ gabriel-pastel/
 ## 🗄️ Modelo de Dados
 
 ### User
+
 - Informações do usuário
 - Autenticação
 - Relacionamento com pedidos
 
 ### Ingredient
+
 - Ingredientes disponíveis
 - Informações nutricionais
 - Status (ativo/inativo)
 
 ### PremadePastel
+
 - Pastéis pré-montados
 - Receitas especiais
 - Preços e descrições
 
 ### CustomPastel
+
 - Pastéis personalizados
 - Ingredientes escolhidos pelo usuário
 
 ### Order
+
 - Pedidos realizados
 - Status de entrega
 - Histórico completo
@@ -211,6 +232,7 @@ gabriel-pastel/
 ## 🎨 Design System
 
 ### Paleta de Cores
+
 ```css
 vegGreen: #10806e (Verde principal - ações e destaques)
 vegGreen-light: #5cad9a (Verde claro - elementos secundários)
@@ -222,10 +244,12 @@ vegBrown-light: #d4a574 (Marrom claro - backgrounds)
 ```
 
 ### Tipografia
+
 - **Holtwood** - Títulos e headings
 - **Gluten** - Corpo de texto
 
 ### Componentes
+
 - Cards com `rounded-2xl` e `shadow-lg`
 - Hover effects com `scale-105` e `shadow-2xl`
 - Badges com padding `p-3 px-5`
@@ -287,12 +311,14 @@ NEXTAUTH_SECRET="chave-secreta-aqui"
 ## 🚢 Deploy
 
 ### Vercel (Recomendado)
+
 1. Faça push do código para o GitHub
 2. Conecte o repositório no [Vercel](https://vercel.com)
 3. Configure as variáveis de ambiente
 4. Deploy automático a cada push
 
 ### Outras opções
+
 - **Railway**: Deploy com PostgreSQL integrado
 - **Render**: Plano gratuito com PostgreSQL
 - **Fly.io**: Deploy global com PostgreSQL
@@ -312,18 +338,21 @@ NEXTAUTH_SECRET="chave-secreta-aqui"
 ## 📝 Roadmap
 
 ### Curto Prazo
+
 - [ ] Sistema de pagamento (Stripe/PagSeguro)
 - [ ] Notificações por email (Resend)
 - [ ] Upload de fotos de perfil
 - [ ] Rastreamento de pedidos em tempo real
 
 ### Médio Prazo
+
 - [ ] Dashboard administrativo
 - [ ] Sistema de cupons de desconto
 - [ ] Programa de fidelidade
 - [ ] Avaliações e reviews
 
 ### Longo Prazo
+
 - [ ] App mobile (React Native)
 - [ ] Sistema de delivery próprio
 - [ ] Integração com iFood/Rappi
@@ -339,7 +368,7 @@ Este projeto é privado e pertence ao Gabriel Pastel.
 
 ## 👥 Autores
 
-**Gabriel Pastel** - *Conceito e Produto*  
+**Gabriel Pastel** - _Conceito e Produto_  
 **Desenvolvido com ❤️ e 🌱** por Alexandre Batista
 
 ---
@@ -361,7 +390,6 @@ Este projeto é privado e pertence ao Gabriel Pastel.
 ---
 
 **Feito com 🥟 e muito ❤️**
-
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
