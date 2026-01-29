@@ -1,26 +1,29 @@
+"use client";
+
 import "./Banner.css";
 
 import Image from "next/image";
 import OrderNowBtn from "@/components/ui/order-now-btn";
+import { useTranslations } from "next-intl";
 
 function Banner() {
+  const t = useTranslations("home");
+
   return (
     <>
       <div className="relative w-full min-h-[500px] bg-vegYellow flex items-center justify-between px-[10%] mt-[90px] overflow-hidden">
         <div className="max-w-[623px] flex flex-col justify-center z-10 py-16">
           <h1 className="font-gluten text-[3rem] leading-tight mb-8 text-vegBrown-dark drop-shadow-sm">
-            &ldquo;O PASTEL QUE TE LEVA ATÉ O CÉU&rdquo;
+            &ldquo;{t("title")}&rdquo;
           </h1>
-          <p className="text-xl mb-6 text-justify leading-relaxed text-vegBrown-dark/90">
-            Com a união de dois Gabrieis, que gostavam de pastéis, surge a{" "}
-            <span className="font-bold text-vegBrown-dark">Gabriel Pastel</span>
-            .
-          </p>
-          <p className="text-xl mb-8 text-justify leading-relaxed text-vegBrown-dark/90">
-            A lanchonete com o melhor pastel da região,{" "}
-            <span className="font-bold text-vegGreen-dark">100% vegana</span>, e
-            com o preço que cabe no seu bolso.
-          </p>
+          <p
+            className="text-xl mb-6 text-justify leading-relaxed text-vegBrown-dark/90"
+            dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
+          />
+          <p
+            className="text-xl mb-8 text-justify leading-relaxed text-vegBrown-dark/90"
+            dangerouslySetInnerHTML={{ __html: t.raw("description") }}
+          />
           <div className="mt-4">
             <OrderNowBtn
               hoverBgColor="hover:bg-vegYellow hover:border-white"

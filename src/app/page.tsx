@@ -1,5 +1,7 @@
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  redirect('/home');
+  // O middleware vai detectar o idioma e redirecionar automaticamente
+  // Mas caso alguém acesse diretamente /, redirecionamos para /en
+  redirect("/en");
 }

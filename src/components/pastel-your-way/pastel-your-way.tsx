@@ -6,8 +6,10 @@ import Image from "next/image";
 import OrderNowBtn from "@/components/ui/order-now-btn";
 import { Utensils } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 function PastelYourWay() {
+  const t = useTranslations("home.pastelYourWay");
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -116,15 +118,14 @@ function PastelYourWay() {
         <div className="w-[45%] flex flex-col justify-center space-y-6">
           <h2 className="font-gluten text-5xl text-vegGreen leading-tight flex items-center gap-4">
             <Utensils className="w-12 h-12" />
-            PASTEL DO SEU JEITO
+            {t("title")}
           </h2>
-          <p className="text-xl text-vegBrown-dark/80 leading-relaxed">
-            Na <span className="font-bold text-vegGreen">Gabriel Pastel</span>,
-            é você quem escolhe os recheios do seu pastel, te dando a liberdade
-            para criar sabores únicos e deliciosos!
-          </p>
+          <p
+            className="text-xl text-vegBrown-dark/80 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t.raw("description") }}
+          />
           <p className="text-xl text-vegBrown-dark/80 leading-relaxed font-semibold">
-            O limite é a sua imaginação!
+            {t("tagline")}
           </p>
           <div className="mt-4">
             <OrderNowBtn />

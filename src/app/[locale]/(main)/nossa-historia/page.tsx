@@ -13,32 +13,24 @@ import {
 
 import Link from "next/link";
 import OrderNowBtn from "@/components/ui/order-now-btn";
+import { useTranslations } from "next-intl";
 
 export default function OurHistoryPage() {
+  const t = useTranslations("history");
+
   return (
     <div className="min-h-screen mt-24 pt-24 space-y-48 relative overflow-hidden">
       {/* Hero Section */}
       <div className="relative">
         <div className="w-2/3 mx-auto text-center space-y-6">
           <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
-            <Sparkles className="w-12 h-12 text-vegYellow" />A HISTÓRIA DA
-            GABRIEL PASTEL
+            <Sparkles className="w-12 h-12 text-vegYellow" />
+            {t("title")}
           </h1>
-          <p className="text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed">
-            De um{" "}
-            <span className="font-bold text-vegYellow">
-              simples trabalho escolar
-            </span>{" "}
-            a um{" "}
-            <span className="font-bold text-vegGreen">
-              projeto com propósito
-            </span>
-            : conheça a trajetória que deu origem à lanchonete de{" "}
-            <span className="font-bold text-vegOrange">
-              pastéis veganos mais saborosa
-            </span>{" "}
-            que você já conheceu.
-          </p>
+          <p
+            className="text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
+          />
         </div>
       </div>
 
@@ -53,48 +45,25 @@ export default function OurHistoryPage() {
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
               <div className="md:text-right mb-8 md:mb-0">
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
-                  2018
+                  {t("timeline.2018.badge")}
                 </div>
                 <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
-                  O INÍCIO NA ETEC
+                  {t("timeline.2018.title")}
                 </h2>
-                <p className="text-xl text-vegBrown-light leading-relaxed">
-                  A{" "}
-                  <span className="font-bold text-vegGreen">
-                    Gabriel Pastel
-                  </span>{" "}
-                  nasceu de um trabalho de{" "}
-                  <span className="font-bold text-vegYellow">
-                    Marketing na ETEC
-                  </span>
-                  .
-                </p>
-                <p className="text-xl text-vegBrown-light leading-relaxed mt-4">
-                  A missão era simples:{" "}
-                  <span className="font-bold text-vegOrange">
-                    criar uma marca
-                  </span>
-                  . Mas como o professor também dava aula de desenvolvimento
-                  web, ele uniu as disciplinas e nos desafiou a construir um{" "}
-                  <span className="font-bold text-vegGreen">
-                    site para essa marca
-                  </span>
-                  .
-                </p>
+                <p
+                  className="text-xl text-vegBrown-light leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("timeline.2018.description1"),
+                  }}
+                />
+                <p
+                  className="text-xl text-vegBrown-light leading-relaxed mt-4"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("timeline.2018.description2"),
+                  }}
+                />
               </div>
-              <div className="relative">
-                {/* <div className="absolute -z-10 h-64 w-64 rounded-full bg-vegYellow/20 -right-10 -top-10"></div> */}
-                {/* <div className="bg-white p-4 rounded-xl shadow-lg">
-                                <Image
-                                    src="/nossa-historia/etec-identidade.jpg"
-                                    alt="ETEC logo"
-                                    width={400}
-                                    height={300}
-                                    className="rounded-lg w-full h-auto"
-                                    priority
-                                />
-                                </div> */}
-              </div>
+              <div className="relative"></div>
             </div>
             {/* Timeline dot */}
             <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegYellow border-4 border-background hidden md:block"></div>
@@ -103,47 +72,26 @@ export default function OurHistoryPage() {
           {/* Timeline Item 2 */}
           <div className="relative mb-24">
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1 relative">
-                {/* <div className="absolute -z-10 h-64 w-64 rounded-full bg-vegGreen/20 -left-10 -top-10"></div> */}
-                {/* <div className="bg-white p-4 rounded-xl shadow-lg">
-                            <Image
-                                src="/placeholder.svg?height=300&width=400"
-                                alt="Os dois Gabriéis, Gabriel Paiva e Gabriel Alexander"
-                                width={400}
-                                height={300}
-                                className="rounded-lg h-auto"
-                            />
-                            </div> */}
-              </div>
+              <div className="order-2 md:order-1 relative"></div>
               <div className="order-1 md:order-2 mb-8 md:mb-0">
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
-                  A PARCERIA
+                  {t("timeline.partnership.badge")}
                 </div>
                 <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
-                  DOIS GABRIÉIS, UMA IDEIA
+                  {t("timeline.partnership.title")}
                 </h2>
-                <p className="text-xl text-vegBrown-light leading-relaxed">
-                  O <span className="font-bold text-vegGreen">programador</span>{" "}
-                  que vos fala,{" "}
-                  <span className="font-bold text-vegYellow">
-                    Gabriel Alexander
-                  </span>
-                  , juntou-se ao seu grande parceiro{" "}
-                  <span className="font-bold text-vegYellow">
-                    Gabriel Paiva
-                  </span>
-                  .
-                </p>
-                <p className="text-xl text-vegBrown-light leading-relaxed mt-4">
-                  Depois de muita reflexão e brainstorming... Gabriel... Gabriel
-                  com cara de quê?{" "}
-                  <span className="font-bold text-vegOrange">Pastel!</span> E
-                  assim, surgiu a{" "}
-                  <span className="font-bold text-vegGreen">
-                    Gabriel Pastel
-                  </span>
-                  , fruto de uma ideia divertida e cheia de sabor!
-                </p>
+                <p
+                  className="text-xl text-vegBrown-light leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("timeline.partnership.description1"),
+                  }}
+                />
+                <p
+                  className="text-xl text-vegBrown-light leading-relaxed mt-4"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("timeline.partnership.description2"),
+                  }}
+                />
               </div>
             </div>
             {/* Timeline dot */}
@@ -155,157 +103,106 @@ export default function OurHistoryPage() {
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
               <div className="md:text-right mb-8 md:mb-0">
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
-                  O PRIMEIRO SITE
+                  {t("timeline.firstSite.badge")}
                 </div>
                 <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
-                  PRIMEIROS PASSOS DIGITAIS
+                  {t("timeline.firstSite.title")}
                 </h2>
-                <p className="text-xl text-vegBrown-light leading-relaxed">
-                  Com{" "}
-                  <span className="font-bold text-vegYellow">
-                    HTML e CSS básicos
-                  </span>
-                  , criamos o primeiro site da Gabriel Pastel. Era simples, mas
-                  cumpria seu papel no{" "}
-                  <span className="font-bold text-vegGreen">
-                    projeto escolar
-                  </span>
-                  . Aqui está a{" "}
-                  <span className="font-bold text-vegOrange">
-                    primeira versão
-                  </span>{" "}
-                  da nossa marca e um link para o site original.
-                </p>
+                <p
+                  className="text-xl text-vegBrown-light leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("timeline.firstSite.description"),
+                  }}
+                />
                 <div className="mt-6">
                   <Link
                     href="/site-original"
                     className="inline-flex items-center text-vegGreen hover:text-vegYellow hover:scale-105 text-xl transition-all duration-200 font-semibold"
                   >
-                    Ver site original <ExternalLink className="ml-2 h-5 w-5" />
+                    {t("timeline.firstSite.linkText")}{" "}
+                    <ExternalLink className="ml-2 h-5 w-5" />
                   </Link>
                 </div>
               </div>
-              <div className="relative">
-                {/* <div className="absolute -z-10 h-64 w-64 rounded-full bg-vegYellow/20 -right-10 -top-10"></div> */}
-                {/* <div className="bg-white p-4 rounded-xl shadow-lg">
-                                <Image
-                                    src="/o/LOGO.png"
-                                    alt="Primeira marca da Gabriel Pastel"
-                                    width={400}
-                                    height={300}
-                                    className="rounded-lg h-auto"
-                                    priority
-                                />
-                            </div> */}
-              </div>
+              <div className="relative"></div>
             </div>
             {/* Timeline dot */}
             <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegYellow border-4 border-background hidden md:block"></div>
           </div>
 
-          {/* Timeline Item 4 */}
+          {/* Timeline Item 4 - Plant Based */}
           <div className="relative mb-24">
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1 relative">
-                {/* <div className="absolute -z-10 h-64 w-64 rounded-full bg-vegGreen/20 -left-10 -top-10"></div> */}
-                {/* <div className="bg-white p-4 rounded-xl shadow-lg">
-                                <Image
-                                    src="/placeholder.svg?height=300&width=400"
-                                    alt="Transformação vegana"
-                                    width={400}
-                                    height={300}
-                                    className="rounded-lg w-full h-auto"
-                                />
-                            </div> */}
-              </div>
+              <div className="order-2 md:order-1 relative"></div>
               <div className="order-1 md:order-2 mb-8 md:mb-0">
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
-                  2023
+                  {t("timeline.plantBased.badge")}
                 </div>
                 <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
-                  A TRANSFORMAÇÃO VEGANA
+                  {t("timeline.plantBased.title")}
                 </h2>
-                <p className="text-xl text-vegBrown-light leading-relaxed">
-                  Alguns anos se passaram, e Gabriel (o Alexander){" "}
-                  <span className="font-bold text-vegGreen">
-                    se tornou vegano
-                  </span>{" "}
-                  e decidiu dar uma{" "}
-                  <span className="font-bold text-vegYellow">
-                    repaginada no site
-                  </span>{" "}
-                  no seu tempo livre – afinal, todo programador precisa de um
-                  bom portfólio, certo?
-                </p>
-                <p className="text-xl text-vegBrown-light leading-relaxed mt-4">
-                  A Gabriel Pastel ganhou então uma{" "}
-                  <span className="font-bold text-vegOrange">nova missão</span>:
-                  promover uma alimentação{" "}
-                  <span className="font-bold text-vegGreen">
-                    deliciosa, ética e sustentável
-                  </span>{" "}
-                  através de pastéis 100% veganos.
-                </p>
+                <p
+                  className="text-xl text-vegBrown-light leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("timeline.plantBased.description1"),
+                  }}
+                />
+                <p
+                  className="text-xl text-vegBrown-light leading-relaxed mt-4"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("timeline.plantBased.description2"),
+                  }}
+                />
               </div>
             </div>
             {/* Timeline dot */}
             <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegGreen-light border-4 border-background hidden md:block"></div>
           </div>
 
-          {/* Timeline Item 5 */}
-          <div className="relative">
+          {/* Timeline Item 5 - Relaunch */}
+          <div className="relative mb-24">
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
               <div className="md:text-right mb-8 md:mb-0">
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
-                  HOJE
+                  {t("timeline.relaunch.badge")}
                 </div>
                 <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
-                  UM PROJETO COM PROPÓSITO
+                  {t("timeline.relaunch.title")}
                 </h2>
-                <p className="text-xl text-vegBrown-light leading-relaxed">
-                  Apesar de ter nascido de um projeto despretensioso de ensino
-                  médio, a nova versão da{" "}
-                  <span className="font-bold text-vegGreen">
-                    Gabriel Pastel
-                  </span>{" "}
-                  carrega uma{" "}
-                  <span className="font-bold text-vegYellow">
-                    mensagem de amor e cuidado
-                  </span>{" "}
-                  com o planeta e os animais.
-                </p>
-                <p className="text-xl text-vegBrown-light leading-relaxed mt-4">
-                  Além disso, reflete um{" "}
-                  <span className="font-bold text-vegOrange">
-                    grande avanço tecnológico
-                  </span>
-                  : o que antes era feito com{" "}
-                  <span className="font-bold text-vegYellow">
-                    HTML e CSS básicos
-                  </span>
-                  , agora é uma{" "}
-                  <span className="font-bold text-vegGreen">
-                    aplicação robusta
-                  </span>{" "}
-                  desenvolvida em React e TypeScript, integrada com banco de
-                  dados e outras tecnologias de ponta.
-                </p>
+                <p
+                  className="text-xl text-vegBrown-light leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("timeline.relaunch.description"),
+                  }}
+                />
               </div>
-              <div className="relative">
-                {/* <div className="absolute -z-10 h-64 w-64 rounded-full bg-vegYellow/20 -right-10 -top-10"></div>
-                            <div className="bg-white p-4 rounded-xl shadow-lg">
-                            <Image
-                                src="/banner/pastel-dude-splash.png"
-                                alt="Nova Gabriel Pastel"
-                                width={400}
-                                height={300}
-                                className="rounded-lg w-full h-auto"
-                            />
-                            </div> */}
-              </div>
+              <div className="relative"></div>
             </div>
             {/* Timeline dot */}
             <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegYellow border-4 border-background hidden md:block"></div>
+          </div>
+
+          {/* Timeline Item 6 - Mission */}
+          <div className="relative">
+            <div className="md:grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1 relative"></div>
+              <div className="order-1 md:order-2 mb-8 md:mb-0">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
+                  {t("timeline.mission.badge")}
+                </div>
+                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                  {t("timeline.mission.title")}
+                </h2>
+                <p
+                  className="text-xl text-vegBrown-light leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("timeline.mission.description"),
+                  }}
+                />
+              </div>
+            </div>
+            {/* Timeline dot */}
+            <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegGreen-light border-4 border-background hidden md:block"></div>
           </div>
         </div>
       </div>

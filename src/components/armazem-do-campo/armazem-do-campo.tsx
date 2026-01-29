@@ -6,8 +6,10 @@ import Image from "next/image";
 import OrderNowBtn from "@/components/ui/order-now-btn";
 import { Leaf } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 function ArmazemDoCampo() {
+  const t = useTranslations("home.armazem");
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -39,20 +41,14 @@ function ArmazemDoCampo() {
         <div className="w-[45%] flex flex-col justify-center space-y-6">
           <h2 className="font-gluten text-5xl text-vegGreen leading-tight flex items-center gap-4">
             <Leaf className="w-12 h-12" />
-            SEU PASTEL SEM VENENO
+            {t("title")}
           </h2>
+          <p
+            className="text-xl text-vegBrown-dark/80 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t.raw("description1") }}
+          />
           <p className="text-xl text-vegBrown-dark/80 leading-relaxed">
-            Nossos pastéis são preparados com{" "}
-            <span className="font-bold text-vegGreen">
-              ingredientes frescos e orgânicos
-            </span>{" "}
-            fornecidos pelo{" "}
-            <span className="font-bold text-vegOrange">Armazém do Campo</span>,
-            uma iniciativa do MST.
-          </p>
-          <p className="text-xl text-vegBrown-dark/80 leading-relaxed">
-            Utilizamos práticas agroecológicas que respeitam o meio ambiente e
-            garantem a saúde dos consumidores.
+            {t("description2")}
           </p>
           <div className="mt-4">
             <OrderNowBtn />

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Minus, Plus, ShoppingCart, Trash2, Loader2 } from "lucide-react";
 import { toast, Toaster } from "sonner";
+import { useTranslations, useLocale } from "next-intl";
 
 // Tipos para os recheios e pastéis
 type Ingredient = {
@@ -28,6 +29,8 @@ type Pastel = {
 };
 
 export default function MonteSeuPastel() {
+  const t = useTranslations("builder");
+  const locale = useLocale();
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -77,7 +80,7 @@ export default function MonteSeuPastel() {
     const recheio = ingredientes.find((r) => r.id === id);
 
     if (recheio && !recheio.selecionado && recheiosSelecionados >= 5) {
-      toast.error("Você pode selecionar no máximo 5 recheios por pastel");
+      toast.error(t("toasts.maxIngredients"));
       return;
     }
 
@@ -93,7 +96,7 @@ export default function MonteSeuPastel() {
     if (quantidade < 10) {
       setQuantidade(quantidade + 1);
     } else {
-      toast.error("Máximo de 10 pastéis por pedido");
+      toast.error(t("toasts.maxQuantity"));
     }
   };
 
@@ -109,7 +112,7 @@ export default function MonteSeuPastel() {
     const recheiosSelecionados = ingredientes.filter((r) => r.selecionado);
 
     if (recheiosSelecionados.length === 0) {
-      toast.error("Selecione pelo menos um recheio");
+      toast.error(t("toasts.minIngredients"));
       return;
     }
 
@@ -126,15 +129,18 @@ export default function MonteSeuPastel() {
     setIngredientes(ingredientes.map((r) => ({ ...r, selecionado: false })));
     setQuantidade(1);
 
-    toast.success("Pastel adicionado ao carrinho!", {
-      description: `${quantidade}x Pastel com ${recheiosSelecionados.map((r) => r.name).join(", ")}`,
+    toast.success(t("toasts.addedToCart"), {
+      description: t("toasts.addedDescription", {
+        quantity: quantidade,
+        ingredients: recheiosSelecionados.map((r) => r.name).join(", "),
+      }),
     });
   };
 
   // Função para remover do carrinho
   const removerDoCarrinho = (id: string) => {
     setPasteis(pasteis.filter((p) => p.id !== id));
-    toast.success("Pastel removido do carrinho");
+    toast.success(t("toasts.removed"));
   };
 
   // Função para calcular o preço
@@ -252,18 +258,12 @@ export default function MonteSeuPastel() {
         <div className="w-2/3 mx-auto text-center space-y-6">
           <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
             <ShoppingCart className="w-12 h-12 text-vegYellow" />
-            MONTE SEU PASTEL
+            {t("title")}
           </h1>
-          <p className="text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed">
-            Escolha os recheios e crie{" "}
-            <span className="font-bold text-vegYellow">
-              combinações deliciosas
-            </span>{" "}
-            para o seu{" "}
-            <span className="font-bold text-vegGreen">pastel vegano</span>. Até{" "}
-            <span className="font-bold text-vegOrange">três recheios</span>{" "}
-            estão inclusos no preço base.
-          </p>
+          <p
+            className="text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
+          />
         </div>
       </div>
 
@@ -285,7 +285,7 @@ export default function MonteSeuPastel() {
           {/* Coluna de seleção de recheios */}
           <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition-shadow duration-300">
             <h2 className="text-3xl font-holtwood mb-8 text-vegBrown-dark">
-              SELECIONE OS RECHEIOS
+              {t("selectIngredientsTitle")}
             </h2>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full">
