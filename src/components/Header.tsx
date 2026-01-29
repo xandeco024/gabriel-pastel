@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import AuthModal from "./AuthModal";
 import { User, ShoppingBag, LogOut, LogIn, UserPlus, Leaf } from "lucide-react";
 
@@ -190,12 +191,16 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Auth Modal */}
-      <AuthModal
-        isOpen={authModalOpen}
-        onClose={() => setAuthModalOpen(false)}
-        initialMode={authMode}
-      />
+      {/* Auth Modal - Renderizado via portal para evitar problemas de z-index */}
+      {typeof window !== "undefined" &&
+        createPortal(
+          <AuthModal
+            isOpen={authModalOpen}
+            onClose={() => setAuthModalOpen(false)}
+            initialMode={authMode}
+          />,
+          document.body,
+        )}
     </header>
   );
 }

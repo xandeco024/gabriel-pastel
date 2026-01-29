@@ -8,9 +8,7 @@ import {
   Code,
   Github,
   ExternalLink,
-  Carrot,
-  Pizza,
-  Salad,
+  Sparkles,
 } from "lucide-react";
 
 import Link from "next/link";
@@ -19,46 +17,27 @@ import OrderNowBtn from "@/components/ui/order-now-btn";
 export default function OurHistoryPage() {
   return (
     <div className="min-h-screen mt-24 pt-24 space-y-48 relative overflow-hidden">
-      {/* Ícones Decorativos - 100% Veganos */}
-
-      {/* Canto superior direito */}
-      <Leaf className="absolute top-12 right-[15%] w-[280px] h-[280px] -z-10 opacity-[0.15] text-vegGreen-light rotate-[25deg] animate-float-slow" />
-
-      {/* Esquerda superior mais central */}
-      <Carrot className="absolute top-[20%] left-[10%] w-[240px] h-[240px] -z-10 opacity-[0.18] text-vegOrange -rotate-[35deg] animate-float-slower" />
-
-      {/* Direita centro */}
-      <Salad className="absolute top-[35%] right-[12%] w-[260px] h-[260px] -z-10 opacity-[0.16] text-vegGreen rotate-[15deg] animate-float-slow" />
-
-      {/* Esquerda centro-baixo */}
-      <Pizza className="absolute top-[55%] left-[8%] w-[300px] h-[300px] -z-10 opacity-[0.14] text-vegYellow rotate-[20deg] animate-float-slower" />
-
-      {/* Centro-direita baixo */}
-      <Leaf className="absolute bottom-[25%] right-[18%] w-[220px] h-[220px] -z-10 opacity-[0.17] text-vegGreen-dark -rotate-[40deg] animate-float-slow" />
-
-      {/* Centro-esquerda meio */}
-      <Carrot className="absolute top-[42%] left-[15%] w-[190px] h-[190px] -z-10 opacity-[0.15] text-vegOrange-light rotate-[50deg] animate-float-slower" />
-
-      {/* Mais central superior */}
-      <Salad className="absolute top-[28%] right-[25%] w-[200px] h-[200px] -z-10 opacity-[0.13] text-vegGreen-light rotate-[-25deg] animate-float-slow" />
-
-      {/* Mais central inferior */}
-      <Pizza className="absolute bottom-[20%] left-[22%] w-[240px] h-[240px] -z-10 opacity-[0.16] text-vegRed rotate-[35deg] animate-float-slower" />
-
-      {/* Centro quase no meio */}
-      <Leaf className="absolute top-[48%] right-[30%] w-[180px] h-[180px] -z-10 opacity-[0.12] text-vegGreen rotate-[10deg] animate-float-slow" />
-
       {/* Hero Section */}
       <div className="relative">
-        {/* <div className="absolute right-0 top-0 -z-10 h-full w-1/2 bg-vegYellow/10 rounded-l-full"></div>     */}
-        <div className="w-2/3 mx-auto text-center">
-          <h1 className="text-4xl font-holtwood mb-10">
-            A HISTÓRIA DA GABRIEL PASTEL
+        <div className="w-2/3 mx-auto text-center space-y-6">
+          <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
+            <Sparkles className="w-12 h-12 text-vegYellow" />A HISTÓRIA DA
+            GABRIEL PASTEL
           </h1>
-          <p className="text-2xl text-vegBrown-light max-w-3xl mx-auto">
-            De um simples trabalho escolar a um projeto com propósito: conheça a
-            trajetória que deu origem à lanchonete de pastéis veganos mais
-            saborosa que você já conheceu.
+          <p className="text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed">
+            De um{" "}
+            <span className="font-bold text-vegYellow">
+              simples trabalho escolar
+            </span>{" "}
+            a um{" "}
+            <span className="font-bold text-vegGreen">
+              projeto com propósito
+            </span>
+            : conheça a trajetória que deu origem à lanchonete de{" "}
+            <span className="font-bold text-vegOrange">
+              pastéis veganos mais saborosa
+            </span>{" "}
+            que você já conheceu.
           </p>
         </div>
       </div>
@@ -73,20 +52,34 @@ export default function OurHistoryPage() {
           <div className="relative mb-24">
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
               <div className="md:text-right mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1 text-md font-semibold text-vegYellow mb-4">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   2018
                 </div>
-                <h2 className="text-3xl font-holtwood mb-4">
+                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   O INÍCIO NA ETEC
                 </h2>
-                <p className="text-xl text-vegBrown-light font-light">
-                  A Gabriel Pastel nasceu de um trabalho de Marketing na ETEC.
+                <p className="text-xl text-vegBrown-light leading-relaxed">
+                  A{" "}
+                  <span className="font-bold text-vegGreen">
+                    Gabriel Pastel
+                  </span>{" "}
+                  nasceu de um trabalho de{" "}
+                  <span className="font-bold text-vegYellow">
+                    Marketing na ETEC
+                  </span>
+                  .
                 </p>
-                <p className="text-xl text-vegBrown-light font-light mt-4">
-                  A missão era simples: criar uma marca. Mas como o professor
-                  também dava aula de desenvolvimento web, ele uniu as
-                  disciplinas e nos desafiou a construir um site para essa
-                  marca.
+                <p className="text-xl text-vegBrown-light leading-relaxed mt-4">
+                  A missão era simples:{" "}
+                  <span className="font-bold text-vegOrange">
+                    criar uma marca
+                  </span>
+                  . Mas como o professor também dava aula de desenvolvimento
+                  web, ele uniu as disciplinas e nos desafiou a construir um{" "}
+                  <span className="font-bold text-vegGreen">
+                    site para essa marca
+                  </span>
+                  .
                 </p>
               </div>
               <div className="relative">
@@ -123,20 +116,33 @@ export default function OurHistoryPage() {
                             </div> */}
               </div>
               <div className="order-1 md:order-2 mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1 text-md font-semibold text-vegYellow mb-4">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   A PARCERIA
                 </div>
-                <h2 className="text-3xl font-holtwood mb-4">
+                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   DOIS GABRIÉIS, UMA IDEIA
                 </h2>
-                <p className="text-xl text-vegBrown-light font-light">
-                  O programador que vos fala, Gabriel Alexander, juntou-se ao
-                  seu grande parceiro Gabriel Paiva.
+                <p className="text-xl text-vegBrown-light leading-relaxed">
+                  O <span className="font-bold text-vegGreen">programador</span>{" "}
+                  que vos fala,{" "}
+                  <span className="font-bold text-vegYellow">
+                    Gabriel Alexander
+                  </span>
+                  , juntou-se ao seu grande parceiro{" "}
+                  <span className="font-bold text-vegYellow">
+                    Gabriel Paiva
+                  </span>
+                  .
                 </p>
-                <p className="text-xl text-vegBrown-light font-light mt-4">
+                <p className="text-xl text-vegBrown-light leading-relaxed mt-4">
                   Depois de muita reflexão e brainstorming... Gabriel... Gabriel
-                  com cara de quê? Pastel! E assim, surgiu a Gabriel Pastel,
-                  fruto de uma ideia divertida e cheia de sabor!
+                  com cara de quê?{" "}
+                  <span className="font-bold text-vegOrange">Pastel!</span> E
+                  assim, surgiu a{" "}
+                  <span className="font-bold text-vegGreen">
+                    Gabriel Pastel
+                  </span>
+                  , fruto de uma ideia divertida e cheia de sabor!
                 </p>
               </div>
             </div>
@@ -148,24 +154,34 @@ export default function OurHistoryPage() {
           <div className="relative mb-24">
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
               <div className="md:text-right mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1 text-md font-semibold text-vegYellow mb-4">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   O PRIMEIRO SITE
                 </div>
-                <h2 className="text-3xl font-holtwood mb-4">
+                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   PRIMEIROS PASSOS DIGITAIS
                 </h2>
-                <p className="text-xl text-vegBrown-light font-light">
-                  Com HTML e CSS básicos, criamos o primeiro site da Gabriel
-                  Pastel. Era simples, mas cumpria seu papel no projeto escolar.
-                  Aqui está a primeira versão da nossa marca e um link para o
-                  site original.
+                <p className="text-xl text-vegBrown-light leading-relaxed">
+                  Com{" "}
+                  <span className="font-bold text-vegYellow">
+                    HTML e CSS básicos
+                  </span>
+                  , criamos o primeiro site da Gabriel Pastel. Era simples, mas
+                  cumpria seu papel no{" "}
+                  <span className="font-bold text-vegGreen">
+                    projeto escolar
+                  </span>
+                  . Aqui está a{" "}
+                  <span className="font-bold text-vegOrange">
+                    primeira versão
+                  </span>{" "}
+                  da nossa marca e um link para o site original.
                 </p>
-                <div className="mt-4">
+                <div className="mt-6">
                   <Link
                     href="/site-original"
-                    className="inline-flex items-center text-vegGreen-light hover:text-vegYellow hover:scale-105 text-xl transition-all duration-200"
+                    className="inline-flex items-center text-vegGreen hover:text-vegYellow hover:scale-105 text-xl transition-all duration-200 font-semibold"
                   >
-                    Ver site original <ExternalLink className="ml-1 h-4 w-4" />
+                    Ver site original <ExternalLink className="ml-2 h-5 w-5" />
                   </Link>
                 </div>
               </div>
@@ -203,21 +219,32 @@ export default function OurHistoryPage() {
                             </div> */}
               </div>
               <div className="order-1 md:order-2 mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1 text-md font-semibold text-vegYellow mb-4">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   2023
                 </div>
-                <h2 className="text-3xl font-holtwood mb-4">
+                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   A TRANSFORMAÇÃO VEGANA
                 </h2>
-                <p className="text-xl text-vegBrown-light font-light">
-                  Alguns anos se passaram, e Gabriel (o Alexander) se tornou
-                  vegano e decidiu dar uma repaginada no site no seu tempo livre
-                  – afinal, todo programador precisa de um bom portfólio, certo?
+                <p className="text-xl text-vegBrown-light leading-relaxed">
+                  Alguns anos se passaram, e Gabriel (o Alexander){" "}
+                  <span className="font-bold text-vegGreen">
+                    se tornou vegano
+                  </span>{" "}
+                  e decidiu dar uma{" "}
+                  <span className="font-bold text-vegYellow">
+                    repaginada no site
+                  </span>{" "}
+                  no seu tempo livre – afinal, todo programador precisa de um
+                  bom portfólio, certo?
                 </p>
-                <p className="text-xl text-vegBrown-light font-light mt-4">
-                  A Gabriel Pastel ganhou então uma nova missão: promover uma
-                  alimentação deliciosa, ética e sustentável através de pastéis
-                  100% veganos.
+                <p className="text-xl text-vegBrown-light leading-relaxed mt-4">
+                  A Gabriel Pastel ganhou então uma{" "}
+                  <span className="font-bold text-vegOrange">nova missão</span>:
+                  promover uma alimentação{" "}
+                  <span className="font-bold text-vegGreen">
+                    deliciosa, ética e sustentável
+                  </span>{" "}
+                  através de pastéis 100% veganos.
                 </p>
               </div>
             </div>
@@ -229,22 +256,39 @@ export default function OurHistoryPage() {
           <div className="relative">
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
               <div className="md:text-right mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1 text-md font-semibold text-vegYellow mb-4">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   HOJE
                 </div>
-                <h2 className="text-3xl font-holtwood mb-4">
+                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   UM PROJETO COM PROPÓSITO
                 </h2>
-                <p className="text-xl text-vegBrown-light font-light">
+                <p className="text-xl text-vegBrown-light leading-relaxed">
                   Apesar de ter nascido de um projeto despretensioso de ensino
-                  médio, a nova versão da Gabriel Pastel carrega uma mensagem de
-                  amor e cuidado com o planeta e os animais.
+                  médio, a nova versão da{" "}
+                  <span className="font-bold text-vegGreen">
+                    Gabriel Pastel
+                  </span>{" "}
+                  carrega uma{" "}
+                  <span className="font-bold text-vegYellow">
+                    mensagem de amor e cuidado
+                  </span>{" "}
+                  com o planeta e os animais.
                 </p>
-                <p className="text-xl text-vegBrown-light font-light mt-4">
-                  Além disso, reflete um grande avanço tecnológico: o que antes
-                  era feito com HTML e CSS básicos, agora é uma aplicação
-                  robusta desenvolvida em React e TypeScript, integrada com
-                  banco de dados e outras tecnologias de ponta.
+                <p className="text-xl text-vegBrown-light leading-relaxed mt-4">
+                  Além disso, reflete um{" "}
+                  <span className="font-bold text-vegOrange">
+                    grande avanço tecnológico
+                  </span>
+                  : o que antes era feito com{" "}
+                  <span className="font-bold text-vegYellow">
+                    HTML e CSS básicos
+                  </span>
+                  , agora é uma{" "}
+                  <span className="font-bold text-vegGreen">
+                    aplicação robusta
+                  </span>{" "}
+                  desenvolvida em React e TypeScript, integrada com banco de
+                  dados e outras tecnologias de ponta.
                 </p>
               </div>
               <div className="relative">
@@ -268,41 +312,66 @@ export default function OurHistoryPage() {
 
       {/* Values Section */}
       <div className="py-16 md:py-24 bg-vegGreen/10">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-holtwood mb-12">
+        <div className="container mx-auto px-4 md:px-6 text-center space-y-8">
+          <h2 className="text-5xl font-holtwood text-vegBrown-dark">
             NOSSOS VALORES
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
-              <div className="w-16 h-16 bg-vegYellow/10 rounded-full flex items-center justify-center mx-auto">
-                <Heart className="h-8 w-8 text-vegYellow" />
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
+              <div className="w-20 h-20 bg-vegYellow/15 rounded-full flex items-center justify-center mx-auto shadow-md">
+                <Heart className="h-10 w-10 text-vegYellow" />
               </div>
-              <h3 className="text-xl font-holtwood">COMPAIXÃO</h3>
-              <p className="text-vegBrown-light">
-                Acreditamos que todos os seres merecem respeito e compaixão. Por
-                isso, nossos pastéis são 100% livres de crueldade animal.
+              <h3 className="text-2xl font-holtwood text-vegYellow">
+                COMPAIXÃO
+              </h3>
+              <p className="text-vegBrown-light leading-relaxed">
+                Acreditamos que{" "}
+                <span className="font-bold text-vegGreen">
+                  todos os seres merecem respeito
+                </span>{" "}
+                e compaixão. Por isso, nossos pastéis são{" "}
+                <span className="font-bold text-vegYellow">
+                  100% livres de crueldade animal
+                </span>
+                .
               </p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
-              <div className="w-16 h-16 bg-vegGreen/15 rounded-full flex items-center justify-center mx-auto">
-                <Leaf className="h-8 w-8 text-vegGreen-light" />
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
+              <div className="w-20 h-20 bg-vegGreen/15 rounded-full flex items-center justify-center mx-auto shadow-md">
+                <Leaf className="h-10 w-10 text-vegGreen" />
               </div>
-              <h3 className="text-xl font-holtwood">SUSTENTABILIDADE</h3>
-              <p className="text-vegBrown-light">
-                Nosso compromisso com o planeta se reflete em cada aspecto do
-                nosso negócio, desde os ingredientes até as embalagens
-                biodegradáveis.
+              <h3 className="text-2xl font-holtwood text-vegGreen">
+                SUSTENTABILIDADE
+              </h3>
+              <p className="text-vegBrown-light leading-relaxed">
+                Nosso{" "}
+                <span className="font-bold text-vegGreen">
+                  compromisso com o planeta
+                </span>{" "}
+                se reflete em cada aspecto do nosso negócio, desde os{" "}
+                <span className="font-bold text-vegYellow">ingredientes</span>{" "}
+                até as{" "}
+                <span className="font-bold text-vegOrange">
+                  embalagens biodegradáveis
+                </span>
+                .
               </p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
-              <div className="w-16 h-16 bg-vegYellow/15 rounded-full flex items-center justify-center mx-auto">
-                <Utensils className="h-8 w-8 text-vegYellow" />
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
+              <div className="w-20 h-20 bg-vegOrange/15 rounded-full flex items-center justify-center mx-auto shadow-md">
+                <Utensils className="h-10 w-10 text-vegOrange" />
               </div>
-              <h3 className="text-xl font-holtwood">SABOR</h3>
-              <p className="text-vegBrown-light">
-                Provamos que comida ética e sustentável também pode ser
-                deliciosa. Nossos pastéis são uma explosão de sabores que
-                conquistam até os mais céticos.
+              <h3 className="text-2xl font-holtwood text-vegOrange">SABOR</h3>
+              <p className="text-vegBrown-light leading-relaxed">
+                Provamos que comida{" "}
+                <span className="font-bold text-vegGreen">
+                  ética e sustentável
+                </span>{" "}
+                também pode ser deliciosa. Nossos pastéis são uma{" "}
+                <span className="font-bold text-vegYellow">
+                  explosão de sabores
+                </span>{" "}
+                que conquistam até os mais céticos.
               </p>
             </div>
           </div>
@@ -314,16 +383,27 @@ export default function OurHistoryPage() {
         <div className="container mx-auto">
           <div className="md:grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-block rounded-full bg-vegGreen/15 px-4 py-1 text-sm font-medium text-vegGreen-light   mb-4">
+              <div className="inline-block rounded-full bg-vegGreen/15 px-5 py-2 text-lg font-semibold text-vegGreen mb-4 shadow-md">
                 TECNOLOGIA
               </div>
-              <h2 className="text-2xl md:text-3xl font-holtwood mb-6">
+              <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
                 DE HTML BÁSICO A REACT
               </h2>
-              <p className="text-lg text-vegBrown-light mb-6">
-                A evolução da Gabriel Pastel também reflete o crescimento
-                profissional do seu criador. O que começou com HTML e CSS
-                básicos se transformou em uma aplicação moderna construída com:
+              <p className="text-lg text-vegBrown-light mb-6 leading-relaxed">
+                A{" "}
+                <span className="font-bold text-vegYellow">
+                  evolução da Gabriel Pastel
+                </span>{" "}
+                também reflete o{" "}
+                <span className="font-bold text-vegGreen">
+                  crescimento profissional
+                </span>{" "}
+                do seu criador. O que começou com HTML e CSS básicos se
+                transformou em uma{" "}
+                <span className="font-bold text-vegOrange">
+                  aplicação moderna
+                </span>{" "}
+                construída com:
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start">
@@ -420,14 +500,22 @@ export default function OurHistoryPage() {
 
       {/* CTA Section */}
       <div className="py-16 md:py-24 bg-[#F58A07]/10">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-2xl font-holtwood text-vegBrown-dark md:text-3xl mb-6">
+        <div className="container mx-auto px-4 md:px-6 text-center space-y-6">
+          <h2 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-3 justify-center">
+            <Sparkles className="w-12 h-12 text-vegYellow" />
             FAÇA PARTE DESSA HISTÓRIA
           </h2>
-          <p className="text-lg text-vegBrown-light max-w-2xl mx-auto mb-8">
-            A Gabriel Pastel continua evoluindo e queremos que você faça parte
-            dessa jornada. Experimente nossos deliciosos pastéis veganos e ajude
-            a escrever os próximos capítulos dessa história!
+          <p className="text-xl font-gluten text-vegBrown-light max-w-2xl mx-auto leading-relaxed">
+            A <span className="font-bold text-vegGreen">Gabriel Pastel</span>{" "}
+            continua evoluindo e queremos que você{" "}
+            <span className="font-bold text-vegYellow">
+              faça parte dessa jornada
+            </span>
+            . Experimente nossos{" "}
+            <span className="font-bold text-vegOrange">
+              deliciosos pastéis veganos
+            </span>{" "}
+            e ajude a escrever os próximos capítulos dessa história!
           </p>
           <OrderNowBtn
             size="xl2"

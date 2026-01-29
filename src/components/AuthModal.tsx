@@ -45,11 +45,38 @@ export default function AuthModal({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  // Função para calcular força da senha
+  const getPasswordStrength = (
+    pwd: string,
+  ): { level: number; label: string; color: string } => {
+    if (pwd.length === 0) return { level: 0, label: "", color: "" };
+    if (pwd.length < 4)
+      return { level: 1, label: "Super Fraca", color: "bg-vegRed" };
+    if (pwd.length < 6)
+      return { level: 2, label: "Fraca", color: "bg-vegOrange" };
+
+    let strength = 0;
+    if (pwd.length >= 8) strength++;
+    if (/[a-z]/.test(pwd) && /[A-Z]/.test(pwd)) strength++;
+    if (/\d/.test(pwd)) strength++;
+    if (/[^a-zA-Z0-9]/.test(pwd)) strength++;
+
+    if (strength <= 1)
+      return { level: 2, label: "Fraca", color: "bg-vegOrange" };
+    if (strength === 2)
+      return { level: 3, label: "Média", color: "bg-vegYellow" };
+    return { level: 4, label: "Forte", color: "bg-vegGreen" };
+  };
+
+  const passwordStrength = getPasswordStrength(password);
 
   const resetForm = () => {
     setName("");
     setEmail("");
     setPassword("");
+    setConfirmPassword("");
   };
 
   const handleClose = () => {
@@ -79,6 +106,23 @@ export default function AuthModal({
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validar senha super fraca
+    if (password.length < 4) {
+      toast.error("Senha muito fraca!", {
+        description: "Por favor, use pelo menos 4 caracteres.",
+      });
+      return;
+    }
+
+    // Validar confirmação de senha
+    if (password !== confirmPassword) {
+      toast.error("As senhas não coincidem!", {
+        description: "Verifique se digitou a mesma senha nos dois campos.",
+      });
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -145,7 +189,7 @@ export default function AuthModal({
         <div className="p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-holtwood text-vegGreen mb-2">
+            <h1 className="text-3xl font-holtwood text-vegBrown-dark mb-2">
               GABRIEL PASTEL
             </h1>
             <h2 className="text-xl font-semibold text-foreground">
@@ -212,20 +256,87 @@ export default function AuthModal({
                 id="password"
                 type="password"
                 required
-                minLength={6}
+                minLength={mode === "signup" ? 4 : 1}
                 className="w-full px-4 py-3 border-2 border-vegGreen/30 rounded-lg placeholder-vegGreen/50 text-foreground bg-white focus:outline-none focus:ring-2 focus:ring-vegGreen focus:border-vegGreen transition-colors"
                 placeholder={
-                  mode === "signup" ? "Mínimo 6 caracteres" : "Sua senha"
+                  mode === "signup" ? "Mínimo 4 caracteres" : "Sua senha"
                 }
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {mode === "signup" && (
-                <p className="text-xs text-vegGreen/70 mt-1">
-                  Use uma senha forte para proteger sua conta 🔒
-                </p>
+
+              {/* Medidor de força da senha - apenas no signup */}
+              {mode === "signup" && password.length > 0 && (
+                <div className="mt-2 space-y-1">
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4].map((level) => (
+                      <div
+                        key={level}
+                        className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                          level <= passwordStrength.level
+                            ? passwordStrength.color
+                            : "bg-gray-200"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <p
+                    className={`text-xs font-medium ${
+                      passwordStrength.level === 1
+                        ? "text-vegRed"
+                        : passwordStrength.level === 2
+                          ? "text-vegOrange"
+                          : passwordStrength.level === 3
+                            ? "text-vegYellow"
+                            : "text-vegGreen"
+                    }`}
+                  >
+                    {passwordStrength.label}
+                    {passwordStrength.level === 1 &&
+                      " - Use pelo menos 4 caracteres"}
+                    {passwordStrength.level === 2 &&
+                      " - Tente adicionar números ou símbolos"}
+                    {passwordStrength.level === 3 && " - Boa senha! 👍"}
+                    {passwordStrength.level === 4 && " - Excelente! 🔒"}
+                  </p>
+                </div>
               )}
             </div>
+
+            {/* Campo de confirmar senha - apenas no signup */}
+            {mode === "signup" && (
+              <div>
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-foreground mb-2"
+                >
+                  Confirmar senha
+                </label>
+                <input
+                  id="confirmPassword"
+                  type="password"
+                  required
+                  className={`w-full px-4 py-3 border-2 rounded-lg placeholder-vegGreen/50 text-foreground bg-white focus:outline-none focus:ring-2 focus:ring-vegGreen transition-colors ${
+                    confirmPassword.length > 0 && password !== confirmPassword
+                      ? "border-vegRed focus:border-vegRed"
+                      : "border-vegGreen/30 focus:border-vegGreen"
+                  }`}
+                  placeholder="Digite a senha novamente"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                {confirmPassword.length > 0 && password !== confirmPassword && (
+                  <p className="text-xs text-vegRed mt-1">
+                    ⚠️ As senhas não coincidem
+                  </p>
+                )}
+                {confirmPassword.length > 0 && password === confirmPassword && (
+                  <p className="text-xs text-vegGreen mt-1">
+                    ✓ Senhas coincidem!
+                  </p>
+                )}
+              </div>
+            )}
 
             <button
               type="submit"
