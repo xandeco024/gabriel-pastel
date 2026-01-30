@@ -20,7 +20,7 @@ export const config = {
   // Aplicar middleware em todas as rotas exceto:
   matcher: [
     // Incluir todas as rotas
-    "/((?!api|_next|_vercel|.*\\..*).*)",
+    "/((?!api|_next|_vercel|admin|.*\\..*).*)",
     // Incluir rotas dinâmicas com locale
     "/(pt|en|es)/:path*",
   ],

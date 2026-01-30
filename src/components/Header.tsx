@@ -7,13 +7,17 @@ import { useSession, signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import AuthModal from "./AuthModal";
-import LanguageSelector from "./LanguageSelector";
-import { User, ShoppingBag, LogOut, LogIn, UserPlus, Leaf } from "lucide-react";
-import { useTranslations, useLocale } from "next-intl";
+import {
+  User,
+  ShoppingBag,
+  LogOut,
+  LogIn,
+  UserPlus,
+  Leaf,
+  Settings,
+} from "lucide-react";
 
 export default function Header() {
-  const t = useTranslations("nav");
-  const locale = useLocale();
   const { data: session, status } = useSession();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
@@ -49,7 +53,7 @@ export default function Header() {
       <Leaf className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 text-vegGreen/10 -rotate-12" />
 
       {/* logo e nome */}
-      <Link href={`/${locale}/home`} className="flex items-center gap-4 group">
+      <Link href="/home" className="flex items-center gap-4 group">
         <div className="relative">
           <Image
             src="/icon.png"
@@ -74,33 +78,42 @@ export default function Header() {
       {/* menu */}
       <nav className="flex items-center gap-6 mr-4">
         <Link
-          href={`/${locale}/home`}
+          href="/home"
           className="relative text-lg font-semibold text-vegGreen hover:text-vegYellow transition-all duration-300 group"
         >
-          {t("home").toUpperCase()}
+          HOME
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-vegYellow group-hover:w-full transition-all duration-300"></span>
         </Link>
         <Link
-          href={`/${locale}/nossa-historia`}
+          href="/nossa-historia"
           className="relative text-lg font-semibold text-vegGreen hover:text-vegYellow transition-all duration-300 group"
         >
-          {t("ourStory").toUpperCase()}
+          NOSSA HISTÓRIA
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-vegYellow group-hover:w-full transition-all duration-300"></span>
         </Link>
+        {/* Link Admin - apenas para ADMIN e SUPER_ADMIN */}
+        {session &&
+          (session.user?.role === "ADMIN" ||
+            session.user?.role === "SUPER_ADMIN") && (
+            <Link
+              href="/admin/dashboard"
+              className="relative text-lg font-semibold text-vegOrange hover:text-vegYellow transition-all duration-300 group"
+            >
+              ADMIN
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-vegYellow group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          )}
         <Link
-          href={`/${locale}/nosso-impacto`}
+          href="/nosso-impacto"
           className="relative text-lg font-semibold text-vegGreen hover:text-vegYellow transition-all duration-300 group"
         >
-          {t("ourImpact").toUpperCase()}
+          NOSSO IMPACTO
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-vegYellow group-hover:w-full transition-all duration-300"></span>
         </Link>
 
         <div className="ml-2">
           <OrderNowBtn size="xl" />
         </div>
-
-        {/* Language Selector */}
-        <LanguageSelector />
 
         {/* User Menu Dropdown */}
         <div className="relative ml-2" ref={menuRef}>
@@ -140,28 +153,45 @@ export default function Header() {
                       </div>
                       <div className="py-2">
                         <Link
-                          href={`/${locale}/perfil`}
+                          href="/perfil"
                           className="flex items-center gap-3 px-5 py-3 text-vegGreen hover:bg-vegGreen/10 transition-all duration-200 group"
                           onClick={() => setUserMenuOpen(false)}
                         >
                           <User className="w-5 h-5 group-hover:text-vegYellow group-hover:scale-110 transition-all" />
-                          <span className="font-semibold">{t("profile")}</span>
+                          <span className="font-semibold">Meu Perfil</span>
                         </Link>
                         <Link
-                          href={`/${locale}/perfil/pedidos`}
+                          href="/perfil/pedidos"
                           className="flex items-center gap-3 px-5 py-3 text-vegGreen hover:bg-vegGreen/10 transition-all duration-200 group"
                           onClick={() => setUserMenuOpen(false)}
                         >
                           <ShoppingBag className="w-5 h-5 group-hover:text-vegYellow group-hover:scale-110 transition-all" />
-                          <span className="font-semibold">{t("myOrders")}</span>
+                          <span className="font-semibold">Meus Pedidos</span>
                         </Link>
+                        {/* Link do Painel Admin - Apenas para ADMIN e SUPER_ADMIN */}
+                        {(session.user?.role === "ADMIN" ||
+                          session.user?.role === "SUPER_ADMIN") && (
+                          <>
+                            <div className="border-t border-vegGreen/10 my-2"></div>
+                            <Link
+                              href="/admin/dashboard"
+                              className="flex items-center gap-3 px-5 py-3 text-purple-700 bg-purple-50 hover:bg-purple-100 transition-all duration-200 group"
+                              onClick={() => setUserMenuOpen(false)}
+                            >
+                              <Settings className="w-5 h-5 group-hover:text-purple-900 group-hover:scale-110 transition-all" />
+                              <span className="font-semibold">
+                                Painel Admin
+                              </span>
+                            </Link>
+                          </>
+                        )}
                         <div className="border-t border-vegGreen/10 my-2"></div>
                         <button
                           onClick={handleSignOut}
                           className="w-full flex items-center gap-3 px-5 py-3 text-vegRed hover:bg-red-50 transition-all duration-200 group"
                         >
                           <LogOut className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                          <span className="font-semibold">{t("logout")}</span>
+                          <span className="font-semibold">Sair</span>
                         </button>
                       </div>
                     </>
@@ -176,7 +206,7 @@ export default function Header() {
                         className="w-full flex items-center gap-3 px-5 py-3 text-vegGreen hover:bg-vegGreen/10 transition-all duration-200 group"
                       >
                         <LogIn className="w-5 h-5 group-hover:text-vegYellow group-hover:scale-110 transition-all" />
-                        <span className="font-semibold">{t("login")}</span>
+                        <span className="font-semibold">Entrar</span>
                       </button>
                       <button
                         onClick={() => {
@@ -187,7 +217,7 @@ export default function Header() {
                         className="flex items-center gap-3 px-5 py-3 text-background bg-gradient-to-r from-vegGreen to-vegGreen-light hover:from-vegYellow hover:to-vegOrange transition-all duration-300 group mx-3 my-2 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-[1.02]"
                       >
                         <UserPlus className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                        <span>{t("signup")}</span>
+                        <span>Criar Conta</span>
                       </button>
                     </div>
                   )}

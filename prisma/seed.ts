@@ -26,9 +26,23 @@ async function main() {
       email: "teste@teste.com",
       name: "Usuário Teste",
       password: hashedPassword,
+      role: "CUSTOMER",
     },
   });
   console.log("✅ Usuário criado:", testUser.email, "/ senha: 123456");
+
+  // Criar Super Admin
+  console.log("👑 Criando Super Admin...");
+  const adminPassword = await bcrypt.hash("admin123", 10);
+  const superAdmin = await prisma.user.create({
+    data: {
+      email: "admin@gabrielpastel.com",
+      name: "Admin Gabriel Pastel",
+      password: adminPassword,
+      role: "SUPER_ADMIN",
+    },
+  });
+  console.log("✅ Super Admin criado:", superAdmin.email, "/ senha: admin123");
 
   // Criar ingredientes
   console.log("📦 Criando ingredientes...");

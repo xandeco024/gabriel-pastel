@@ -19,6 +19,7 @@ model User {
   email     String   @unique
   name      String?
   password  String  // bcrypt hash (string)
+  role      UserRole @default(CUSTOMER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -103,6 +104,10 @@ model Order {
   customerEmail String
   customerPhone String?
 
+  // Tracking administrativo
+  statusHistory Json?       // Array de { status, timestamp, changedBy }
+  notes         String?     // Notas internas do admin
+
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
 
@@ -145,4 +150,10 @@ model OrderItem {
 enum PastelType {
   CUSTOM
   PREMADE
+}
+
+enum UserRole {
+  CUSTOMER      // Cliente comum
+  ADMIN         // Gestor/Funcionário
+  SUPER_ADMIN   // Dono
 }
