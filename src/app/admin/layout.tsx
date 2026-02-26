@@ -11,7 +11,7 @@ export default async function AdminLayout({
   const session = await requireAdmin();
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative">
       {/* Decorative leaves - matching site theme */}
       <Leaf className="absolute top-20 left-10 w-16 h-16 text-vegGreen/5 rotate-12 animate-float-slow" />
       <Leaf className="absolute top-40 right-20 w-12 h-12 text-vegYellow/10 -rotate-12 animate-float-slower" />
@@ -20,7 +20,7 @@ export default async function AdminLayout({
 
       <AdminHeaderSimple session={session} />
 
-      <main className="pt-32 pb-16 px-8">
+      <main className="pt-20 sm:pt-24 lg:pt-32 pb-8 sm:pb-12 lg:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">{children}</div>
       </main>
     </div>

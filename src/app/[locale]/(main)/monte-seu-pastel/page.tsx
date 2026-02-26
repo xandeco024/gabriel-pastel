@@ -253,14 +253,14 @@ export default function MonteSeuPastel() {
   return (
     <div className="min-h-screen mt-24 pt-24 space-y-16">
       {/* Hero Section */}
-      <div className="relative">
-        <div className="w-2/3 mx-auto text-center space-y-6">
-          <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
-            <ShoppingCart className="w-12 h-12 text-vegYellow" />
+      <div className="relative px-4">
+        <div className="w-full sm:w-5/6 md:w-3/4 lg:w-2/3 mx-auto text-center space-y-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
+            <ShoppingCart className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-vegYellow" />
             {t("title")}
           </h1>
           <p
-            className="text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
           />
         </div>
@@ -279,20 +279,20 @@ export default function MonteSeuPastel() {
       />
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 md:px-60">
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-60">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
           {/* Coluna de seleção de recheios */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition-shadow duration-300">
-            <h2 className="text-3xl font-holtwood mb-8 text-vegBrown-dark">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 flex flex-col items-center hover:shadow-2xl transition-shadow duration-300">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-holtwood mb-4 sm:mb-6 md:mb-8 text-vegBrown-dark">
               {t("selectIngredientsTitle")}
             </h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full">
               {ingredientes.map((ingrediente) => (
                 <button
                   key={ingrediente.id}
                   onClick={() => toggleRecheio(ingrediente.id)}
-                  className={`relative flex flex-col items-center p-4 rounded-xl transition-all duration-200 ${
+                  className={`relative flex flex-col items-center p-2 sm:p-3 md:p-4 rounded-xl transition-all duration-200 ${
                     ingrediente.selecionado
                       ? "bg-vegYellow/20 border-2 border-vegYellow shadow-md scale-105"
                       : "bg-background border-2 border-vegGreen/20 hover:border-vegYellow hover:shadow-md hover:scale-102"
@@ -305,7 +305,7 @@ export default function MonteSeuPastel() {
                       ✓
                     </div>
                   )}
-                  <div className="w-16 h-16 rounded-2xl overflow-hidden bg-background mb-2 shadow-sm">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl overflow-hidden bg-background mb-2 shadow-sm">
                     <Image
                       src={ingrediente.imageUrl}
                       alt={ingrediente.name}
@@ -314,7 +314,7 @@ export default function MonteSeuPastel() {
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <span className="font-medium text-center text-vegBrown-dark">
+                  <span className="font-medium text-center text-vegBrown-dark text-xs sm:text-sm">
                     {ingrediente.name}
                   </span>
                 </button>
@@ -334,7 +334,7 @@ export default function MonteSeuPastel() {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={diminuirQuantidade}
-                    className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-vegGreen text-vegGreen hover:bg-vegGreen hover:text-white transition-all shadow-sm"
+                    className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full border-2 border-vegGreen text-vegGreen hover:bg-vegGreen hover:text-white transition-all shadow-sm"
                     title="Diminuir quantidade"
                     aria-label="Diminuir quantidade"
                   >
@@ -345,7 +345,7 @@ export default function MonteSeuPastel() {
                   </span>
                   <button
                     onClick={aumentarQuantidade}
-                    className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-vegGreen text-vegGreen hover:bg-vegGreen hover:text-white transition-all shadow-sm"
+                    className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full border-2 border-vegGreen text-vegGreen hover:bg-vegGreen hover:text-white transition-all shadow-sm"
                     title="Aumentar quantidade"
                     aria-label="Aumentar quantidade"
                   >
@@ -368,8 +368,8 @@ export default function MonteSeuPastel() {
             </div>
           </div>
 
-          {/* Coluna do carrinho */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col h-fit hover:shadow-2xl transition-shadow duration-300">
+          {/* Coluna do carrinho - Desktop apenas */}
+          <div className="hidden md:flex bg-white rounded-2xl shadow-lg p-8 flex-col h-fit hover:shadow-2xl transition-shadow duration-300">
             <h2 className="text-3xl font-holtwood mb-8 text-vegBrown-dark text-center">
               {t("myPastels")}
             </h2>
@@ -472,16 +472,41 @@ export default function MonteSeuPastel() {
             </div>
           </div>
         </div>
+
+        {/* FAB Mobile - Carrinho flutuante */}
+        <div className="md:hidden fixed bottom-6 right-6 z-50">
+          <button
+            type="button"
+            onClick={() => {
+              if (pasteis.length > 0) {
+                toast.info(t("myPastels"), {
+                  description: `${pasteis.length} ${pasteis.length === 1 ? "pastel" : "pastéis"} - ${formatarPreco(total)}`,
+                  duration: 5000,
+                });
+              } else {
+                toast.info(t("emptyCart"));
+              }
+            }}
+            className="relative bg-vegYellow hover:bg-vegYellow/90 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110"
+          >
+            <ShoppingCart size={28} />
+            {pasteis.length > 0 && (
+              <div className="absolute -top-2 -right-2 bg-vegRed text-white rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold">
+                {pasteis.length}
+              </div>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Sugestões de combinações */}
       <div className="py-16 md:py-24 bg-vegGreen/10">
-        <div className="container mx-auto px-4 md:px-60">
-          <h2 className="text-5xl font-holtwood text-center mb-8 text-vegBrown-dark">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-60">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-holtwood text-center mb-8 text-vegBrown-dark">
             {t("popularCombos.title")}
           </h2>
           <p
-            className="text-xl text-vegBrown-light text-center mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-vegBrown-light text-center mb-12 max-w-2xl mx-auto leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t.raw("popularCombos.subtitle") }}
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -536,7 +561,7 @@ export default function MonteSeuPastel() {
                 key={index}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative h-48 rounded-t-2xl overflow-hidden">
+                <div className="relative h-32 sm:h-40 md:h-48 rounded-t-2xl overflow-hidden">
                   <Image
                     src={combo.imagem}
                     alt={t(`combos.${combo.nomeKey}`)}
@@ -544,7 +569,7 @@ export default function MonteSeuPastel() {
                     className="object-cover transition-transform duration-300 hover:scale-110"
                   />
                 </div>
-                <div className="p-5">
+                <div className="p-3 sm:p-4 md:p-5">
                   <h3 className="font-holtwood text-xl mb-2 text-vegBrown-dark">
                     {t(`combos.${combo.nomeKey}`)}
                   </h3>

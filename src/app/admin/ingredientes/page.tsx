@@ -12,25 +12,25 @@ export default async function IngredientesPage() {
   });
 
   return (
-    <div className="space-y-8">
-      <div className="text-center space-y-4">
-        <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
-          <Leaf className="w-12 h-12 text-vegGreen" />
+    <div className="space-y-6 sm:space-y-8">
+      <div className="text-center space-y-3 sm:space-y-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl font-holtwood text-vegBrown-dark flex flex-col sm:flex-row items-center gap-2 sm:gap-4 justify-center">
+          <Leaf className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-vegGreen" />
           Gerenciar Ingredientes
         </h1>
-        <p className="text-xl text-vegBrown-light">
+        <p className="text-base sm:text-lg lg:text-xl text-vegBrown-light">
           Gerencie todos os ingredientes disponíveis para os pastéis
         </p>
         <Link
           href="/admin/ingredientes/novo"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-vegGreen to-vegGreen-light text-background rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 font-bold"
+          className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-vegGreen to-vegGreen-light text-background rounded-lg sm:rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 font-bold text-sm sm:text-base"
         >
-          <Plus className="w-5 h-5" />
+          <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
           Novo Ingrediente
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {ingredients.map((ingredient) => (
           <div
             key={ingredient.id}

@@ -107,12 +107,12 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-12">
       {/* Header com estética do site */}
-      <div className="text-center space-y-4">
-        <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
-          <Sparkles className="w-12 h-12 text-vegYellow" />
+      <div className="text-center space-y-3 sm:space-y-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl font-holtwood text-vegBrown-dark flex flex-col sm:flex-row items-center gap-2 sm:gap-4 justify-center">
+          <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-vegYellow" />
           Painel Administrativo
         </h1>
-        <p className="text-xl text-vegBrown-light">
+        <p className="text-base sm:text-lg lg:text-xl text-vegBrown-light">
           Bem-vindo,{" "}
           <span className="font-bold text-vegGreen">{session.user.name}</span>!
           Gerencie seu negócio com facilidade.
@@ -163,7 +163,7 @@ export default async function DashboardPage() {
       </div>
 
       {/* Stats Cards com cores do site */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {stats.map((stat) => {
           const Icon = stat.icon;
           const colorClasses = {
@@ -196,7 +196,7 @@ export default async function DashboardPage() {
                   className={`w-6 h-6 ${iconColors[stat.color as keyof typeof iconColors]} group-hover:scale-110 transition-transform`}
                 />
               </div>
-              <p className="text-4xl font-holtwood text-vegBrown-dark">
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-holtwood text-vegBrown-dark">
                 {stat.value}
               </p>
             </Link>
@@ -205,44 +205,44 @@ export default async function DashboardPage() {
       </div>
 
       {/* Pedidos Recentes com estética do site */}
-      <div className="bg-gradient-to-br from-pastel to-background rounded-3xl border-2 border-vegGreen/20 shadow-xl overflow-hidden">
-        <div className="bg-gradient-to-r from-vegGreen/10 to-vegYellow/10 px-8 py-6 border-b-2 border-vegGreen/20">
-          <h2 className="text-3xl font-holtwood text-vegBrown-dark">
+      <div className="bg-gradient-to-br from-pastel to-background rounded-2xl sm:rounded-3xl border-2 border-vegGreen/20 shadow-xl overflow-hidden">
+        <div className="bg-gradient-to-r from-vegGreen/10 to-vegYellow/10 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border-b-2 border-vegGreen/20">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-holtwood text-vegBrown-dark">
             Pedidos Recentes
           </h2>
         </div>
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <div className="space-y-4">
             {recentOrders.map((order) => (
               <Link
                 key={order.id}
                 href={`/admin/pedidos/${order.id}`}
-                className="group block bg-background hover:bg-vegGreen/5 rounded-xl p-5 border-2 border-vegGreen/10 hover:border-vegGreen/30 transition-all duration-300 hover:shadow-lg"
+                className="group block bg-background hover:bg-vegGreen/5 rounded-xl p-3 sm:p-4 lg:p-5 border-2 border-vegGreen/10 hover:border-vegGreen/30 transition-all duration-300 hover:shadow-lg"
               >
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="font-mono text-sm font-bold text-vegBrown-dark bg-vegYellow/20 px-3 py-1 rounded-full">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                      <span className="font-mono text-xs sm:text-sm font-bold text-vegBrown-dark bg-vegYellow/20 px-2 sm:px-3 py-1 rounded-full">
                         #{order.id.slice(0, 8)}
                       </span>
                       <span
-                        className={`px-3 py-1 text-xs font-semibold rounded-full border ${statusColors[order.status]}`}
+                        className={`px-2 sm:px-3 py-1 text-xs font-semibold rounded-full border ${statusColors[order.status]}`}
                       >
                         {statusLabels[order.status]}
                       </span>
                     </div>
-                    <p className="font-semibold text-vegBrown-dark">
+                    <p className="font-semibold text-vegBrown-dark text-sm sm:text-base">
                       {order.customerName}
                     </p>
-                    <p className="text-sm text-vegBrown-light">
+                    <p className="text-xs sm:text-sm text-vegBrown-light truncate">
                       {order.customerEmail}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-2xl font-bold text-vegGreen">
+                  <div className="text-left sm:text-right flex sm:flex-col items-center sm:items-end gap-2 sm:gap-0">
+                    <p className="text-lg sm:text-xl lg:text-2xl font-bold text-vegGreen">
                       R$ {Number(order.total).toFixed(2)}
                     </p>
-                    <p className="text-sm text-vegBrown-light">
+                    <p className="text-xs sm:text-sm text-vegBrown-light">
                       {new Date(order.createdAt).toLocaleDateString("pt-BR")}
                     </p>
                   </div>

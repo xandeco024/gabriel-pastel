@@ -106,6 +106,26 @@ const config: Config = {
             filter: "blur(1.5px)",
           },
         },
+        "slide-in-right": {
+          "0%": {
+            transform: "translateX(100%)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+        },
+        "slide-out-right": {
+          "0%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateX(100%)",
+            opacity: "0",
+          },
+        },
       },
       animation: {
         "dropdown-in": "dropdown-in 0.2s ease-out forwards",
@@ -115,6 +135,8 @@ const config: Config = {
         "float-slow": "float-slow 6s ease-in-out infinite",
         "float-slower": "float-slower 8s ease-in-out infinite",
         "splash-morph": "splash-morph 8s ease-in-out infinite",
+        "slide-in-right": "slide-in-right 0.3s ease-out forwards",
+        "slide-out-right": "slide-out-right 0.3s ease-out forwards",
       },
     },
   },

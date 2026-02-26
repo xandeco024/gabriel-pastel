@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 function Footer() {
   const t = useTranslations("footer");
   return (
-    <footer className="mt-60 relative">
+    <footer className="mt-24 sm:mt-40 lg:mt-60 relative">
       {/* SVG Mountains - efeito de montes suaves com 3 camadas bem visíveis */}
       <div className="w-full h-auto relative">
         <svg
@@ -15,7 +15,7 @@ function Footer() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-auto"
-          preserveAspectRatio="none"
+          preserveAspectRatio="xMidYMid slice"
         >
           {/* Monte de trás - bem escuro e bem alto */}
           <path
@@ -36,36 +36,36 @@ function Footer() {
       </div>
 
       {/* Conteúdo principal do footer */}
-      <div className="w-full bg-vegGreen py-16 px-[10%]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="w-full bg-vegGreen py-10 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-[10%]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12">
           {/* Logo e Missão */}
-          <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
-            <div className="relative mb-6">
+          <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start">
+            <div className="relative mb-4 sm:mb-6">
               <Image
                 src="/icon.png"
                 alt="Logo Gabriel Pastel"
                 width={104}
                 height={110}
                 quality={100}
-                className="w-28 h-auto drop-shadow-lg"
+                className="w-20 sm:w-24 lg:w-28 h-auto drop-shadow-lg"
               />
-              <Leaf className="absolute -top-2 -right-2 w-8 h-8 text-vegYellow opacity-60 rotate-12" />
+              <Leaf className="absolute -top-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 text-vegYellow opacity-60 rotate-12" />
             </div>
-            <p className="text-background text-center lg:text-left text-base leading-relaxed font-medium">
+            <p className="text-background text-center lg:text-left text-sm sm:text-base leading-relaxed font-medium max-w-xs">
               {t("mission")}
             </p>
           </div>
 
           {/* Funcionamento */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <Clock className="w-6 h-6 text-vegYellow" />
-              <h3 className="text-background text-2xl font-bold">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-vegYellow" />
+              <h3 className="text-background text-lg sm:text-xl lg:text-2xl font-bold">
                 {t("hours")}
               </h3>
             </div>
-            <ul className="space-y-3">
-              <li className="text-background/90 text-base flex items-start gap-2">
+            <ul className="space-y-2 sm:space-y-3">
+              <li className="text-background/90 text-sm sm:text-base flex items-start gap-2">
                 <span className="text-vegYellow mt-1">•</span>
                 <span>
                   {t("mondayToThursday")}
@@ -73,7 +73,7 @@ function Footer() {
                   12h - 22h
                 </span>
               </li>
-              <li className="text-background/90 text-base flex items-start gap-2">
+              <li className="text-background/90 text-sm sm:text-base flex items-start gap-2">
                 <span className="text-vegYellow mt-1">•</span>
                 <span>
                   {t("fridayAndSaturday")}
@@ -81,7 +81,7 @@ function Footer() {
                   12h - 00h
                 </span>
               </li>
-              <li className="text-background/90 text-base flex items-start gap-2">
+              <li className="text-background/90 text-sm sm:text-base flex items-start gap-2">
                 <span className="text-vegYellow mt-1">•</span>
                 <span>
                   {t("sunday")}
@@ -94,11 +94,11 @@ function Footer() {
 
           {/* Endereço */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <MapPin className="w-6 h-6 text-vegYellow" />
-              <h3 className="text-background text-2xl font-bold">{t("address")}</h3>
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-vegYellow" />
+              <h3 className="text-background text-lg sm:text-xl lg:text-2xl font-bold">{t("address")}</h3>
             </div>
-            <p className="text-background/90 text-base leading-relaxed">
+            <p className="text-background/90 text-sm sm:text-base leading-relaxed">
               Rua dos bobos, 0<br />
               Rochdale, Osasco - SP
             </p>
@@ -106,7 +106,7 @@ function Footer() {
               href="https://maps.google.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-vegYellow hover:text-background transition-colors font-semibold"
+              className="inline-flex items-center gap-2 mt-3 sm:mt-4 text-vegYellow hover:text-background transition-colors font-semibold text-sm sm:text-base"
             >
               {t("viewOnMap")}
               <svg
@@ -127,29 +127,29 @@ function Footer() {
 
           {/* Contato */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <Phone className="w-6 h-6 text-vegYellow" />
-              <h3 className="text-background text-2xl font-bold">{t("contact")}</h3>
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-vegYellow" />
+              <h3 className="text-background text-lg sm:text-xl lg:text-2xl font-bold">{t("contact")}</h3>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div>
-                <p className="text-background/70 text-sm font-semibold mb-1">
+                <p className="text-background/70 text-xs sm:text-sm font-semibold mb-1">
                   {t("phone")}
                 </p>
                 <a
                   href="tel:+5511951138721"
-                  className="text-background/90 text-base hover:text-vegYellow transition-colors"
+                  className="text-background/90 text-sm sm:text-base hover:text-vegYellow transition-colors"
                 >
                   (11) 95113-8721
                 </a>
               </div>
               <div>
-                <p className="text-background/70 text-sm font-semibold mb-1">
+                <p className="text-background/70 text-xs sm:text-sm font-semibold mb-1">
                   {t("email")}
                 </p>
                 <a
                   href="mailto:alepbravo1702@gmail.com"
-                  className="text-background/90 text-base hover:text-vegYellow transition-colors break-all"
+                  className="text-background/90 text-sm sm:text-base hover:text-vegYellow transition-colors break-all"
                 >
                   alepbravo1702@gmail.com
                 </a>
@@ -159,15 +159,15 @@ function Footer() {
 
           {/* Redes Sociais */}
           <div>
-            <h3 className="text-background text-2xl font-bold mb-6">
+            <h3 className="text-background text-lg sm:text-xl lg:text-2xl font-bold mb-4 sm:mb-6">
               {t("socialMedia")}
             </h3>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               <a
                 href="https://api.whatsapp.com/send/?phone=%2B5511951138721&text=Olá%2C%20vim%20pelo%20site%20Gabriel%20Pastel%20e%20gostaria%20de%20fazer%20um%20pedido%20de%20pastel.%20Poderia%20me%20ajudar%3F&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                 aria-label="WhatsApp"
               >
                 <svg
@@ -188,7 +188,7 @@ function Footer() {
                 href="https://www.instagram.com/xandeco420/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                 aria-label="Instagram"
               >
                 <svg
@@ -206,7 +206,7 @@ function Footer() {
                 href="https://www.tiktok.com/@cozinhadoromilto"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                 aria-label="TikTok"
               >
                 <svg
@@ -224,7 +224,7 @@ function Footer() {
                 href="https://www.youtube.com/@xandeco420"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-background/10 hover:bg-vegYellow rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                 aria-label="YouTube"
               >
                 <svg
@@ -247,12 +247,12 @@ function Footer() {
       </div>
 
       {/* Copyright bar */}
-      <div className="w-full bg-vegYellow py-6 px-[10%]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-vegBrown-dark text-sm text-center md:text-left font-medium">
+      <div className="w-full bg-vegYellow py-4 sm:py-6 px-4 sm:px-6 lg:px-[10%]">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
+          <p className="text-vegBrown-dark text-xs sm:text-sm text-center sm:text-left font-medium">
             © 2024, Osasco - {t("allRightsReserved")}
           </p>
-          <p className="text-vegBrown-dark text-sm font-semibold">
+          <p className="text-vegBrown-dark text-xs sm:text-sm font-semibold">
             Gabriel Alexander Pinheiro Bravo
           </p>
         </div>

@@ -46,12 +46,13 @@ function PastelYourWay() {
     <>
       <div
         id="pastel-your-way"
-        className="relative w-full min-h-[600px] bg-background flex items-center justify-between px-[10%] py-20 my-12 overflow-hidden"
+        className="relative w-full min-h-[500px] sm:min-h-[550px] lg:min-h-[600px] bg-background flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 lg:px-[10%] py-10 sm:py-16 lg:py-20 my-6 sm:my-8 lg:my-12 overflow-hidden"
       >
-        <div className="relative w-[45%] flex items-center justify-center">
+        {/* Container dos pastéis - aparece primeiro em mobile */}
+        <div className="relative w-full lg:w-[45%] flex items-center justify-center order-first lg:order-first mb-6 lg:mb-0">
           {/* Splash SVG decorativo laranja dramático - atrás dos pastéis */}
           <svg
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[600px] max-h-[600px]"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[300px] sm:max-w-[450px] lg:max-w-[600px] max-h-[300px] sm:max-h-[450px] lg:max-h-[600px]"
             viewBox="0 0 924 793"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +65,7 @@ function PastelYourWay() {
           </svg>
 
           {/* Container dos pastéis em leque */}
-          <div className="relative w-full h-[500px] flex items-center justify-center">
+          <div className="relative w-full h-[280px] sm:h-[380px] lg:h-[500px] flex items-center justify-center">
             {/* Pastel 1 - Trás */}
             <Image
               src="/Pastel-1.png"
@@ -72,7 +73,7 @@ function PastelYourWay() {
               width={500}
               height={500}
               quality={100}
-              className="absolute transition-all duration-700 ease-out"
+              className="absolute transition-all duration-700 ease-out w-[200px] sm:w-[350px] lg:w-[500px] h-auto"
               style={{
                 transform: `rotate(${rotation1}deg)`,
                 transformOrigin: "center bottom",
@@ -88,7 +89,7 @@ function PastelYourWay() {
               width={500}
               height={500}
               quality={100}
-              className="absolute transition-all duration-700 ease-out"
+              className="absolute transition-all duration-700 ease-out w-[200px] sm:w-[350px] lg:w-[500px] h-auto"
               style={{
                 transform: `rotate(${rotation2}deg)`,
                 transformOrigin: "center bottom",
@@ -104,7 +105,7 @@ function PastelYourWay() {
               width={500}
               height={500}
               quality={100}
-              className="absolute transition-all duration-700 ease-out"
+              className="absolute transition-all duration-700 ease-out w-[200px] sm:w-[350px] lg:w-[500px] h-auto"
               style={{
                 transform: `rotate(${rotation3}deg)`,
                 transformOrigin: "center bottom",
@@ -115,20 +116,21 @@ function PastelYourWay() {
           </div>
         </div>
 
-        <div className="w-[45%] flex flex-col justify-center space-y-6">
-          <h2 className="font-gluten text-5xl text-vegGreen leading-tight flex items-center gap-4">
-            <Utensils className="w-12 h-12" />
+        {/* Texto - aparece depois em mobile */}
+        <div className="w-full lg:w-[45%] flex flex-col justify-center space-y-4 sm:space-y-6 text-center lg:text-left">
+          <h2 className="font-gluten text-3xl sm:text-4xl lg:text-5xl text-vegGreen leading-tight flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4">
+            <Utensils className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
             {t("title")}
           </h2>
           <p
-            className="text-xl text-vegBrown-dark/80 leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-vegBrown-dark/80 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t.raw("description") }}
           />
-          <p className="text-xl text-vegBrown-dark/80 leading-relaxed font-semibold">
+          <p className="text-base sm:text-lg lg:text-xl text-vegBrown-dark/80 leading-relaxed font-semibold">
             {t("tagline")}
           </p>
-          <div className="mt-4">
-            <OrderNowBtn />
+          <div className="mt-2 sm:mt-4 flex justify-center lg:justify-start">
+            <OrderNowBtn size="lg" />
           </div>
         </div>
       </div>

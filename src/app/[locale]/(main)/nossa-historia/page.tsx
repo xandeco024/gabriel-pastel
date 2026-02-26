@@ -19,23 +19,23 @@ export default function OurHistoryPage() {
   const t = useTranslations("history");
 
   return (
-    <div className="min-h-screen mt-24 pt-24 space-y-48 relative overflow-hidden">
+    <div className="min-h-screen mt-24 pt-24 space-y-16 sm:space-y-24 md:space-y-32 lg:space-y-48 relative overflow-hidden">
       {/* Hero Section */}
       <div className="relative">
         <div className="w-2/3 mx-auto text-center space-y-6">
-          <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
-            <Sparkles className="w-12 h-12 text-vegYellow" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
+            <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-vegYellow" />
             {t("title")}
           </h1>
           <p
-            className="text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
           />
         </div>
       </div>
 
       {/* Timeline Section */}
-      <div className="container mx-auto px-60">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-60">
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-vegGreen/20"></div>
@@ -47,17 +47,17 @@ export default function OurHistoryPage() {
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   {t("timeline.2018.badge")}
                 </div>
-                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   {t("timeline.2018.title")}
                 </h2>
                 <p
-                  className="text-xl text-vegBrown-light leading-relaxed"
+                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.2018.description1"),
                   }}
                 />
                 <p
-                  className="text-xl text-vegBrown-light leading-relaxed mt-4"
+                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed mt-4"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.2018.description2"),
                   }}
@@ -77,17 +77,17 @@ export default function OurHistoryPage() {
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   {t("timeline.partnership.badge")}
                 </div>
-                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   {t("timeline.partnership.title")}
                 </h2>
                 <p
-                  className="text-xl text-vegBrown-light leading-relaxed"
+                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.partnership.description1"),
                   }}
                 />
                 <p
-                  className="text-xl text-vegBrown-light leading-relaxed mt-4"
+                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed mt-4"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.partnership.description2"),
                   }}
@@ -105,11 +105,11 @@ export default function OurHistoryPage() {
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   {t("timeline.firstSite.badge")}
                 </div>
-                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   {t("timeline.firstSite.title")}
                 </h2>
                 <p
-                  className="text-xl text-vegBrown-light leading-relaxed"
+                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.firstSite.description"),
                   }}
@@ -138,17 +138,17 @@ export default function OurHistoryPage() {
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   {t("timeline.plantBased.badge")}
                 </div>
-                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   {t("timeline.plantBased.title")}
                 </h2>
                 <p
-                  className="text-xl text-vegBrown-light leading-relaxed"
+                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.plantBased.description1"),
                   }}
                 />
                 <p
-                  className="text-xl text-vegBrown-light leading-relaxed mt-4"
+                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed mt-4"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.plantBased.description2"),
                   }}
@@ -166,11 +166,11 @@ export default function OurHistoryPage() {
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   {t("timeline.relaunch.badge")}
                 </div>
-                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   {t("timeline.relaunch.title")}
                 </h2>
                 <p
-                  className="text-xl text-vegBrown-light leading-relaxed"
+                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.relaunch.description"),
                   }}
@@ -190,11 +190,11 @@ export default function OurHistoryPage() {
                 <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
                   {t("timeline.mission.badge")}
                 </div>
-                <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
                   {t("timeline.mission.title")}
                 </h2>
                 <p
-                  className="text-xl text-vegBrown-light leading-relaxed"
+                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.mission.description"),
                   }}
@@ -210,13 +210,13 @@ export default function OurHistoryPage() {
       {/* Values Section */}
       <div className="py-16 md:py-24 bg-vegGreen/10">
         <div className="container mx-auto px-4 md:px-6 text-center space-y-8">
-          <h2 className="text-5xl font-holtwood text-vegBrown-dark">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-holtwood text-vegBrown-dark">
             {t("values.title")}
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
               <div className="w-20 h-20 bg-vegYellow/15 rounded-full flex items-center justify-center mx-auto shadow-md">
-                <Heart className="h-10 w-10 text-vegYellow" />
+                <Heart className="h-8 w-8 sm:h-10 sm:w-10 text-vegYellow" />
               </div>
               <h3 className="text-2xl font-holtwood text-vegYellow">
                 {t("values.compassion.title")}
@@ -228,9 +228,9 @@ export default function OurHistoryPage() {
                 }}
               />
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
+            <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
               <div className="w-20 h-20 bg-vegGreen/15 rounded-full flex items-center justify-center mx-auto shadow-md">
-                <Leaf className="h-10 w-10 text-vegGreen" />
+                <Leaf className="h-8 w-8 sm:h-10 sm:w-10 text-vegGreen" />
               </div>
               <h3 className="text-2xl font-holtwood text-vegGreen">
                 {t("values.sustainability.title")}
@@ -242,9 +242,9 @@ export default function OurHistoryPage() {
                 }}
               />
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
+            <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
               <div className="w-20 h-20 bg-vegOrange/15 rounded-full flex items-center justify-center mx-auto shadow-md">
-                <Utensils className="h-10 w-10 text-vegOrange" />
+                <Utensils className="h-8 w-8 sm:h-10 sm:w-10 text-vegOrange" />
               </div>
               <h3 className="text-2xl font-holtwood text-vegOrange">
                 {t("values.flavor.title")}
@@ -261,14 +261,14 @@ export default function OurHistoryPage() {
       </div>
 
       {/* Tech Stack Section */}
-      <div className="py-16 md:py-24 px-60">
+      <div className="py-16 md:py-24 px-4 sm:px-6 lg:px-60">
         <div className="container mx-auto">
           <div className="md:grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block rounded-full bg-vegGreen/15 px-5 py-2 text-lg font-semibold text-vegGreen mb-4 shadow-md">
                 {t("technology.badge")}
               </div>
-              <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
                 {t("technology.title")}
               </h2>
               <p
@@ -373,8 +373,8 @@ export default function OurHistoryPage() {
       {/* CTA Section */}
       <div className="py-16 md:py-24 bg-[#F58A07]/10">
         <div className="container mx-auto px-4 md:px-6 text-center space-y-6">
-          <h2 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-3 justify-center">
-            <Sparkles className="w-12 h-12 text-vegYellow" />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-holtwood text-vegBrown-dark flex items-center gap-3 justify-center">
+            <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-vegYellow" />
             {t("cta.title")}
           </h2>
           <p

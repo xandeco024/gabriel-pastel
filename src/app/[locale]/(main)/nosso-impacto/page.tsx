@@ -35,15 +35,15 @@ export default function OurImpactPage() {
   };
 
   return (
-    <div className="min-h-screen mt-24 pt-24 flex flex-col items-center space-y-48">
+    <div className="min-h-screen mt-24 pt-24 flex flex-col items-center space-y-12 sm:space-y-24 md:space-y-32 lg:space-y-48">
       {/* page header container */}
-      <div className="flex flex-col items-center w-2/3 text-center">
-        <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
+      <div className="flex flex-col items-center w-full px-4 sm:w-5/6 md:w-2/3 text-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
           {t("title")}
-          <Sparkles className="w-12 h-12 text-vegYellow" />
+          <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-vegYellow" />
         </h1>
         <p
-          className="text-2xl font-gluten mt-6 text-vegBrown-light leading-relaxed"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl font-gluten mt-6 text-vegBrown-light leading-relaxed"
           dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
         />
         {/* badges */}
@@ -76,9 +76,9 @@ export default function OurImpactPage() {
       </div>
 
       {/* bem estar animal */}
-      <div className="grid grid-cols-2 gap-12 items-center w-full text-center px-60">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center w-full text-center px-4 sm:px-6 lg:px-60">
         {/* imagem */}
-        <div className="relative w-[400px] h-[400px] overflow-hidden rounded-lg">
+        <div className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] h-auto aspect-square overflow-hidden rounded-lg mx-auto">
           <Image
             src="/testimony-animals/farm-sanctuary-credit_jo-anne_mcarthur.webp"
             alt="Fazenda Santuário - Crédito: Jo-Anne McArthur"
@@ -90,18 +90,18 @@ export default function OurImpactPage() {
 
         {/* texto */}
         <div className="flex flex-col w-full text-left space-y-6">
-          <h2 className="text-4xl font-holtwood text-vegBrown-dark flex items-center gap-3">
-            <PawPrint className="w-10 h-10 text-vegYellow" />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood text-vegBrown-dark flex items-center gap-3">
+            <PawPrint className="w-8 h-8 sm:w-10 sm:h-10 text-vegYellow" />
             {t("animalWelfare.title")}
           </h2>
           <p
-            className="text-xl font-gluten text-vegBrown-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl font-gluten text-vegBrown-light leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: t.raw("animalWelfare.description1"),
             }}
           />
           <p
-            className="text-xl font-gluten text-vegBrown-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl font-gluten text-vegBrown-light leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: t.raw("animalWelfare.description2"),
             }}
@@ -116,23 +116,23 @@ export default function OurImpactPage() {
       </div>
 
       {/* economia e redução */}
-      <div className="grid grid-cols-2 gap-12 items-center w-full text-center bg-vegGreen/10 p-24 px-60">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center w-full text-center bg-vegGreen/10 p-6 sm:p-12 md:p-16 lg:p-24 px-4 sm:px-6 lg:px-60">
         {/* texto */}
         <div className="flex flex-col w-full text-left space-y-6">
-          <h2 className="text-4xl font-holtwood text-vegBrown-dark flex items-center gap-3">
-            <TrendingDown className="w-10 h-10 text-vegYellow" />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood text-vegBrown-dark flex items-center gap-3">
+            <TrendingDown className="w-8 h-8 sm:w-10 sm:h-10 text-vegYellow" />
             {t("economy.title")}
           </h2>
           <p
-            className="text-xl font-gluten text-vegBrown-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl font-gluten text-vegBrown-light leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t.raw("economy.description1") }}
           />
           <p
-            className="text-xl font-gluten text-vegBrown-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl font-gluten text-vegBrown-light leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t.raw("economy.description2") }}
           />
           {/* cards */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-white p-5 rounded-lg space-y-3 shadow-md hover:scale-105 transition-all duration-200">
               <Droplet className="text-vegGreen" size={48} />
               <p className="text-vegBrown text-lg font-holtwood">
@@ -156,7 +156,7 @@ export default function OurImpactPage() {
         </div>
 
         {/* imagem */}
-        <div className="relative w-[400px] h-[400px] overflow-hidden rounded-lg justify-self-end">
+        <div className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] h-auto aspect-square overflow-hidden rounded-lg md:justify-self-end mx-auto">
           <Image
             src="/testimony-animals/Kristen-MacMillanleft_Lor.jpg"
             alt="Moças vendo plantação de soja - Crédito: Kristen MacMillan"
@@ -168,9 +168,9 @@ export default function OurImpactPage() {
       </div>
 
       {/* Sustentabilidade Section */}
-      <div className="grid grid-cols-2 gap-12 items-center w-full text-center px-60">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center w-full text-center px-4 sm:px-6 lg:px-60">
         {/* imagem */}
-        <div className="relative w-[400px] h-[400px] overflow-hidden rounded-lg">
+        <div className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] h-auto aspect-square overflow-hidden rounded-lg mx-auto">
           <Image
             src="/shutterstock_2205879965-eco-friendly-food-packaging.jpg"
             alt="Símbolo de reciclagem"
@@ -181,18 +181,18 @@ export default function OurImpactPage() {
         </div>
         {/* texto */}
         <div className="flex flex-col w-full text-left space-y-6">
-          <h2 className="text-4xl font-holtwood text-vegBrown-dark flex items-center gap-3">
-            <Leaf className="w-10 h-10 text-vegYellow" />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood text-vegBrown-dark flex items-center gap-3">
+            <Leaf className="w-8 h-8 sm:w-10 sm:h-10 text-vegYellow" />
             {t("sustainability.title")}
           </h2>
           <p
-            className="text-xl font-gluten text-vegBrown-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl font-gluten text-vegBrown-light leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: t.raw("sustainability.description1"),
             }}
           />
           <p
-            className="text-xl font-gluten text-vegBrown-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl font-gluten text-vegBrown-light leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: t.raw("sustainability.description2"),
             }}
@@ -224,22 +224,22 @@ export default function OurImpactPage() {
       </div>
 
       {/* O que os bichinhos dizem Section */}
-      <div className="flex flex-col items-center w-full text-center px-60 space-y-12">
-        <div className="flex flex-col items-center w-2/3 space-y-6">
-          <h2 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-3 justify-center">
-            <Heart className="w-12 h-12 text-vegYellow" />
+      <div className="flex flex-col items-center w-full text-center px-4 sm:px-6 lg:px-60 space-y-12">
+        <div className="flex flex-col items-center w-full px-4 sm:w-5/6 md:w-2/3 space-y-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-holtwood text-vegBrown-dark flex items-center gap-3 justify-center">
+            <Heart className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-vegYellow" />
             {t("animals.title")}
           </h2>
           <p
-            className="text-xl font-gluten text-vegBrown-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl font-gluten text-vegBrown-light leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t.raw("animals.subtitle") }}
           />
         </div>
 
-        <div className="grid grid-cols-4 gap-8 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 w-full">
           {/* Animal 1 mimosa */}
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-vegYellow/30">
-            <div className="relative h-56 overflow-hidden">
+            <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
               <Image
                 src="/testimony-animals/mother-and-baby-cow-in-grass-mimosa.jpg"
                 alt="Mimosa a vaca"
@@ -270,7 +270,7 @@ export default function OurImpactPage() {
 
           {/* Animal 2 nilda */}
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-vegGreen/30">
-            <div className="relative h-56 overflow-hidden">
+            <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
               <Image
                 src="/testimony-animals/Wing-clipping_1-nilda.webp"
                 alt="Nilda a galinha"
@@ -301,7 +301,7 @@ export default function OurImpactPage() {
 
           {/* Animal 3 guilherme */}
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-vegOrange/30">
-            <div className="relative h-56 overflow-hidden">
+            <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
               <Image
                 src="/testimony-animals/Porcupine-fish-Diodon-hystox-guilherme.webp"
                 alt="Guilherme o peixe"
@@ -332,7 +332,7 @@ export default function OurImpactPage() {
 
           {/* Animal 4 jorge e zoe */}
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-vegYellow/30">
-            <div className="relative h-56 overflow-hidden">
+            <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
               <Image
                 src="/testimony-animals/porquinho-casal-jorge-zoe.webp"
                 alt="Jorge e Zoe os porquinhos"
@@ -366,34 +366,34 @@ export default function OurImpactPage() {
       {/* Contador de Impacto - New Section */}
       <div className="w-full py-16 md:py-24 bg-vegGreen/10">
         <div className="mx-auto px-4 md:px-6 text-center space-y-8">
-          <h2 className="text-5xl font-holtwood text-vegBrown-dark">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-holtwood text-vegBrown-dark">
             {t("numbers.title")}
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="space-y-3 p-6 bg-white rounded-lg shadow-md hover:scale-105 transition-transform duration-200">
-              <PawPrint className="w-10 h-10 text-vegGreen mx-auto" />
-              <div className="text-5xl font-bold text-vegGreen">+22</div>
+              <PawPrint className="w-8 h-8 sm:w-10 sm:h-10 text-vegGreen mx-auto" />
+              <div className="text-4xl sm:text-5xl font-bold text-vegGreen">+22</div>
               <p className="text-lg text-vegBrown-light font-semibold">
                 {t("numbers.animalsSaved")}
               </p>
             </div>
             <div className="space-y-3 p-6 bg-white rounded-lg shadow-md hover:scale-105 transition-transform duration-200">
-              <Droplet className="w-10 h-10 text-vegYellow mx-auto" />
-              <div className="text-5xl font-bold text-vegYellow">23,4M</div>
+              <Droplet className="w-8 h-8 sm:w-10 sm:h-10 text-vegYellow mx-auto" />
+              <div className="text-4xl sm:text-5xl font-bold text-vegYellow">23,4M</div>
               <p className="text-lg text-vegBrown-light font-semibold">
                 {t("numbers.waterSaved")}
               </p>
             </div>
             <div className="space-y-3 p-6 bg-white rounded-lg shadow-md hover:scale-105 transition-transform duration-200">
-              <Wind className="w-10 h-10 text-vegOrange mx-auto" />
-              <div className="text-5xl font-bold text-vegOrange">93,6T</div>
+              <Wind className="w-8 h-8 sm:w-10 sm:h-10 text-vegOrange mx-auto" />
+              <div className="text-4xl sm:text-5xl font-bold text-vegOrange">93,6T</div>
               <p className="text-lg text-vegBrown-light font-semibold">
                 {t("numbers.co2NotEmitted")}
               </p>
             </div>
             <div className="space-y-3 p-6 bg-white rounded-lg shadow-md hover:scale-105 transition-transform duration-200">
-              <Recycle className="w-10 h-10 text-vegGreen mx-auto" />
-              <div className="text-5xl font-bold text-vegGreen">1,56T</div>
+              <Recycle className="w-8 h-8 sm:w-10 sm:h-10 text-vegGreen mx-auto" />
+              <div className="text-4xl sm:text-5xl font-bold text-vegGreen">1,56T</div>
               <p className="text-lg text-vegBrown-light font-semibold">
                 {t("numbers.wasteAvoided")}
               </p>
@@ -484,12 +484,12 @@ export default function OurImpactPage() {
       {/* CTA Section */}
       <div className="py-16 md:py-24 bg-vegYellow/10 w-full">
         <div className="container mx-auto px-4 md:px-6 text-center space-y-6">
-          <h2 className="text-5xl font-holtwood text-vegBrown-dark mb-6 flex items-center gap-3 justify-center">
-            <Sparkles className="w-12 h-12 text-vegYellow" />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-holtwood text-vegBrown-dark mb-6 flex items-center gap-3 justify-center">
+            <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-vegYellow" />
             {t("cta.title")}
           </h2>
           <p
-            className="text-xl font-gluten text-vegBrown-light max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl font-gluten text-vegBrown-light max-w-2xl mx-auto leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t.raw("cta.description") }}
           />
           <OrderNowBtn

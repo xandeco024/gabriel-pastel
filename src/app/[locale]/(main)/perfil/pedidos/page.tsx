@@ -239,30 +239,30 @@ export default function PedidosPage() {
         }}
       />
 
-      <div className="container mx-auto px-4 md:px-60 py-12">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-60 py-12">
         <div className="text-center mb-12 space-y-4">
-          <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
-            <Package className="w-12 h-12 text-vegYellow" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
+            <Package className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-vegYellow" />
             {t("title")}
           </h1>
           <p
-            className="text-xl text-vegBrown-light max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-vegBrown-light max-w-2xl mx-auto"
             dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
           />
         </div>
 
         {orders.length === 0 ? (
-          <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-16 text-center">
+          <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-10 md:p-16 text-center">
             <Package
               size={96}
               className="mx-auto mb-6 text-vegYellow/40"
               strokeWidth={1.5}
             />
-            <h2 className="text-3xl font-holtwood mb-4 text-vegBrown-dark">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-holtwood mb-4 text-vegBrown-dark">
               {t("emptyTitle")}
             </h2>
             <p
-              className="text-xl text-vegBrown-light mb-8 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-vegBrown-light mb-8 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: t.raw("emptyDescription") }}
             />
             <button
@@ -273,7 +273,7 @@ export default function PedidosPage() {
             </button>
           </div>
         ) : (
-          <div className="space-y-8 max-w-4xl mx-auto">
+          <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-4xl mx-auto">
             {orders.map((order) => {
               const statusInfo = statusStyles[order.status];
               const StatusIcon = statusInfo.icon;
@@ -281,13 +281,13 @@ export default function PedidosPage() {
               return (
                 <div
                   key={order.id}
-                  className={`bg-white rounded-2xl shadow-lg p-8 border-2 ${statusInfo.borderColor} hover:shadow-2xl transition-shadow duration-300`}
+                  className={`bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 border-2 ${statusInfo.borderColor} hover:shadow-2xl transition-shadow duration-300`}
                 >
                   {/* Header do Pedido */}
-                  <div className="flex items-start justify-between mb-6">
+                  <div className="flex flex-col sm:flex-row items-start justify-between mb-6 gap-4">
                     <div>
-                      <div className="flex items-center gap-3 mb-3">
-                        <h3 className="text-2xl font-holtwood text-vegBrown-dark">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-3">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-holtwood text-vegBrown-dark">
                           {t("orderNumber", { id: order.id.substring(0, 8) })}
                         </h3>
                         <span
@@ -297,12 +297,12 @@ export default function PedidosPage() {
                           {t(`status.${order.status}`)}
                         </span>
                       </div>
-                      <p className="text-base text-vegBrown-light">
+                      <p className="text-sm sm:text-base text-vegBrown-light">
                         {formatDate(order.createdAt)}
                       </p>
                     </div>
-                    <div className="text-right">
-                      <p className="text-3xl font-bold text-vegGreen drop-shadow-sm">
+                    <div className="text-left sm:text-right">
+                      <p className="text-2xl sm:text-3xl font-bold text-vegGreen drop-shadow-sm">
                         {formatPrice(Number(order.total))}
                       </p>
                     </div>
@@ -313,10 +313,10 @@ export default function PedidosPage() {
                     {order.orderItems.map((item) => (
                       <div
                         key={item.id}
-                        className="flex items-center justify-between bg-vegGreen/5 p-4 rounded-lg"
+                        className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-vegGreen/5 p-4 rounded-lg gap-3"
                       >
-                        <div className="flex-1">
-                          <p className="font-semibold text-vegBrown-dark text-lg">
+                        <div className="flex-1 w-full sm:w-auto">
+                          <p className="font-semibold text-vegBrown-dark text-base sm:text-lg">
                             {item.type === "CUSTOM" && item.customPastel ? (
                               <>
                                 <span className="text-vegYellow text-xl">
@@ -348,12 +348,12 @@ export default function PedidosPage() {
                                 : ""}
                           </p>
                         </div>
-                        <div className="text-right ml-4">
-                          <p className="text-vegBrown-dark font-semibold">
+                        <div className="text-left sm:text-right w-full sm:w-auto sm:ml-4">
+                          <p className="text-sm sm:text-base text-vegBrown-dark font-semibold">
                             {item.quantity}x{" "}
                             {formatPrice(Number(item.unitPrice))}
                           </p>
-                          <p className="text-base font-bold text-vegGreen">
+                          <p className="text-base sm:text-lg font-bold text-vegGreen">
                             {formatPrice(Number(item.totalPrice))}
                           </p>
                         </div>

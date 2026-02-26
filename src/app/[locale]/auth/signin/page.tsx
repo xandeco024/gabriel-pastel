@@ -31,16 +31,16 @@ export default function SignIn() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background font-gluten">
-      <div className="max-w-md w-full space-y-8 bg-pastel p-8 rounded-2xl shadow-lg border border-vegGreen/20">
+      <div className="max-w-md w-full space-y-8 bg-pastel p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg border border-vegGreen/20">
         <div className="text-center">
-          <h1 className="text-4xl font-holtwood text-vegGreen mb-2">GABRIEL PASTEL</h1>
-          <h2 className="text-2xl font-semibold text-foreground">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-holtwood text-vegGreen mb-2">GABRIEL PASTEL</h1>
+          <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground">
             Entre na sua conta
           </h2>
-          <p className="text-vegGreen-light mt-2">Bem-vindo de volta!</p>
+          <p className="text-base sm:text-lg md:text-xl text-vegGreen-light mt-2">Bem-vindo de volta!</p>
         </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-4 sm:space-y-5 md:space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
@@ -51,7 +51,7 @@ export default function SignIn() {
                 name="email"
                 type="email"
                 required
-                className="w-full px-4 py-3 border-2 border-vegGreen/30 rounded-lg placeholder-vegGreen/50 text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-vegGreen focus:border-vegGreen transition-colors"
+                className="w-full px-4 py-2.5 sm:py-3 border-2 border-vegGreen/30 rounded-lg placeholder-vegGreen/50 text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-vegGreen focus:border-vegGreen transition-colors"
                 placeholder="Seu melhor email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +67,7 @@ export default function SignIn() {
                 name="password"
                 type="password"
                 required
-                className="w-full px-4 py-3 border-2 border-vegGreen/30 rounded-lg placeholder-vegGreen/50 text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-vegGreen focus:border-vegGreen transition-colors"
+                className="w-full px-4 py-2.5 sm:py-3 border-2 border-vegGreen/30 rounded-lg placeholder-vegGreen/50 text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-vegGreen focus:border-vegGreen transition-colors"
                 placeholder="Sua senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -88,7 +88,7 @@ export default function SignIn() {
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-vegGreen/30" />
               </div>
-              <div className="relative flex justify-center text-sm">
+              <div className="relative flex justify-center text-xs sm:text-sm">
                 <span className="px-3 bg-pastel text-vegGreen font-medium">Login seguro com email e senha</span>
               </div>
             </div>

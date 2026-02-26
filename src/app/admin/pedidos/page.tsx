@@ -60,25 +60,25 @@ export default async function PedidosPage({
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="text-center space-y-4">
-        <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
-          <Sparkles className="w-12 h-12 text-vegYellow" />
+      <div className="text-center space-y-3 sm:space-y-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl font-holtwood text-vegBrown-dark flex flex-col sm:flex-row items-center gap-2 sm:gap-4 justify-center">
+          <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-vegYellow" />
           Gerenciar Pedidos
         </h1>
-        <p className="text-xl text-vegBrown-light">
+        <p className="text-base sm:text-lg lg:text-xl text-vegBrown-light">
           Acompanhe e gerencie todos os pedidos do seu negócio
         </p>
       </div>
 
       {/* Filtros com estética do site */}
-      <div className="bg-gradient-to-br from-pastel to-background rounded-2xl border-2 border-vegGreen/20 shadow-lg p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <Filter className="w-6 h-6 text-vegGreen" />
-          <h3 className="text-xl font-holtwood text-vegBrown-dark">
+      <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg p-4 sm:p-6">
+        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+          <Filter className="w-5 h-5 sm:w-6 sm:h-6 text-vegGreen" />
+          <h3 className="text-base sm:text-lg lg:text-xl font-holtwood text-vegBrown-dark">
             Filtrar por Status
           </h3>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {filterButtons.map((btn) => {
             const isActive =
               (!params.status && btn.value === "all") ||
@@ -106,7 +106,7 @@ export default async function PedidosPage({
                     ? "/admin/pedidos"
                     : `/admin/pedidos?status=${btn.value}`
                 }
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg border-2 ${
+                className={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg border-2 ${
                   isActive ? "border-transparent" : "border-transparent"
                 } ${colorClasses[btn.color as keyof typeof colorClasses]}`}
               >

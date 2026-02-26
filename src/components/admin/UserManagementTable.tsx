@@ -4,9 +4,9 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const roleColors = {
-  CUSTOMER: "bg-gray-100 text-gray-800",
-  ADMIN: "bg-blue-100 text-blue-800",
-  SUPER_ADMIN: "bg-purple-100 text-purple-800",
+  CUSTOMER: "bg-vegBrown/10 text-vegBrown-dark border-vegBrown/30",
+  ADMIN: "bg-vegGreen/10 text-vegGreen border-vegGreen/30",
+  SUPER_ADMIN: "bg-vegOrange/10 text-vegOrange border-vegOrange/30",
 };
 
 const roleLabels = {
@@ -65,58 +65,58 @@ export default function UserManagementTable({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow overflow-hidden">
+    <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl lg:rounded-3xl border-2 border-vegGreen/20 shadow-xl overflow-hidden">
       <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+        <table className="w-full min-w-[600px]">
+          <thead>
+            <tr className="bg-gradient-to-r from-vegGreen/10 to-vegYellow/10 border-b-2 border-vegGreen/20">
+              <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-holtwood text-vegBrown-dark uppercase tracking-wider">
                 Nome
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-holtwood text-vegBrown-dark uppercase tracking-wider">
                 Email
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-holtwood text-vegBrown-dark uppercase tracking-wider">
                 Role
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-holtwood text-vegBrown-dark uppercase tracking-wider">
                 Pedidos
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-holtwood text-vegBrown-dark uppercase tracking-wider">
                 Cadastro
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-vegGreen/10">
             {users.map((user) => (
-              <tr key={user.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4">
-                  <p className="font-medium text-gray-900">
+              <tr key={user.id} className="hover:bg-vegGreen/5 transition-colors duration-200">
+                <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
+                  <p className="font-semibold text-vegBrown-dark text-sm sm:text-base">
                     {user.name || "Sem nome"}
                   </p>
                 </td>
-                <td className="px-6 py-4">
-                  <p className="text-sm text-gray-600">{user.email}</p>
+                <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
+                  <p className="text-xs sm:text-sm text-vegBrown-light">{user.email}</p>
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
                   <select
                     value={user.role}
                     onChange={(e) => updateRole(user.id, e.target.value)}
                     disabled={updatingRole === user.id}
-                    className={`px-3 py-1 text-xs font-semibold rounded-full border-0 cursor-pointer ${roleColors[user.role as keyof typeof roleColors]}`}
+                    className={`px-2 sm:px-3 py-1 text-xs font-semibold rounded-full border-2 cursor-pointer transition-all hover:scale-105 ${roleColors[user.role as keyof typeof roleColors]}`}
                   >
                     <option value="CUSTOMER">Cliente</option>
                     <option value="ADMIN">Admin</option>
                     <option value="SUPER_ADMIN">Super Admin</option>
                   </select>
                 </td>
-                <td className="px-6 py-4">
-                  <span className="text-sm text-gray-900">
+                <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
+                  <span className="text-xs sm:text-sm text-vegGreen font-semibold bg-vegGreen/10 px-2 py-1 rounded-full">
                     {user._count.orders} pedidos
                   </span>
                 </td>
-                <td className="px-6 py-4">
-                  <span className="text-sm text-gray-600">
+                <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
+                  <span className="text-xs sm:text-sm text-vegBrown-light font-semibold">
                     {new Date(user.createdAt).toLocaleDateString("pt-BR")}
                   </span>
                 </td>

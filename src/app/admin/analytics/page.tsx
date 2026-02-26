@@ -72,66 +72,71 @@ export default async function AnalyticsPage() {
   });
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">Analytics</h1>
-        <p className="text-gray-600 mt-1">Análise e estatísticas do negócio</p>
+    <div className="space-y-6 sm:space-y-8">
+      <div className="text-center space-y-3 sm:space-y-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl font-holtwood text-vegBrown-dark flex flex-col sm:flex-row items-center gap-2 sm:gap-4 justify-center">
+          <BarChart3 className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-vegYellow" />
+          Analytics
+        </h1>
+        <p className="text-base sm:text-lg lg:text-xl text-vegBrown-light">
+          Análise e estatísticas do negócio
+        </p>
       </div>
 
       {/* Métricas Principais */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Total de Pedidos</p>
-              <p className="text-3xl font-bold mt-2">{totalOrders}</p>
+              <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">Total de Pedidos</p>
+              <p className="text-2xl sm:text-3xl font-holtwood text-vegBrown-dark mt-2">{totalOrders}</p>
             </div>
-            <div className="bg-blue-500 p-4 rounded-xl">
-              <BarChart3 className="w-8 h-8 text-white" />
+            <div className="bg-vegGreen p-3 sm:p-4 rounded-xl">
+              <BarChart3 className="w-6 h-6 sm:w-8 sm:h-8 text-background" />
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6">
+        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegYellow/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Receita Total</p>
-              <p className="text-3xl font-bold mt-2">
+              <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">Receita Total</p>
+              <p className="text-2xl sm:text-3xl font-holtwood text-vegBrown-dark mt-2">
                 R$ {Number(totalRevenue._sum.total || 0).toFixed(2)}
               </p>
             </div>
-            <div className="bg-green-500 p-4 rounded-xl">
-              <DollarSign className="w-8 h-8 text-white" />
+            <div className="bg-vegYellow p-3 sm:p-4 rounded-xl">
+              <DollarSign className="w-6 h-6 sm:w-8 sm:h-8 text-background" />
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6">
+        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegOrange/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Ticket Médio</p>
-              <p className="text-3xl font-bold mt-2">
+              <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">Ticket Médio</p>
+              <p className="text-2xl sm:text-3xl font-holtwood text-vegBrown-dark mt-2">
                 R$ {Number(averageOrderValue._avg.total || 0).toFixed(2)}
               </p>
             </div>
-            <div className="bg-purple-500 p-4 rounded-xl">
-              <TrendingUp className="w-8 h-8 text-white" />
+            <div className="bg-vegOrange p-3 sm:p-4 rounded-xl">
+              <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-background" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Top Produtos */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Top Ingredientes */}
-        <div className="bg-white rounded-lg shadow">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
+        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg overflow-hidden">
+          <div className="bg-gradient-to-r from-vegGreen/10 to-vegYellow/10 px-4 sm:px-6 py-3 sm:py-4 border-b-2 border-vegGreen/20">
+            <h2 className="text-base sm:text-lg lg:text-xl font-holtwood text-vegBrown-dark">
               Ingredientes Mais Populares
             </h2>
           </div>
-          <div className="p-6">
-            <div className="space-y-4">
+          <div className="p-4 sm:p-6">
+            <div className="space-y-3 sm:space-y-4">
               {topIngredients.map((item, index) => {
                 const ingredient = ingredients.find(
                   (i) => i.id === item.ingredientId,
@@ -141,15 +146,15 @@ export default async function AnalyticsPage() {
                     key={item.ingredientId}
                     className="flex items-center justify-between"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl font-bold text-gray-300">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <span className="text-xl sm:text-2xl font-bold text-vegGreen/30">
                         #{index + 1}
                       </span>
-                      <span className="text-gray-900 font-medium">
+                      <span className="text-vegBrown-dark font-medium text-sm sm:text-base">
                         {ingredient?.name || "Desconhecido"}
                       </span>
                     </div>
-                    <span className="text-sm font-semibold text-green-600">
+                    <span className="text-xs sm:text-sm font-semibold text-vegGreen bg-vegGreen/10 px-2 sm:px-3 py-1 rounded-full">
                       {item._count} usos
                     </span>
                   </div>
@@ -160,14 +165,14 @@ export default async function AnalyticsPage() {
         </div>
 
         {/* Top Pastéis */}
-        <div className="bg-white rounded-lg shadow">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
+        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegOrange/20 shadow-lg overflow-hidden">
+          <div className="bg-gradient-to-r from-vegOrange/10 to-vegYellow/10 px-4 sm:px-6 py-3 sm:py-4 border-b-2 border-vegOrange/20">
+            <h2 className="text-base sm:text-lg lg:text-xl font-holtwood text-vegBrown-dark">
               Pastéis Mais Vendidos
             </h2>
           </div>
-          <div className="p-6">
-            <div className="space-y-4">
+          <div className="p-4 sm:p-6">
+            <div className="space-y-3 sm:space-y-4">
               {topPasteis.map((item, index) => {
                 const pastel = pasteis.find(
                   (p) => p.id === item.premadePastelId,
@@ -177,15 +182,15 @@ export default async function AnalyticsPage() {
                     key={item.premadePastelId}
                     className="flex items-center justify-between"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl font-bold text-gray-300">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <span className="text-xl sm:text-2xl font-bold text-vegOrange/30">
                         #{index + 1}
                       </span>
-                      <span className="text-gray-900 font-medium">
+                      <span className="text-vegBrown-dark font-medium text-sm sm:text-base">
                         {pastel?.name || "Desconhecido"}
                       </span>
                     </div>
-                    <span className="text-sm font-semibold text-green-600">
+                    <span className="text-xs sm:text-sm font-semibold text-vegOrange bg-vegOrange/10 px-2 sm:px-3 py-1 rounded-full">
                       {item._sum.quantity} vendidos
                     </span>
                   </div>
