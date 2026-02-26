@@ -3,7 +3,7 @@
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { locales, localeNames, type Locale } from "@/i18n/request";
-import { Globe } from "lucide-react";
+import { Globe, Check } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 export default function LanguageSelector() {
@@ -42,33 +42,45 @@ export default function LanguageSelector() {
 
   return (
     <div className="relative" ref={dropdownRef}>
-      {/* Botão */}
+      {/* Botão circular estilo Header */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-vegGreen/10 transition-colors"
+        className="group flex items-center justify-center gap-1.5 h-12 px-3  hover:border-vegYellow rounded-full transition-all duration-300 hover:scale-105"
         aria-label="Selecionar idioma"
       >
-        <Globe className="w-5 h-5 text-vegGreen" />
-        <span className="font-semibold text-sm uppercase">{locale}</span>
+        <Globe className="w-5 h-5 text-vegGreen group-hover:text-vegYellow transition-colors" />
+        <span className="font-bold text-sm text-vegGreen group-hover:text-vegYellow transition-colors uppercase">
+          {locale}
+        </span>
       </button>
 
       {/* Dropdown */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-2xl border-2 border-vegGreen/20 overflow-hidden z-50">
-          {locales.map((loc) => (
-            <button
-              key={loc}
-              onClick={() => handleLocaleChange(loc)}
-              className={`w-full px-4 py-3 text-left hover:bg-vegGreen/10 transition-colors flex items-center justify-between ${
-                locale === loc
-                  ? "bg-vegGreen/5 text-vegGreen font-semibold"
-                  : "text-gray-700"
-              }`}
-            >
-              <span>{localeNames[loc]}</span>
-              {locale === loc && <span className="text-vegGreen">✓</span>}
-            </button>
-          ))}
+        <div className="absolute right-0 mt-3 w-52 bg-background rounded-2xl shadow-2xl border-2 border-vegGreen/20 overflow-hidden z-50 animate-dropdown-in">
+          <div className="bg-gradient-to-br from-vegGreen/10 to-vegYellow/5 px-4 py-3 border-b-2 border-vegGreen/20">
+            <p className="font-bold text-vegGreen text-sm flex items-center gap-2">
+              <Globe className="w-4 h-4" />
+              Idioma / Language
+            </p>
+          </div>
+          <div className="py-2">
+            {locales.map((loc) => (
+              <button
+                key={loc}
+                onClick={() => handleLocaleChange(loc)}
+                className={`w-full px-4 py-3 text-left hover:bg-vegGreen/10 transition-all duration-200 flex items-center justify-between group ${
+                  locale === loc
+                    ? "bg-vegGreen/5 text-vegGreen font-semibold"
+                    : "text-vegBrown-dark"
+                }`}
+              >
+                <span className="group-hover:text-vegYellow transition-colors">
+                  {localeNames[loc]}
+                </span>
+                {locale === loc && <Check className="w-5 h-5 text-vegGreen" />}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

@@ -144,7 +144,7 @@ export default function AuthModal({
           description: error,
         });
       }
-    } catch (error) {
+    } catch {
       toast.error("Erro ao criar conta", {
         description: "Tente novamente mais tarde.",
       });

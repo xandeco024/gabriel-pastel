@@ -29,7 +29,7 @@ export default function SignUp() {
         const error = await response.text()
         alert(`Erro: ${error}`)
       }
-    } catch (error) {
+    } catch {
       alert("Erro ao criar conta")
     }
 

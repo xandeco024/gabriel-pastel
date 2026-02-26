@@ -6,7 +6,9 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { useTranslations } from "next-intl";
 import AuthModal from "./AuthModal";
+import LanguageSelector from "./LanguageSelector";
 import {
   User,
   ShoppingBag,
@@ -23,6 +25,7 @@ export default function Header() {
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
   const menuRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("nav");
 
   const handleSignOut = () => {
     signOut({ callbackUrl: "/" });
@@ -69,8 +72,8 @@ export default function Header() {
           <span className="text-vegGreen text-4xl font-holtwood tracking-wide group-hover:text-vegYellow transition-colors duration-300">
             GABRIEL PASTEL
           </span>
-          <span className="text-vegGreen-light text-xs font-semibold tracking-[0.2em] -mt-1">
-            100% VEGANO
+          <span className="text-vegGreen-light text-xs font-semibold tracking-[0.2em] -mt-1 uppercase">
+            {t("vegan100")}
           </span>
         </div>
       </Link>
@@ -81,14 +84,14 @@ export default function Header() {
           href="/home"
           className="relative text-lg font-semibold text-vegGreen hover:text-vegYellow transition-all duration-300 group"
         >
-          HOME
+          {t("home").toUpperCase()}
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-vegYellow group-hover:w-full transition-all duration-300"></span>
         </Link>
         <Link
           href="/nossa-historia"
           className="relative text-lg font-semibold text-vegGreen hover:text-vegYellow transition-all duration-300 group"
         >
-          NOSSA HISTÓRIA
+          {t("ourStory").toUpperCase()}
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-vegYellow group-hover:w-full transition-all duration-300"></span>
         </Link>
         {/* Link Admin - apenas para ADMIN e SUPER_ADMIN */}
@@ -99,7 +102,7 @@ export default function Header() {
               href="/admin/dashboard"
               className="relative text-lg font-semibold text-vegOrange hover:text-vegYellow transition-all duration-300 group"
             >
-              ADMIN
+              {t("admin").toUpperCase()}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-vegYellow group-hover:w-full transition-all duration-300"></span>
             </Link>
           )}
@@ -107,7 +110,7 @@ export default function Header() {
           href="/nosso-impacto"
           className="relative text-lg font-semibold text-vegGreen hover:text-vegYellow transition-all duration-300 group"
         >
-          NOSSO IMPACTO
+          {t("ourImpact").toUpperCase()}
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-vegYellow group-hover:w-full transition-all duration-300"></span>
         </Link>
 
@@ -158,7 +161,7 @@ export default function Header() {
                           onClick={() => setUserMenuOpen(false)}
                         >
                           <User className="w-5 h-5 group-hover:text-vegYellow group-hover:scale-110 transition-all" />
-                          <span className="font-semibold">Meu Perfil</span>
+                          <span className="font-semibold">{t("profile")}</span>
                         </Link>
                         <Link
                           href="/perfil/pedidos"
@@ -166,7 +169,7 @@ export default function Header() {
                           onClick={() => setUserMenuOpen(false)}
                         >
                           <ShoppingBag className="w-5 h-5 group-hover:text-vegYellow group-hover:scale-110 transition-all" />
-                          <span className="font-semibold">Meus Pedidos</span>
+                          <span className="font-semibold">{t("myOrders")}</span>
                         </Link>
                         {/* Link do Painel Admin - Apenas para ADMIN e SUPER_ADMIN */}
                         {(session.user?.role === "ADMIN" ||
@@ -180,7 +183,7 @@ export default function Header() {
                             >
                               <Settings className="w-5 h-5 group-hover:text-purple-900 group-hover:scale-110 transition-all" />
                               <span className="font-semibold">
-                                Painel Admin
+                                {t("adminPanel")}
                               </span>
                             </Link>
                           </>
@@ -191,7 +194,7 @@ export default function Header() {
                           className="w-full flex items-center gap-3 px-5 py-3 text-vegRed hover:bg-red-50 transition-all duration-200 group"
                         >
                           <LogOut className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                          <span className="font-semibold">Sair</span>
+                          <span className="font-semibold">{t("logout")}</span>
                         </button>
                       </div>
                     </>
@@ -206,7 +209,7 @@ export default function Header() {
                         className="w-full flex items-center gap-3 px-5 py-3 text-vegGreen hover:bg-vegGreen/10 transition-all duration-200 group"
                       >
                         <LogIn className="w-5 h-5 group-hover:text-vegYellow group-hover:scale-110 transition-all" />
-                        <span className="font-semibold">Entrar</span>
+                        <span className="font-semibold">{t("login")}</span>
                       </button>
                       <button
                         onClick={() => {
@@ -217,7 +220,7 @@ export default function Header() {
                         className="flex items-center gap-3 px-5 py-3 text-background bg-gradient-to-r from-vegGreen to-vegGreen-light hover:from-vegYellow hover:to-vegOrange transition-all duration-300 group mx-3 my-2 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-[1.02]"
                       >
                         <UserPlus className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                        <span>Criar Conta</span>
+                        <span>{t("createAccount")}</span>
                       </button>
                     </div>
                   )}
@@ -226,6 +229,9 @@ export default function Header() {
             </>
           )}
         </div>
+
+        {/* Language Selector */}
+        <LanguageSelector />
       </nav>
 
       {/* Auth Modal - Renderizado via portal para evitar problemas de z-index */}

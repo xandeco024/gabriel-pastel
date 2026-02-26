@@ -57,7 +57,7 @@ export default function UserManagementTable({
 
       toast.success("Role atualizado com sucesso!");
       window.location.reload();
-    } catch (error) {
+    } catch {
       toast.error("Erro ao atualizar role");
     } finally {
       setUpdatingRole(null);

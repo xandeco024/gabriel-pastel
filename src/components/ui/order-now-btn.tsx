@@ -26,9 +26,9 @@ const sizeStyles: Record<ButtonSize, string> = {
 
 export default function OrderNowBtn({
   size = "xl",
-  borderColor = "border-vegGreen-light",
+  borderColor = "border-vegGreen",
   bgColor = "",
-  textColor = "text-vegGreen-light",
+  textColor = "text-vegGreen",
   hoverBgColor = "hover:bg-vegYellow hover:border-vegYellow",
   hoverTextColor = "hover:text-background",
   className,

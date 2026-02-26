@@ -16,15 +16,19 @@
     "ourImpact": "Nosso Impacto",
     "buildYourPastel": "Monte Seu Pastel",
     "menu": "Cardápio",
-    "profile": "Perfil",
+    "profile": "Meu Perfil",
     "myOrders": "Meus Pedidos",
     "login": "Entrar",
     "signup": "Cadastrar",
-    "logout": "Sair"
+    "logout": "Sair",
+    "admin": "Admin",
+    "adminPanel": "Painel Admin",
+    "createAccount": "Criar Conta",
+    "vegan100": "100% Vegano"
   },
   "home": {
     "title": "O PASTEL QUE TE LEVA ATÉ O CÉU",
-    "subtitle": "Com a união de dois Gabriéis, que gostavam de pastéis, surge a <span class='font-bold text-vegYellow'>Gabriel Pastel</span>.",
+    "subtitle": "Com a união de dois Gabriéis, que gostavam de pastéis, surge a <span class='font-bold text-vegGreen'>Gabriel Pastel</span>.",
     "description": "A lanchonete com o melhor pastel da região, <span class='font-bold text-vegGreen'>100% vegana</span>, e com o preço que cabe no seu bolso.",
     "cta": "PEÇA JÁ!",
     "benefits": {
@@ -112,13 +116,22 @@
   },
   "profile": {
     "title": "MEU PERFIL",
-    "subtitle": "Gerencie suas informações e acompanhe seus pedidos",
-    "welcome": "Olá, {name}! 🌱",
+    "subtitle": "Gerencie suas <span class='font-bold text-vegYellow'>informações</span> e acompanhe seus <span class='font-bold text-vegGreen'>pedidos</span>",
+    "welcome": "Olá, {name}!",
+    "defaultUser": "Usuário",
     "memberSince": "Membro desde {date}",
+    "name": "Nome",
+    "notProvided": "Não informado",
+    "email": "Email",
     "quickActions": "Ações Rápidas",
-    "viewOrders": "Ver Pedidos",
+    "viewOrders": "Meus Pedidos",
+    "viewOrdersDescription": "Veja seu <span class='font-bold text-vegGreen'>histórico de pedidos</span>",
     "makeOrder": "Fazer Pedido",
+    "makeOrderDescription": "Monte seu <span class='font-bold text-vegYellow'>pastel personalizado</span>",
     "editProfile": "Editar Perfil",
+    "veganImpact": "Seu Impacto Vegano",
+    "impactText": "Cada pedido que você faz contribui para um <span class='font-bold text-vegGreen'>mundo mais sustentável</span> e <span class='font-bold text-vegYellow'>compassivo</span>! 🌱",
+    "impactCta": "Continue fazendo pedidos para ver suas <span class='font-bold text-vegGreen'>estatísticas de impacto ambiental</span> aqui!",
     "myImpact": "MEU IMPACTO",
     "impactDescription": "Ao escolher pastéis veganos, você está fazendo a diferença! 🌍",
     "ordersCount": "{count} pedidos realizados",
@@ -128,23 +141,29 @@
   },
   "orders": {
     "title": "MEUS PEDIDOS",
-    "subtitle": "Acompanhe todos os seus pedidos",
+    "subtitle": "Acompanhe o <span class='font-bold text-vegYellow'>status</span> e o <span class='font-bold text-vegGreen'>histórico</span> de todos os seus pedidos",
     "emptyTitle": "Nenhum pedido ainda",
-    "emptyDescription": "Que tal fazer seu primeiro pedido de pastéis deliciosos?",
-    "makeFirstOrder": "FAZER PRIMEIRO PEDIDO",
+    "emptyDescription": "Que tal fazer seu <span class='font-bold text-vegGreen'>primeiro pedido</span> de pastéis veganos <span class='font-bold text-vegYellow'>deliciosos</span>?",
+    "makeFirstOrder": "MONTE SEU PASTEL",
     "orderNumber": "Pedido #{id}",
+    "customPastel": "Pastel Personalizado",
     "status": {
       "PENDING": "Pendente",
       "CONFIRMED": "Confirmado",
-      "PREPARING": "Em Preparo",
+      "PREPARING": "Preparando",
       "READY": "Pronto",
       "DELIVERED": "Entregue",
       "CANCELLED": "Cancelado"
     },
     "items": "Itens",
     "total": "Total",
-    "orderAgain": "PEDIR NOVAMENTE",
-    "orderedAt": "Pedido em {date}"
+    "orderAgain": "Pedir Novamente",
+    "processing": "Processando...",
+    "orderedAt": "Pedido em {date}",
+    "reorderSuccess": "Pedido repetido com sucesso!",
+    "reorderSuccessDescription": "Novo pedido #{id} criado",
+    "loadError": "Erro ao carregar pedidos",
+    "reorderError": "Erro ao repetir pedido. Tente novamente."
   },
   "history": {
     "title": "A HISTÓRIA DA GABRIEL PASTEL",
@@ -171,7 +190,7 @@
       "plantBased": {
         "badge": "2019",
         "title": "A TRANSFORMAÇÃO PLANT-BASED",
-        "description1": "Na época, a Gabriel Pastel usava <span class='font-bold text-vegRed'>carne bovina</span> e outros ingredientes de origem animal. Mas ao mesmo tempo, <span class='font-bold text-vegGreen'>Gabriel Paiva</span> conhecia sobre o <span class='font-bold text-vegYellow'>veganismo</span> e adotou o estilo de vida.",
+        "description1": "Na época, a Gabriel Pastel usava <span class='font-bold text-vegRed'>carne bovina</span> e outros ingredientes de origem animal. Mas ao mesmo tempo, <span class='font-bold text-vegGreen'>Gabriel Alexander</span> conhecia sobre o <span class='font-bold text-vegYellow'>veganismo</span> e adotou o estilo de vida.",
         "description2": "Ele propôs que transformássemos o nosso negócio em <span class='font-bold text-vegGreen'>100% vegano</span>! E assim fizemos. A transição foi natural, e hoje, a Gabriel Pastel é um exemplo de como é possível criar produtos deliciosos sem crueldade animal."
       },
       "relaunch": {
@@ -193,6 +212,43 @@
       "title": "QUER CONTRIBUIR COM O PROJETO?",
       "description": "A Gabriel Pastel é um projeto <span class='font-bold text-vegGreen'>open-source</span>! Se você é desenvolvedor e quer contribuir, confira nosso repositório no GitHub.",
       "githubButton": "VER NO GITHUB"
+    },
+    "values": {
+      "title": "NOSSOS VALORES",
+      "compassion": {
+        "title": "COMPAIXÃO",
+        "description": "Acreditamos que <span class='font-bold text-vegGreen'>todos os seres merecem respeito</span> e compaixão. Por isso, nossos pastéis são <span class='font-bold text-vegYellow'>100% livres de crueldade animal</span>."
+      },
+      "sustainability": {
+        "title": "SUSTENTABILIDADE",
+        "description": "Nosso <span class='font-bold text-vegGreen'>compromisso com o planeta</span> se reflete em cada aspecto do nosso negócio, desde os <span class='font-bold text-vegYellow'>ingredientes</span> até as <span class='font-bold text-vegOrange'>embalagens biodegradáveis</span>."
+      },
+      "flavor": {
+        "title": "SABOR",
+        "description": "Provamos que comida <span class='font-bold text-vegGreen'>ética e sustentável</span> também pode ser deliciosa. Nossos pastéis são uma <span class='font-bold text-vegYellow'>explosão de sabores</span> que conquistam até os mais céticos."
+      }
+    },
+    "technology": {
+      "badge": "TECNOLOGIA",
+      "title": "DE HTML BÁSICO A REACT",
+      "description": "A <span class='font-bold text-vegYellow'>evolução da Gabriel Pastel</span> também reflete o <span class='font-bold text-vegGreen'>crescimento profissional</span> do seu criador. O que começou com HTML e CSS básicos se transformou em uma <span class='font-bold text-vegOrange'>aplicação moderna</span> construída com:",
+      "react": {
+        "title": "React & TypeScript",
+        "description": "Para uma interface dinâmica e tipagem segura"
+      },
+      "nextjs": {
+        "title": "Next.js",
+        "description": "Framework React para renderização híbrida e otimização"
+      },
+      "database": {
+        "title": "Banco de Dados",
+        "description": "Para armazenamento e gerenciamento de dados"
+      },
+      "viewOnGithub": "Ver código no GitHub"
+    },
+    "cta": {
+      "title": "FAÇA PARTE DESSA HISTÓRIA",
+      "description": "A <span class='font-bold text-vegGreen'>Gabriel Pastel</span> continua evoluindo e queremos que você <span class='font-bold text-vegYellow'>faça parte dessa jornada</span>. Experimente nossos <span class='font-bold text-vegOrange'>deliciosos pastéis veganos</span> e ajude a escrever os próximos capítulos dessa história!"
     }
   },
   "impact": {
@@ -291,19 +347,43 @@
     "selectIngredientsSubtitle": "Selecione até 5 ingredientes para o seu pastel personalizado",
     "selectedCount": "{count} de 5 recheios selecionados",
     "quantity": "QUANTIDADE",
+    "quantityQuestion": "Quantos pastéis deste sabor?",
+    "pricingText": "Até <span class='font-bold text-vegGreen'>três recheios inclusos</span>. Será cobrada uma taxa de <span class='font-bold text-vegYellow'>R$ 1,99 por recheio adicional</span>.",
     "priceInfo": "R$ 14,99 (até 3 recheios) + R$ 1,99 por recheio extra",
     "addToCart": "ADICIONAR AO CARRINHO",
     "cart": "SEU CARRINHO",
+    "myPastels": "MEUS PASTEIZINHOS",
     "emptyCart": "Seu carrinho está vazio",
-    "emptyCartDescription": "Adicione alguns pastéis deliciosos para começar!",
+    "emptyCartDescription": "Adicione alguns <span class='font-bold text-vegYellow'>pastéis deliciosos</span>!",
+    "customPastel": "Pastel Personalizado",
     "pastelWith": "Pastel com",
     "remove": "Remover",
+    "qty": "Qtd:",
     "total": "TOTAL",
     "checkout": "FINALIZAR PEDIDO",
+    "processing": "PROCESSANDO...",
     "premadePasteis": "PASTÉIS PRÉ-MONTADOS",
     "premadePasteisSubtitle": "Não sabe o que escolher? Experimente nossas combinações clássicas!",
     "addPremade": "ADICIONAR",
     "loading": "Carregando ingredientes...",
+    "popularCombos": {
+      "title": "COMBINAÇÕES POPULARES",
+      "subtitle": "Experimente nossas <span class='font-bold text-vegYellow'>combinações especialmente criadas</span> para oferecer o máximo de <span class='font-bold text-vegGreen'>sabor e nutrição</span>",
+      "addToCart": "Adicionar ao Carrinho",
+      "added": "{name} adicionado ao carrinho!",
+      "fillings": "Recheios:"
+    },
+    "combos": {
+      "classicoVegano": "Clássico Vegano",
+      "funghiEspecial": "Funghi Especial",
+      "hortaFresca": "Horta Fresca",
+      "proteicoPower": "Proteico Power",
+      "tropicalMix": "Tropical Mix",
+      "cogumelosCia": "Cogumelos & Cia",
+      "verdeLeve": "Verde & Leve",
+      "saborCampo": "Sabor do Campo",
+      "nutritivoPLus": "Nutritivo Plus"
+    },
     "ingredientBadges": {
       "vegan": "Vegano",
       "organic": "Orgânico"
@@ -330,7 +410,18 @@
     "slogan": "Pastéis veganos que transformam o mundo, um sabor de cada vez.",
     "allRightsReserved": "Todos os direitos reservados.",
     "madeWith": "Feito com",
-    "and": "e"
+    "and": "e",
+    "mission": "Fazemos nosso melhor para transformar o mundo num lugar melhor.",
+    "hours": "Funcionamento",
+    "mondayToThursday": "Segunda a Quinta",
+    "fridayAndSaturday": "Sexta e Sábado",
+    "sunday": "Domingo",
+    "address": "Endereço",
+    "viewOnMap": "Ver no mapa",
+    "contact": "Contato",
+    "phone": "Telefone",
+    "email": "Email",
+    "socialMedia": "Redes Sociais"
   },
   "messages": {
     "loginRequired": "Faça login para continuar",

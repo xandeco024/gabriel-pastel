@@ -20,6 +20,7 @@ const statusLabels = {
 };
 
 interface RecentOrdersProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   orders: any[];
 }
 

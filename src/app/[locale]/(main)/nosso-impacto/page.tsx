@@ -9,7 +9,6 @@ import {
   Recycle,
   Heart,
   TrendingDown,
-  Sprout,
   Wind,
   Calculator,
   Sparkles,
@@ -137,21 +136,20 @@ export default function OurImpactPage() {
             <div className="bg-white p-5 rounded-lg space-y-3 shadow-md hover:scale-105 transition-all duration-200">
               <Droplet className="text-vegGreen" size={48} />
               <p className="text-vegBrown text-lg font-holtwood">
-                91% menos água
+                {t("economy.cards.water.title")}
               </p>
               <p className="text-vegBrown-light text-sm">
-                Comparado à carne bovina, a soja gasta quase 10x menos água.
+                {t("economy.cards.water.description")}
               </p>
             </div>
 
             <div className="bg-white p-5 rounded-lg space-y-3 shadow-md hover:scale-105 transition-all duration-200">
               <ThermometerSun className="text-vegYellow" size={48} />
               <p className="text-vegBrown text-lg font-holtwood">
-                97% menos CO²
+                {t("economy.cards.co2.title")}
               </p>
               <p className="text-vegBrown-light text-sm">
-                A soja emite uma fração do carbono da carne, e ainda ajuda a
-                capturá-lo.
+                {t("economy.cards.co2.description")}
               </p>
             </div>
           </div>
@@ -369,35 +367,35 @@ export default function OurImpactPage() {
       <div className="w-full py-16 md:py-24 bg-vegGreen/10">
         <div className="mx-auto px-4 md:px-6 text-center space-y-8">
           <h2 className="text-5xl font-holtwood text-vegBrown-dark">
-            NOSSO IMPACTO EM NÚMEROS
+            {t("numbers.title")}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="space-y-3 p-6 bg-white rounded-lg shadow-md hover:scale-105 transition-transform duration-200">
               <PawPrint className="w-10 h-10 text-vegGreen mx-auto" />
               <div className="text-5xl font-bold text-vegGreen">+22</div>
               <p className="text-lg text-vegBrown-light font-semibold">
-                Vidas animais poupadas
+                {t("numbers.animalsSaved")}
               </p>
             </div>
             <div className="space-y-3 p-6 bg-white rounded-lg shadow-md hover:scale-105 transition-transform duration-200">
               <Droplet className="w-10 h-10 text-vegYellow mx-auto" />
               <div className="text-5xl font-bold text-vegYellow">23,4M</div>
               <p className="text-lg text-vegBrown-light font-semibold">
-                Litros de água economizados
+                {t("numbers.waterSaved")}
               </p>
             </div>
             <div className="space-y-3 p-6 bg-white rounded-lg shadow-md hover:scale-105 transition-transform duration-200">
               <Wind className="w-10 h-10 text-vegOrange mx-auto" />
               <div className="text-5xl font-bold text-vegOrange">93,6T</div>
               <p className="text-lg text-vegBrown-light font-semibold">
-                CO² não emitido
+                {t("numbers.co2NotEmitted")}
               </p>
             </div>
             <div className="space-y-3 p-6 bg-white rounded-lg shadow-md hover:scale-105 transition-transform duration-200">
               <Recycle className="w-10 h-10 text-vegGreen mx-auto" />
               <div className="text-5xl font-bold text-vegGreen">1,56T</div>
               <p className="text-lg text-vegBrown-light font-semibold">
-                Resíduos evitados com embalagens
+                {t("numbers.wasteAvoided")}
               </p>
             </div>
           </div>

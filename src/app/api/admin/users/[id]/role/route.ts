@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     // Verificar autenticação e permissão de SUPER_ADMIN
@@ -18,6 +18,7 @@ export async function PATCH(
       );
     }
 
+    const { id } = await params;
     const { role } = await req.json();
 
     // Validar role
@@ -28,7 +29,7 @@ export async function PATCH(
 
     // Atualizar usuário
     const user = await prisma.user.update({
-      where: { id: params.id },
+      where: { id },
       data: { role },
       select: {
         id: true,

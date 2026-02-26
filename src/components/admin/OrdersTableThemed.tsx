@@ -33,6 +33,7 @@ const statusOptions = [
 ];
 
 interface OrdersTableThemedProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   orders: any[];
 }
 
@@ -53,7 +54,7 @@ export default function OrdersTableThemed({ orders }: OrdersTableThemedProps) {
 
       toast.success("Status atualizado com sucesso!");
       window.location.reload();
-    } catch (error) {
+    } catch {
       toast.error("Erro ao atualizar status");
     } finally {
       setUpdatingStatus(null);

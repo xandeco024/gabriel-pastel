@@ -211,7 +211,7 @@ export default function OurHistoryPage() {
       <div className="py-16 md:py-24 bg-vegGreen/10">
         <div className="container mx-auto px-4 md:px-6 text-center space-y-8">
           <h2 className="text-5xl font-holtwood text-vegBrown-dark">
-            NOSSOS VALORES
+            {t("values.title")}
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
@@ -219,57 +219,42 @@ export default function OurHistoryPage() {
                 <Heart className="h-10 w-10 text-vegYellow" />
               </div>
               <h3 className="text-2xl font-holtwood text-vegYellow">
-                COMPAIXÃO
+                {t("values.compassion.title")}
               </h3>
-              <p className="text-vegBrown-light leading-relaxed">
-                Acreditamos que{" "}
-                <span className="font-bold text-vegGreen">
-                  todos os seres merecem respeito
-                </span>{" "}
-                e compaixão. Por isso, nossos pastéis são{" "}
-                <span className="font-bold text-vegYellow">
-                  100% livres de crueldade animal
-                </span>
-                .
-              </p>
+              <p
+                className="text-vegBrown-light leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("values.compassion.description"),
+                }}
+              />
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
               <div className="w-20 h-20 bg-vegGreen/15 rounded-full flex items-center justify-center mx-auto shadow-md">
                 <Leaf className="h-10 w-10 text-vegGreen" />
               </div>
               <h3 className="text-2xl font-holtwood text-vegGreen">
-                SUSTENTABILIDADE
+                {t("values.sustainability.title")}
               </h3>
-              <p className="text-vegBrown-light leading-relaxed">
-                Nosso{" "}
-                <span className="font-bold text-vegGreen">
-                  compromisso com o planeta
-                </span>{" "}
-                se reflete em cada aspecto do nosso negócio, desde os{" "}
-                <span className="font-bold text-vegYellow">ingredientes</span>{" "}
-                até as{" "}
-                <span className="font-bold text-vegOrange">
-                  embalagens biodegradáveis
-                </span>
-                .
-              </p>
+              <p
+                className="text-vegBrown-light leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("values.sustainability.description"),
+                }}
+              />
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 space-y-4">
               <div className="w-20 h-20 bg-vegOrange/15 rounded-full flex items-center justify-center mx-auto shadow-md">
                 <Utensils className="h-10 w-10 text-vegOrange" />
               </div>
-              <h3 className="text-2xl font-holtwood text-vegOrange">SABOR</h3>
-              <p className="text-vegBrown-light leading-relaxed">
-                Provamos que comida{" "}
-                <span className="font-bold text-vegGreen">
-                  ética e sustentável
-                </span>{" "}
-                também pode ser deliciosa. Nossos pastéis são uma{" "}
-                <span className="font-bold text-vegYellow">
-                  explosão de sabores
-                </span>{" "}
-                que conquistam até os mais céticos.
-              </p>
+              <h3 className="text-2xl font-holtwood text-vegOrange">
+                {t("values.flavor.title")}
+              </h3>
+              <p
+                className="text-vegBrown-light leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("values.flavor.description"),
+                }}
+              />
             </div>
           </div>
         </div>
@@ -281,36 +266,26 @@ export default function OurHistoryPage() {
           <div className="md:grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block rounded-full bg-vegGreen/15 px-5 py-2 text-lg font-semibold text-vegGreen mb-4 shadow-md">
-                TECNOLOGIA
+                {t("technology.badge")}
               </div>
               <h2 className="text-4xl font-holtwood mb-6 text-vegBrown-dark">
-                DE HTML BÁSICO A REACT
+                {t("technology.title")}
               </h2>
-              <p className="text-lg text-vegBrown-light mb-6 leading-relaxed">
-                A{" "}
-                <span className="font-bold text-vegYellow">
-                  evolução da Gabriel Pastel
-                </span>{" "}
-                também reflete o{" "}
-                <span className="font-bold text-vegGreen">
-                  crescimento profissional
-                </span>{" "}
-                do seu criador. O que começou com HTML e CSS básicos se
-                transformou em uma{" "}
-                <span className="font-bold text-vegOrange">
-                  aplicação moderna
-                </span>{" "}
-                construída com:
-              </p>
+              <p
+                className="text-lg text-vegBrown-light mb-6 leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("technology.description"),
+                }}
+              />
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <div className="mr-4 mt-1 text-vegYellow">
                     <Code size={20} />
                   </div>
                   <div>
-                    <h3 className="font-medium">React & TypeScript</h3>
+                    <h3 className="font-medium">{t("technology.react.title")}</h3>
                     <p className="text-vegBrown-light">
-                      Para uma interface dinâmica e tipagem segura
+                      {t("technology.react.description")}
                     </p>
                   </div>
                 </li>
@@ -319,9 +294,9 @@ export default function OurHistoryPage() {
                     <Code size={20} />
                   </div>
                   <div>
-                    <h3 className="font-medium">Next.js</h3>
+                    <h3 className="font-medium">{t("technology.nextjs.title")}</h3>
                     <p className="text-vegBrown-light">
-                      Framework React para renderização híbrida e otimização
+                      {t("technology.nextjs.description")}
                     </p>
                   </div>
                 </li>
@@ -330,9 +305,9 @@ export default function OurHistoryPage() {
                     <Code size={20} />
                   </div>
                   <div>
-                    <h3 className="font-medium">Banco de Dados</h3>
+                    <h3 className="font-medium">{t("technology.database.title")}</h3>
                     <p className="text-vegBrown-light">
-                      Para armazenamento e gerenciamento de dados
+                      {t("technology.database.description")}
                     </p>
                   </div>
                 </li>
@@ -386,7 +361,7 @@ export default function OurHistoryPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-vegGreen-light hover:text-vegYellow hover:scale-105 text-xl transition-all duration-200"
                   >
-                    <Github className="mr-2 h-5 w-5" /> Ver código no GitHub
+                    <Github className="mr-2 h-5 w-5" /> {t("technology.viewOnGithub")}
                   </Link>
                 </div>
               </div>
@@ -400,20 +375,14 @@ export default function OurHistoryPage() {
         <div className="container mx-auto px-4 md:px-6 text-center space-y-6">
           <h2 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-3 justify-center">
             <Sparkles className="w-12 h-12 text-vegYellow" />
-            FAÇA PARTE DESSA HISTÓRIA
+            {t("cta.title")}
           </h2>
-          <p className="text-xl font-gluten text-vegBrown-light max-w-2xl mx-auto leading-relaxed">
-            A <span className="font-bold text-vegGreen">Gabriel Pastel</span>{" "}
-            continua evoluindo e queremos que você{" "}
-            <span className="font-bold text-vegYellow">
-              faça parte dessa jornada
-            </span>
-            . Experimente nossos{" "}
-            <span className="font-bold text-vegOrange">
-              deliciosos pastéis veganos
-            </span>{" "}
-            e ajude a escrever os próximos capítulos dessa história!
-          </p>
+          <p
+            className="text-xl font-gluten text-vegBrown-light max-w-2xl mx-auto leading-relaxed"
+            dangerouslySetInnerHTML={{
+              __html: t.raw("cta.description"),
+            }}
+          />
           <OrderNowBtn
             size="xl2"
             bgColor="bg-vegYellow"

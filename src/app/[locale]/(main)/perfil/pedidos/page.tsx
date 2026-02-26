@@ -14,6 +14,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { toast, Toaster } from "sonner";
+import { useTranslations } from "next-intl";
 
 type OrderStatus =
   | "PENDING"
@@ -45,6 +46,7 @@ type Order = {
       }>;
     };
     premadePastel?: {
+      id: string;
       name: string;
       ingredients: Array<{
         ingredient: {
@@ -56,45 +58,45 @@ type Order = {
   }>;
 };
 
-const statusConfig = {
+const statusStyles = {
   PENDING: {
-    label: "Pendente",
     icon: Clock,
+    label: "Pendente",
     color: "text-yellow-600",
     bgColor: "bg-yellow-50",
     borderColor: "border-yellow-200",
   },
   CONFIRMED: {
-    label: "Confirmado",
     icon: Check,
+    label: "Confirmado",
     color: "text-blue-600",
     bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
   },
   PREPARING: {
-    label: "Preparando",
     icon: ChefHat,
+    label: "Preparando",
     color: "text-purple-600",
     bgColor: "bg-purple-50",
     borderColor: "border-purple-200",
   },
   READY: {
-    label: "Pronto",
     icon: Package,
+    label: "Pronto",
     color: "text-green-600",
     bgColor: "bg-green-50",
     borderColor: "border-green-200",
   },
   DELIVERED: {
-    label: "Entregue",
     icon: Truck,
+    label: "Entregue",
     color: "text-vegGreen",
     bgColor: "bg-vegGreen/10",
     borderColor: "border-vegGreen/20",
   },
   CANCELLED: {
-    label: "Cancelado",
     icon: AlertCircle,
+    label: "Cancelado",
     color: "text-red-600",
     bgColor: "bg-red-50",
     borderColor: "border-red-200",
@@ -102,6 +104,7 @@ const statusConfig = {
 };
 
 export default function PedidosPage() {
+  const t = useTranslations("orders");
   const { data: session, status } = useSession();
   const router = useRouter();
   const [orders, setOrders] = useState<Order[]>([]);
@@ -129,7 +132,7 @@ export default function PedidosPage() {
       setOrders(data);
     } catch (error) {
       console.error("Error fetching orders:", error);
-      toast.error("Erro ao carregar pedidos");
+      toast.error(t("loadError"));
     } finally {
       setLoading(false);
     }
@@ -180,15 +183,17 @@ export default function PedidosPage() {
 
       const newOrder = await response.json();
 
-      toast.success("Pedido repetido com sucesso!", {
-        description: `Novo pedido #${newOrder.id.substring(0, 8)} criado`,
+      toast.success(t("reorderSuccess"), {
+        description: t("reorderSuccessDescription", {
+          id: newOrder.id.substring(0, 8),
+        }),
       });
 
       // Recarregar lista de pedidos
       fetchOrders();
     } catch (error) {
       console.error("Error reordering:", error);
-      toast.error("Erro ao repetir pedido. Tente novamente.");
+      toast.error(t("reorderError"));
     } finally {
       setReordering(null);
     }
@@ -238,13 +243,12 @@ export default function PedidosPage() {
         <div className="text-center mb-12 space-y-4">
           <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
             <Package className="w-12 h-12 text-vegYellow" />
-            MEUS PEDIDOS
+            {t("title")}
           </h1>
-          <p className="text-xl text-vegBrown-light max-w-2xl mx-auto">
-            Acompanhe o <span className="font-bold text-vegYellow">status</span>{" "}
-            e o <span className="font-bold text-vegGreen">histórico</span> de
-            todos os seus pedidos
-          </p>
+          <p
+            className="text-xl text-vegBrown-light max-w-2xl mx-auto"
+            dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
+          />
         </div>
 
         {orders.length === 0 ? (
@@ -255,25 +259,23 @@ export default function PedidosPage() {
               strokeWidth={1.5}
             />
             <h2 className="text-3xl font-holtwood mb-4 text-vegBrown-dark">
-              Nenhum pedido ainda
+              {t("emptyTitle")}
             </h2>
-            <p className="text-xl text-vegBrown-light mb-8 leading-relaxed">
-              Que tal fazer seu{" "}
-              <span className="font-bold text-vegGreen">primeiro pedido</span>{" "}
-              de pastéis veganos{" "}
-              <span className="font-bold text-vegYellow">deliciosos</span>?
-            </p>
+            <p
+              className="text-xl text-vegBrown-light mb-8 leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: t.raw("emptyDescription") }}
+            />
             <button
               onClick={() => router.push("/monte-seu-pastel")}
               className="bg-vegGreen hover:bg-vegGreen/90 text-white py-4 px-10 rounded-lg font-holtwood text-lg transition-all shadow-md hover:shadow-lg hover:scale-105"
             >
-              MONTE SEU PASTEL
+              {t("makeFirstOrder")}
             </button>
           </div>
         ) : (
           <div className="space-y-8 max-w-4xl mx-auto">
             {orders.map((order) => {
-              const statusInfo = statusConfig[order.status];
+              const statusInfo = statusStyles[order.status];
               const StatusIcon = statusInfo.icon;
 
               return (
@@ -286,13 +288,13 @@ export default function PedidosPage() {
                     <div>
                       <div className="flex items-center gap-3 mb-3">
                         <h3 className="text-2xl font-holtwood text-vegBrown-dark">
-                          Pedido #{order.id.substring(0, 8)}
+                          {t("orderNumber", { id: order.id.substring(0, 8) })}
                         </h3>
                         <span
                           className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold ${statusInfo.color} ${statusInfo.bgColor} shadow-sm`}
                         >
                           <StatusIcon size={18} />
-                          {statusInfo.label}
+                          {t(`status.${order.status}`)}
                         </span>
                       </div>
                       <p className="text-base text-vegBrown-light">
@@ -320,7 +322,7 @@ export default function PedidosPage() {
                                 <span className="text-vegYellow text-xl">
                                   ●{" "}
                                 </span>
-                                Pastel Personalizado
+                                {t("customPastel")}
                               </>
                             ) : item.type === "PREMADE" &&
                               item.premadePastel ? (
@@ -369,12 +371,12 @@ export default function PedidosPage() {
                       {reordering === order.id ? (
                         <>
                           <Loader2 size={20} className="animate-spin" />
-                          Processando...
+                          {t("processing")}
                         </>
                       ) : (
                         <>
                           <RefreshCw size={20} />
-                          Pedir Novamente
+                          {t("orderAgain")}
                         </>
                       )}
                     </button>

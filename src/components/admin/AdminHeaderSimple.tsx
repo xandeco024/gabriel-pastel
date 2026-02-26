@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Session } from "next-auth";
-import { Leaf, LogOut, User } from "lucide-react";
+import { Leaf } from "lucide-react";
 import AdminUserMenu from "./AdminUserMenu";
 
 interface AdminHeaderSimpleProps {

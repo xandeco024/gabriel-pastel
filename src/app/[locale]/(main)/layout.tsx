@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
-import { gluten, holtwood } from "@/assets/fonts";
+// fonts are applied in the root layout
 import "@/app/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";

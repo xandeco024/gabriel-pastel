@@ -12,8 +12,10 @@ import {
   Sparkles,
   Heart,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function PerfilPage() {
+  const t = useTranslations("profile");
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -41,14 +43,12 @@ export default function PerfilPage() {
         <div className="text-center mb-12 space-y-4">
           <h1 className="text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
             <User className="w-12 h-12 text-vegYellow" />
-            MEU PERFIL
+            {t("title")}
           </h1>
-          <p className="text-xl text-vegBrown-light max-w-2xl mx-auto">
-            Gerencie suas{" "}
-            <span className="font-bold text-vegYellow">informações</span> e
-            acompanhe seus{" "}
-            <span className="font-bold text-vegGreen">pedidos</span>
-          </p>
+          <p
+            className="text-xl text-vegBrown-light max-w-2xl mx-auto"
+            dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
+          />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -60,7 +60,9 @@ export default function PerfilPage() {
               </div>
               <div>
                 <h2 className="text-3xl font-holtwood text-vegBrown-dark">
-                  Olá, {session.user?.name || "Usuário"}!
+                  {t("welcome", {
+                    name: session.user?.name || t("defaultUser"),
+                  })}
                 </h2>
                 <p className="text-vegBrown-light text-base mt-1">
                   {session.user?.email}
@@ -71,15 +73,15 @@ export default function PerfilPage() {
             <div className="space-y-6 pt-6 border-t border-gray-200">
               <div className="bg-vegGreen/5 p-4 rounded-lg">
                 <h3 className="text-sm font-semibold text-vegGreen mb-2">
-                  Nome
+                  {t("name")}
                 </h3>
                 <p className="text-xl text-vegBrown-dark font-medium">
-                  {session.user?.name || "Não informado"}
+                  {session.user?.name || t("notProvided")}
                 </p>
               </div>
               <div className="bg-vegYellow/5 p-4 rounded-lg">
                 <h3 className="text-sm font-semibold text-vegYellow mb-2">
-                  Email
+                  {t("email")}
                 </h3>
                 <p className="text-xl text-vegBrown-dark font-medium">
                   {session.user?.email}
@@ -92,7 +94,7 @@ export default function PerfilPage() {
           <div className="bg-white rounded-2xl shadow-lg p-10 hover:shadow-2xl transition-shadow duration-300">
             <h2 className="text-3xl font-holtwood mb-8 text-vegBrown-dark flex items-center gap-3">
               <Sparkles className="w-8 h-8 text-vegYellow" />
-              Ações Rápidas
+              {t("quickActions")}
             </h2>
 
             <div className="space-y-5">
@@ -108,14 +110,14 @@ export default function PerfilPage() {
                 </div>
                 <div>
                   <h3 className="font-holtwood text-xl text-vegBrown-dark">
-                    Meus Pedidos
+                    {t("viewOrders")}
                   </h3>
-                  <p className="text-sm text-vegBrown-light">
-                    Veja seu{" "}
-                    <span className="font-bold text-vegGreen">
-                      histórico de pedidos
-                    </span>
-                  </p>
+                  <p
+                    className="text-sm text-vegBrown-light"
+                    dangerouslySetInnerHTML={{
+                      __html: t.raw("viewOrdersDescription"),
+                    }}
+                  />
                 </div>
               </Link>
 
@@ -131,14 +133,14 @@ export default function PerfilPage() {
                 </div>
                 <div>
                   <h3 className="font-holtwood text-xl text-vegBrown-dark">
-                    Fazer Pedido
+                    {t("makeOrder")}
                   </h3>
-                  <p className="text-sm text-vegBrown-light">
-                    Monte seu{" "}
-                    <span className="font-bold text-vegYellow">
-                      pastel personalizado
-                    </span>
-                  </p>
+                  <p
+                    className="text-sm text-vegBrown-light"
+                    dangerouslySetInnerHTML={{
+                      __html: t.raw("makeOrderDescription"),
+                    }}
+                  />
                 </div>
               </Link>
             </div>
@@ -149,23 +151,17 @@ export default function PerfilPage() {
         <div className="mt-16 max-w-4xl mx-auto">
           <h2 className="text-4xl font-holtwood mb-8 text-vegBrown-dark text-center flex items-center gap-3 justify-center">
             <Heart className="w-10 h-10 text-vegYellow" />
-            Seu Impacto Vegano
+            {t("veganImpact")}
           </h2>
           <div className="bg-gradient-to-br from-vegGreen/15 via-vegYellow/10 to-vegGreen/15 rounded-2xl shadow-lg p-10 border-2 border-vegGreen/20 hover:shadow-2xl transition-shadow duration-300">
-            <p className="text-center text-vegBrown-dark text-xl font-medium leading-relaxed">
-              Cada pedido que você faz contribui para um{" "}
-              <span className="font-bold text-vegGreen">
-                mundo mais sustentável
-              </span>{" "}
-              e <span className="font-bold text-vegYellow">compassivo</span>! 🌱
-            </p>
-            <p className="text-center text-base text-vegBrown-light mt-6 bg-white/50 p-4 rounded-lg">
-              Continue fazendo pedidos para ver suas{" "}
-              <span className="font-bold text-vegGreen">
-                estatísticas de impacto ambiental
-              </span>{" "}
-              aqui!
-            </p>
+            <p
+              className="text-center text-vegBrown-dark text-xl font-medium leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: t.raw("impactText") }}
+            />
+            <p
+              className="text-center text-base text-vegBrown-light mt-6 bg-white/50 p-4 rounded-lg"
+              dangerouslySetInnerHTML={{ __html: t.raw("impactCta") }}
+            />
           </div>
         </div>
       </div>

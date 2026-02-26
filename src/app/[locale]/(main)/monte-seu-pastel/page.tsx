@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Minus, Plus, ShoppingCart, Trash2, Loader2 } from "lucide-react";
 import { toast, Toaster } from "sonner";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 
 // Tipos para os recheios e pastéis
 type Ingredient = {
@@ -30,7 +30,6 @@ type Pastel = {
 
 export default function MonteSeuPastel() {
   const t = useTranslations("builder");
-  const locale = useLocale();
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -63,7 +62,7 @@ export default function MonteSeuPastel() {
         );
       } catch (error) {
         console.error("Error loading ingredients:", error);
-        toast.error("Erro ao carregar ingredientes");
+        toast.error(t("toasts.loadError"));
       } finally {
         setLoading(false);
       }
@@ -194,11 +193,11 @@ export default function MonteSeuPastel() {
 
       // Se não estiver logado, pedir informações
       if (!session) {
-        const nome = prompt("Digite seu nome:");
-        const email = prompt("Digite seu email:");
+        const nome = prompt(t("promptName"));
+        const email = prompt(t("promptEmail"));
 
         if (!nome || !email) {
-          toast.error("Nome e email são obrigatórios");
+          toast.error(t("toasts.nameRequired"));
           setFinalizando(false);
           return;
         }
@@ -220,10 +219,10 @@ export default function MonteSeuPastel() {
         throw new Error("Failed to create order");
       }
 
-      const order = await response.json();
+      await response.json();
 
-      toast.success("Pedido criado com sucesso!", {
-        description: `Pedido #${order.id.substring(0, 8)} - Total: ${formatarPreco(total)}`,
+      toast.success(t("toasts.orderSuccess"), {
+        description: t("toasts.orderSuccessDescription"),
       });
 
       // Limpar carrinho
@@ -237,7 +236,7 @@ export default function MonteSeuPastel() {
       }
     } catch (error) {
       console.error("Error creating order:", error);
-      toast.error("Erro ao criar pedido. Tente novamente.");
+      toast.error(t("toasts.orderError"));
     } finally {
       setFinalizando(false);
     }
@@ -326,10 +325,10 @@ export default function MonteSeuPastel() {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h3 className="text-xl font-holtwood text-vegBrown-dark">
-                    Quantidade
+                    {t("quantity")}
                   </h3>
                   <p className="text-sm text-vegBrown-light">
-                    Quantos pastéis deste sabor?
+                    {t("quantityQuestion")}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -356,17 +355,7 @@ export default function MonteSeuPastel() {
               </div>
 
               <div className="text-sm text-vegBrown-light mb-6 bg-vegYellow/10 p-3 rounded-lg">
-                <p>
-                  Até{" "}
-                  <span className="font-bold text-vegGreen">
-                    três recheios inclusos
-                  </span>
-                  . Será cobrada uma taxa de{" "}
-                  <span className="font-bold text-vegYellow">
-                    R$ 1,99 por recheio adicional
-                  </span>
-                  .
-                </p>
+                <p dangerouslySetInnerHTML={{ __html: t.raw("pricingText") }} />
               </div>
 
               <button
@@ -374,7 +363,7 @@ export default function MonteSeuPastel() {
                 className="w-full bg-vegYellow hover:bg-vegYellow/90 text-white py-4 px-4 rounded-lg flex items-center justify-center transition-all font-holtwood text-lg shadow-md hover:shadow-lg hover:scale-105"
               >
                 <ShoppingCart className="mr-2" size={22} />
-                ADICIONAR AO CARRINHO
+                {t("addToCart")}
               </button>
             </div>
           </div>
@@ -382,7 +371,7 @@ export default function MonteSeuPastel() {
           {/* Coluna do carrinho */}
           <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col h-fit hover:shadow-2xl transition-shadow duration-300">
             <h2 className="text-3xl font-holtwood mb-8 text-vegBrown-dark text-center">
-              MEUS PASTEIZINHOS
+              {t("myPastels")}
             </h2>
 
             {/* Área do carrinho com altura fixa */}
@@ -393,15 +382,14 @@ export default function MonteSeuPastel() {
                     <ShoppingCart size={96} strokeWidth={1.5} />
                   </div>
                   <p className="text-vegBrown-dark font-semibold text-lg">
-                    Seu carrinho está vazio
+                    {t("emptyCart")}
                   </p>
-                  <p className="text-sm text-vegBrown-light mt-2">
-                    Adicione alguns{" "}
-                    <span className="font-bold text-vegYellow">
-                      pastéis deliciosos
-                    </span>
-                    !
-                  </p>
+                  <p
+                    className="text-sm text-vegBrown-light mt-2"
+                    dangerouslySetInnerHTML={{
+                      __html: t.raw("emptyCartDescription"),
+                    }}
+                  />
                 </div>
               ) : (
                 <div className="flex-1 overflow-y-auto space-y-4 pr-2 mb-4 relative">
@@ -422,7 +410,7 @@ export default function MonteSeuPastel() {
                       <div className="flex-1">
                         <div className="flex justify-between">
                           <h3 className="font-medium text-vegBrown-dark">
-                            Pastel Personalizado
+                            {t("customPastel")}
                           </h3>
                           <button
                             onClick={() => removerDoCarrinho(pastel.id)}
@@ -440,7 +428,7 @@ export default function MonteSeuPastel() {
                         </p>
                         <div className="flex justify-between items-center mt-2">
                           <span className="text-sm text-vegBrown-light">
-                            Qtd: {pastel.quantidade}
+                            {t("qty")} {pastel.quantidade}
                           </span>
                           <span className="font-medium text-vegBrown-dark">
                             {formatarPreco(pastel.preco)}
@@ -456,7 +444,7 @@ export default function MonteSeuPastel() {
             <div className="border-t border-gray-200 pt-6 mt-auto w-full">
               <div className="flex justify-between items-center mb-6 bg-vegYellow/10 p-4 rounded-lg">
                 <span className="text-xl font-holtwood text-vegBrown-dark">
-                  TOTAL
+                  {t("total")}
                 </span>
                 <span className="text-2xl font-bold text-vegYellow">
                   {formatarPreco(total)}
@@ -475,10 +463,10 @@ export default function MonteSeuPastel() {
                 {finalizando ? (
                   <>
                     <Loader2 className="mr-2 animate-spin" size={20} />
-                    PROCESSANDO...
+                    {t("processing")}
                   </>
                 ) : (
-                  "FINALIZAR PEDIDO"
+                  t("checkout")
                 )}
               </button>
             </div>
@@ -490,60 +478,56 @@ export default function MonteSeuPastel() {
       <div className="py-16 md:py-24 bg-vegGreen/10">
         <div className="container mx-auto px-4 md:px-60">
           <h2 className="text-5xl font-holtwood text-center mb-8 text-vegBrown-dark">
-            COMBINAÇÕES POPULARES
+            {t("popularCombos.title")}
           </h2>
-          <p className="text-xl text-vegBrown-light text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-            Experimente nossas{" "}
-            <span className="font-bold text-vegYellow">
-              combinações especialmente criadas
-            </span>{" "}
-            para oferecer o máximo de{" "}
-            <span className="font-bold text-vegGreen">sabor e nutrição</span>
-          </p>
+          <p
+            className="text-xl text-vegBrown-light text-center mb-12 max-w-2xl mx-auto leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t.raw("popularCombos.subtitle") }}
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                nome: "Clássico Vegano",
+                nomeKey: "classicoVegano",
                 recheios: ["Jaca", "Tomate", "Cebola"],
                 imagem: "/flavours/carne-de-jaca.avif",
               },
               {
-                nome: "Funghi Especial",
+                nomeKey: "funghiEspecial",
                 recheios: ["Shimeji", "Shiitake", "Tofu"],
                 imagem: "/flavours/shiitake.jpg",
               },
               {
-                nome: "Horta Fresca",
+                nomeKey: "hortaFresca",
                 recheios: ["Escarola", "Brócolis", "Berinjela"],
                 imagem: "/flavours/escarola.webp",
               },
               {
-                nome: "Proteico Power",
+                nomeKey: "proteicoPower",
                 recheios: ["Tofu", "Soja", "Palmito"],
                 imagem: "/flavours/tofu.webp",
               },
               {
-                nome: "Tropical Mix",
+                nomeKey: "tropicalMix",
                 recheios: ["Palmito", "Milho", "Tomate"],
                 imagem: "/flavours/palmito.webp",
               },
               {
-                nome: "Cogumelos & Cia",
+                nomeKey: "cogumelosCia",
                 recheios: ["Shiitake", "Shimeji", "Cebola"],
                 imagem: "/flavours/shimeji.jpg",
               },
               {
-                nome: "Verde & Leve",
+                nomeKey: "verdeLeve",
                 recheios: ["Brócolis", "Escarola", "Tomate"],
                 imagem: "/flavours/brocolis.webp",
               },
               {
-                nome: "Sabor do Campo",
+                nomeKey: "saborCampo",
                 recheios: ["Milho", "Berinjela", "Cebola"],
                 imagem: "/flavours/milho.webp",
               },
               {
-                nome: "Nutritivo Plus",
+                nomeKey: "nutritivoPLus",
                 recheios: ["Soja", "Brócolis", "Palmito"],
                 imagem: "/flavours/soja.webp",
               },
@@ -555,27 +539,32 @@ export default function MonteSeuPastel() {
                 <div className="relative h-48 rounded-t-2xl overflow-hidden">
                   <Image
                     src={combo.imagem}
-                    alt={combo.nome}
+                    alt={t(`combos.${combo.nomeKey}`)}
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-110"
                   />
                 </div>
                 <div className="p-5">
                   <h3 className="font-holtwood text-xl mb-2 text-vegBrown-dark">
-                    {combo.nome}
+                    {t(`combos.${combo.nomeKey}`)}
                   </h3>
                   <p className="text-vegBrown-light text-sm mb-4 leading-relaxed">
                     {combo.recheios.join(" • ")}
                   </p>
                   <button
                     onClick={() => {
-                      toast.success(`${combo.nome} adicionado ao carrinho!`, {
-                        description: `Recheios: ${combo.recheios.join(", ")}`,
-                      });
+                      toast.success(
+                        t("popularCombos.added", {
+                          name: t(`combos.${combo.nomeKey}`),
+                        }),
+                        {
+                          description: `${t("popularCombos.fillings")} ${combo.recheios.join(", ")}`,
+                        },
+                      );
                     }}
                     className="w-full bg-vegYellow/10 hover:bg-vegYellow hover:text-white text-vegYellow py-2.5 rounded-lg transition-all font-holtwood shadow-sm hover:shadow-md"
                   >
-                    Adicionar ao Carrinho
+                    {t("popularCombos.addToCart")}
                   </button>
                 </div>
               </div>

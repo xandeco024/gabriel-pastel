@@ -14,18 +14,22 @@
     "home": "Inicio",
     "ourStory": "Nuestra Historia",
     "ourImpact": "Nuestro Impacto",
-    "buildYourPastel": "Arma Tu Pastel",
+    "buildYourPastel": "Arma Tu Pastelito",
     "menu": "Menú",
-    "profile": "Perfil",
+    "profile": "Mi Perfil",
     "myOrders": "Mis Pedidos",
     "login": "Iniciar Sesión",
     "signup": "Registrarse",
-    "logout": "Cerrar Sesión"
+    "logout": "Cerrar Sesión",
+    "admin": "Admin",
+    "adminPanel": "Panel Admin",
+    "createAccount": "Crear Cuenta",
+    "vegan100": "100% Vegano"
   },
   "home": {
-    "title": "EL PASTEL QUE TE LLEVA AL CIELO",
-    "subtitle": "De la unión de dos Gabrieles que amaban los pasteles, nace <span class='font-bold text-vegYellow'>Gabriel Pastel</span>.",
-    "description": "La cafetería con el mejor pastel de la región, <span class='font-bold text-vegGreen'>100% vegano</span>, y con precios que caben en tu bolsillo.",
+    "title": "EL PASTELITO QUE TE LLEVA AL CIELO",
+    "subtitle": "De la unión de dos Gabrieles que amaban los pastelitos, nace <span class='font-bold text-vegGreen'>Gabriel Pastel</span>.",
+    "description": "La cafetería con el mejor pastelito de la región, <span class='font-bold text-vegGreen'>100% vegano</span>, y con precios que caben en tu bolsillo.",
     "cta": "¡PIDE YA!",
     "benefits": {
       "vegan": "100% VEGANO",
@@ -45,32 +49,32 @@
       "noHormones": "SIN HORMONAS"
     },
     "pastelYourWay": {
-      "title": "PASTEL A TU MANERA",
-      "description": "En <span class='font-bold text-vegYellow'>Gabriel Pastel</span>, tú eliges los rellenos de tu pastel, ¡dandóte la libertad de crear sabores únicos y deliciosos!",
+      "title": "PASTELITO A TU MANERA",
+      "description": "En <span class='font-bold text-vegYellow'>Gabriel Pastel</span>, tú eliges los rellenos de tu pastelito, ¡dandóte la libertad de crear sabores únicos y deliciosos!",
       "tagline": "¡El límite es tu imaginación!"
     },
     "armazem": {
-      "title": "TU PASTEL SIN VENENO",
-      "description1": "Nuestros pasteles se preparan con <span class='font-bold text-vegGreen'>ingredientes frescos y orgánicos</span> suministrados por <span class='font-bold text-vegYellow'>Armazém do Campo</span>, una iniciativa del MST.",
+      "title": "TU PASTELITO SIN VENENO",
+      "description1": "Nuestros pastelitos se preparan con <span class='font-bold text-vegGreen'>ingredientes frescos y orgánicos</span> suministrados por <span class='font-bold text-vegYellow'>Armazém do Campo</span>, una iniciativa del MST.",
       "description2": "Utilizamos prácticas agroecológicas que respetan el medio ambiente y garantizan la salud del consumidor."
     }
   },
   "builder": {
-    "title": "ARMA TU PASTEL",
-    "subtitle": "¡Elige tus ingredientes favoritos y crea el pastel perfecto!",
+    "title": "ARMA TU PASTELITO",
+    "subtitle": "¡Elige tus ingredientes favoritos y crea el pastelito perfecto!",
     "selectIngredients": "Seleccionar Ingredientes",
     "ingredientsSelected": "{count} ingrediente(s) seleccionado(s)",
     "quantity": "Cantidad",
     "addToCart": "AGREGAR AL CARRITO",
     "cart": "Tu Carrito",
     "emptyCart": "Tu carrito está vacío",
-    "emptyCartDescription": "¡Agrega algunos pasteles deliciosos!",
+    "emptyCartDescription": "¡Agrega algunos pastelitos deliciosos!",
     "item": "Artículo",
     "remove": "Eliminar",
     "total": "Total",
     "checkout": "FINALIZAR PEDIDO",
     "suggestions": "Combinaciones Populares",
-    "customPastel": "Pastel Personalizado",
+    "customPastel": "Pastelito Personalizado",
     "ingredients": "ingredientes"
   },
   "auth": {
@@ -112,15 +116,24 @@
   },
   "profile": {
     "title": "MI PERFIL",
-    "subtitle": "Gestiona tu información y sigue tus pedidos",
-    "welcome": "¡Hola, {name}! 🌱",
+    "subtitle": "Gestiona tu <span class='font-bold text-vegYellow'>información</span> y sigue tus <span class='font-bold text-vegGreen'>pedidos</span>",
+    "welcome": "¡Hola, {name}!",
+    "defaultUser": "Usuario",
     "memberSince": "Miembro desde {date}",
+    "name": "Nombre",
+    "notProvided": "No proporcionado",
+    "email": "Correo",
     "quickActions": "Acciones Rápidas",
-    "viewOrders": "Ver Pedidos",
+    "viewOrders": "Mis Pedidos",
+    "viewOrdersDescription": "Ver tu <span class='font-bold text-vegGreen'>historial de pedidos</span>",
     "makeOrder": "Hacer Pedido",
+    "makeOrderDescription": "Arma tu <span class='font-bold text-vegYellow'>pastelito personalizado</span>",
     "editProfile": "Editar Perfil",
+    "veganImpact": "Tu Impacto Vegano",
+    "impactText": "¡Cada pedido que haces contribuye a un <span class='font-bold text-vegGreen'>mundo más sostenible</span> y <span class='font-bold text-vegYellow'>compasivo</span>! 🌱",
+    "impactCta": "¡Sigue pidiendo para ver tus <span class='font-bold text-vegGreen'>estadísticas de impacto ambiental</span> aquí!",
     "myImpact": "MI IMPACTO",
-    "impactDescription": "¡Al elegir pasteles veganos, estás haciendo la diferencia! 🌍",
+    "impactDescription": "¡Al elegir pastelitos veganos, estás haciendo la diferencia! 🌍",
     "ordersCount": "{count} pedidos realizados",
     "animalsSaved": "~{count} animales salvados",
     "waterSaved": "~{liters}L de agua ahorrados",
@@ -128,11 +141,12 @@
   },
   "orders": {
     "title": "MIS PEDIDOS",
-    "subtitle": "Sigue todos tus pedidos",
+    "subtitle": "Sigue el <span class='font-bold text-vegYellow'>estado</span> y el <span class='font-bold text-vegGreen'>historial</span> de todos tus pedidos",
     "emptyTitle": "Aún no hay pedidos",
-    "emptyDescription": "¿Qué tal hacer tu primer pedido de pasteles deliciosos?",
-    "makeFirstOrder": "HACER PRIMER PEDIDO",
+    "emptyDescription": "¿Qué tal hacer tu <span class='font-bold text-vegGreen'>primer pedido</span> de pastelitos veganos <span class='font-bold text-vegYellow'>deliciosos</span>?",
+    "makeFirstOrder": "ARMA TU PASTELITO",
     "orderNumber": "Pedido #{id}",
+    "customPastel": "Pastelito Personalizado",
     "status": {
       "PENDING": "Pendiente",
       "CONFIRMED": "Confirmado",
@@ -143,12 +157,17 @@
     },
     "items": "Artículos",
     "total": "Total",
-    "orderAgain": "PEDIR DE NUEVO",
-    "orderedAt": "Pedido el {date}"
+    "orderAgain": "Pedir de Nuevo",
+    "processing": "Procesando...",
+    "orderedAt": "Pedido el {date}",
+    "reorderSuccess": "¡Pedido repetido con éxito!",
+    "reorderSuccessDescription": "Nuevo pedido #{id} creado",
+    "loadError": "Error al cargar pedidos",
+    "reorderError": "Error al repetir pedido. Por favor intenta de nuevo."
   },
   "history": {
     "title": "LA HISTORIA DE GABRIEL PASTEL",
-    "subtitle": "De un <span class='font-bold text-vegYellow'>simple proyecto escolar</span> a un <span class='font-bold text-vegGreen'>proyecto con propósito</span>: conoce la trayectoria que dio origen a la <span class='font-bold text-vegOrange'>cafetería de pasteles veganos más sabrosa</span> que hayas conocido.",
+    "subtitle": "De un <span class='font-bold text-vegYellow'>simple proyecto escolar</span> a un <span class='font-bold text-vegGreen'>proyecto con propósito</span>: conoce la trayectoria que dio origen a la <span class='font-bold text-vegOrange'>cafetería de pastelitos veganos más sabrosa</span> que hayas conocido.",
     "timeline": {
       "2018": {
         "badge": "2018",
@@ -171,7 +190,7 @@
       "plantBased": {
         "badge": "2019",
         "title": "LA TRANSFORMACIÓN PLANT-BASED",
-        "description1": "En ese momento, Gabriel Pastel usaba <span class='font-bold text-vegRed'>carne de res</span> y otros ingredientes de origen animal. Pero al mismo tiempo, <span class='font-bold text-vegGreen'>Gabriel Paiva</span> aprendió sobre el <span class='font-bold text-vegYellow'>veganismo</span> y adoptó el estilo de vida.",
+        "description1": "En ese momento, Gabriel Pastel usaba <span class='font-bold text-vegRed'>carne de res</span> y otros ingredientes de origen animal. Pero al mismo tiempo, <span class='font-bold text-vegGreen'>Gabriel Alexander</span> aprendió sobre el <span class='font-bold text-vegYellow'>veganismo</span> y adoptó el estilo de vida.",
         "description2": "¡Propuso que transformáramos nuestro negocio en <span class='font-bold text-vegGreen'>100% vegano</span>! Y así lo hicimos. La transición fue natural, y hoy, Gabriel Pastel es un ejemplo de cómo es posible crear productos deliciosos sin crueldad animal."
       },
       "relaunch": {
@@ -193,11 +212,48 @@
       "title": "¿QUIERES CONTRIBUIR AL PROYECTO?",
       "description": "¡Gabriel Pastel es un proyecto <span class='font-bold text-vegGreen'>open-source</span>! Si eres desarrollador y quieres contribuir, consulta nuestro repositorio en GitHub.",
       "githubButton": "VER EN GITHUB"
+    },
+    "values": {
+      "title": "NUESTROS VALORES",
+      "compassion": {
+        "title": "COMPASIÓN",
+        "description": "Creemos que <span class='font-bold text-vegGreen'>todos los seres merecen respeto</span> y compasión. Por eso, nuestros pastelitos son <span class='font-bold text-vegYellow'>100% libres de crueldad animal</span>."
+      },
+      "sustainability": {
+        "title": "SOSTENIBILIDAD",
+        "description": "Nuestro <span class='font-bold text-vegGreen'>compromiso con el planeta</span> se refleja en cada aspecto de nuestro negocio, desde los <span class='font-bold text-vegYellow'>ingredientes</span> hasta los <span class='font-bold text-vegOrange'>empaques biodegradables</span>."
+      },
+      "flavor": {
+        "title": "SABOR",
+        "description": "Demostramos que la comida <span class='font-bold text-vegGreen'>ética y sostenible</span> también puede ser deliciosa. Nuestros pastelitos son una <span class='font-bold text-vegYellow'>explosión de sabores</span> que conquistan hasta a los más escépticos."
+      }
+    },
+    "technology": {
+      "badge": "TECNOLOGÍA",
+      "title": "DE HTML BÁSICO A REACT",
+      "description": "La <span class='font-bold text-vegYellow'>evolución de Gabriel Pastel</span> también refleja el <span class='font-bold text-vegGreen'>crecimiento profesional</span> de su creador. Lo que comenzó con HTML y CSS básicos se transformó en una <span class='font-bold text-vegOrange'>aplicación moderna</span> construida con:",
+      "react": {
+        "title": "React & TypeScript",
+        "description": "Para una interfaz dinámica y tipado seguro"
+      },
+      "nextjs": {
+        "title": "Next.js",
+        "description": "Framework React para renderizado híbrido y optimización"
+      },
+      "database": {
+        "title": "Base de Datos",
+        "description": "Para almacenamiento y gestión de datos"
+      },
+      "viewOnGithub": "Ver código en GitHub"
+    },
+    "cta": {
+      "title": "SÉ PARTE DE ESTA HISTORIA",
+      "description": "<span class='font-bold text-vegGreen'>Gabriel Pastel</span> sigue evolucionando y queremos que <span class='font-bold text-vegYellow'>seas parte de este viaje</span>. ¡Prueba nuestros <span class='font-bold text-vegOrange'>deliciosos pastelitos veganos</span> y ayuda a escribir los próximos capítulos de esta historia!"
     }
   },
   "impact": {
     "title": "NUESTRO IMPACTO EN EL MUNDO",
-    "subtitle": "En <span class='font-bold text-vegGreen'>Gabriel Pastel</span>, creemos que las <span class='font-bold text-vegYellow'>pequeñas elecciones diarias</span> pueden transformar el mundo. Cada pastel vegano que eliges hace una <span class='font-bold text-vegOrange'>gran diferencia</span> para los animales, el planeta y tu salud.",
+    "subtitle": "En <span class='font-bold text-vegGreen'>Gabriel Pastel</span>, creemos que las <span class='font-bold text-vegYellow'>pequeñas elecciones diarias</span> pueden transformar el mundo. Cada pastelito vegano que eliges hace una <span class='font-bold text-vegOrange'>gran diferencia</span> para los animales, el planeta y tu salud.",
     "badges": {
       "animalWelfare": "Bienestar animal",
       "sustainability": "Sostenibilidad",
@@ -207,8 +263,8 @@
     "animalWelfare": {
       "title": "BIENESTAR ANIMAL",
       "description1": "<span class='font-bold text-vegRed'>Millones de animales</span> sufren en condiciones crueles para sostener el consumo de carne. Cada año, <span class='font-bold text-vegRed'>miles de millones de animales</span> se crían en confinamiento, privados de sus necesidades básicas y comportamientos naturales.",
-      "description2": "En <span class='font-bold text-vegYellow'>Gabriel Pastel</span>, cada pastel se hace <span class='font-bold text-vegYellow'>sin crueldad</span>, solo con sabor, amor y respeto a la vida. Nuestros ingredientes son <span class='font-bold text-vegGreen'>100% vegetales</span>, garantizando que ningún animal sea dañado para tu merienda.",
-      "quote": "Elegir un pastel sin carne es decir no a la crueldad — un bocado a la vez."
+      "description2": "En <span class='font-bold text-vegYellow'>Gabriel Pastel</span>, cada pastelito se hace <span class='font-bold text-vegYellow'>sin crueldad</span>, solo con sabor, amor y respeto a la vida. Nuestros ingredientes son <span class='font-bold text-vegGreen'>100% vegetales</span>, garantizando que ningún animal sea dañado para tu merienda.",
+      "quote": "Elegir un pastelito sin carne es decir no a la crueldad — un bocado a la vez."
     },
     "economy": {
       "title": "Economía y Reducción",
@@ -237,7 +293,7 @@
     },
     "animals": {
       "title": "¿QUÉ DICEN LOS ANIMALITOS?",
-      "subtitle": "Conoce algunos de los animales que fueron <span class='font-bold text-vegGreen'>salvados</span> gracias a las <span class='font-bold text-vegYellow'>elecciones alimentarias conscientes</span> de nuestros clientes. ¡Cada pastel vegano que comes ayuda a <span class='font-bold text-vegOrange'>salvar vidas</span> como estas!",
+      "subtitle": "Conoce algunos de los animales que fueron <span class='font-bold text-vegGreen'>salvados</span> gracias a las <span class='font-bold text-vegYellow'>elecciones alimentarias conscientes</span> de nuestros clientes. ¡Cada pastelito vegano que comes ayuda a <span class='font-bold text-vegOrange'>salvar vidas</span> como estas!",
       "mimosa": {
         "name": "MIMOSA",
         "quote": "Gracias a Gabriel Pastel, mi leche ahora alimenta a mis terneros. Finalmente, soy una verdadera madre.",
@@ -268,53 +324,77 @@
     },
     "calculator": {
       "title": "CALCULA TU IMPACTO POSITIVO",
-      "subtitle": "¡Descubre cuánto ya has ayudado al planeta comiendo pasteles veganos!",
-      "inputLabel": "¿Cuántos pasteles veganos has comido?",
-      "inputPlaceholder": "hmmm pasteles",
+      "subtitle": "¡Descubre cuánto ya has ayudado al planeta comiendo pastelitos veganos!",
+      "inputLabel": "¿Cuántos pastelitos veganos has comido?",
+      "inputPlaceholder": "hmmm pastelitos",
       "calculateButton": "Calcular Impacto",
       "results": {
         "animalsSaved": "Animales salvados",
         "waterSaved": "Agua ahorrada",
         "co2NotEmitted": "CO² no emitido"
       },
-      "funnyMessage": "¡Realmente te gustan los pasteles eh!"
+      "funnyMessage": "¡Realmente te gustan los pastelitos eh!"
     },
     "cta": {
       "title": "SÉ PARTE DE ESTE CAMBIO",
-      "description": "Cada pastel vegano que eliges es un <span class='font-bold text-vegGreen'>paso hacia un mundo más sostenible</span>, <span class='font-bold text-vegYellow'>ético</span> y <span class='font-bold text-vegOrange'>saludable</span>. ¡Únete a nosotros en este viaje!"
+      "description": "Cada pastelito vegano que eliges es un <span class='font-bold text-vegGreen'>paso hacia un mundo más sostenible</span>, <span class='font-bold text-vegYellow'>ético</span> y <span class='font-bold text-vegOrange'>saludable</span>. ¡Únete a nosotros en este viaje!"
     }
   },
   "builder": {
-    "title": "ARMA TU PASTEL",
-    "subtitle": "¡Elige hasta 5 rellenos y crea el pastel perfecto! 🥟",
+    "title": "ARMA TU PASTELITO",
+    "subtitle": "¡Elige hasta 5 rellenos y crea el pastelito perfecto! 🥟",
     "selectIngredientsTitle": "ELIGE TUS RELLENOS",
-    "selectIngredientsSubtitle": "Selecciona hasta 5 ingredientes para tu pastel personalizado",
+    "selectIngredientsSubtitle": "Selecciona hasta 5 ingredientes para tu pastelito personalizado",
     "selectedCount": "{count} de 5 rellenos seleccionados",
     "quantity": "CANTIDAD",
+    "quantityQuestion": "¿Cuántos pastelitos de este sabor?",
+    "pricingText": "Hasta <span class='font-bold text-vegGreen'>tres rellenos incluidos</span>. Se cobrará una tarifa de <span class='font-bold text-vegYellow'>$1,99 por relleno adicional</span>.",
     "priceInfo": "$14,99 (hasta 3 rellenos) + $1,99 por relleno extra",
     "addToCart": "AGREGAR AL CARRITO",
     "cart": "TU CARRITO",
+    "myPastels": "MIS PASTELITOS",
     "emptyCart": "Tu carrito está vacío",
-    "emptyCartDescription": "¡Agrega algunos pasteles deliciosos para empezar!",
-    "pastelWith": "Pastel con",
+    "emptyCartDescription": "¡Agrega algunos <span class='font-bold text-vegYellow'>pastelitos deliciosos</span>!",
+    "customPastel": "Pastelito Personalizado",
+    "pastelWith": "Pastelito con",
     "remove": "Eliminar",
+    "qty": "Cant:",
     "total": "TOTAL",
     "checkout": "FINALIZAR PEDIDO",
-    "premadePasteis": "PASTELES PRE-HECHOS",
+    "processing": "PROCESANDO...",
+    "premadePasteis": "PASTELITOS PRE-HECHOS",
     "premadePasteisSubtitle": "¿No sabes qué elegir? ¡Prueba nuestras combinaciones clásicas!",
     "addPremade": "AGREGAR",
     "loading": "Cargando ingredientes...",
+    "popularCombos": {
+      "title": "COMBINACIONES POPULARES",
+      "subtitle": "Prueba nuestras <span class='font-bold text-vegYellow'>combinaciones especialmente creadas</span> para ofrecer el máximo de <span class='font-bold text-vegGreen'>sabor y nutrición</span>",
+      "addToCart": "Agregar al Carrito",
+      "added": "¡{name} agregado al carrito!",
+      "fillings": "Rellenos:"
+    },
+    "combos": {
+      "classicoVegano": "Clásico Vegano",
+      "funghiEspecial": "Funghi Especial",
+      "hortaFresca": "Huerta Fresca",
+      "proteicoPower": "Proteico Power",
+      "tropicalMix": "Mix Tropical",
+      "cogumelosCia": "Hongos & Cía",
+      "verdeLeve": "Verde & Ligero",
+      "saborCampo": "Sabor del Campo",
+      "nutritivoPLus": "Nutritivo Plus"
+    },
     "ingredientBadges": {
       "vegan": "Vegano",
       "organic": "Orgánico"
     },
     "toasts": {
-      "maxIngredients": "Puedes seleccionar un máximo de 5 rellenos por pastel",
+      "maxIngredients": "Puedes seleccionar un máximo de 5 rellenos por pastelito",
       "minIngredients": "Selecciona al menos un relleno",
-      "maxQuantity": "Máximo de 10 pasteles por pedido",
-      "addedToCart": "¡Pastel agregado al carrito!",
-      "addedDescription": "{quantity}x Pastel con {ingredients}",
-      "removed": "Pastel eliminado del carrito",
+      "maxQuantity": "Máximo de 10 pastelitos por pedido",
+      "addedToCart": "¡Pastelito agregado al carrito!",
+      "addedDescription": "{quantity}x Pastelito con {ingredients}",
+      "removed": "Pastelito eliminado del carrito",
       "loadError": "Error al cargar ingredientes",
       "nameRequired": "Nombre y correo son obligatorios",
       "orderSuccess": "¡Pedido realizado con éxito! 🎉",
@@ -327,10 +407,21 @@
     "finalizing": "Finalizando pedido..."
   },
   "footer": {
-    "slogan": "Pasteles veganos que transforman el mundo, un sabor a la vez.",
+    "slogan": "Pastelitos veganos que transforman el mundo, un sabor a la vez.",
     "allRightsReserved": "Todos los derechos reservados.",
     "madeWith": "Hecho con",
-    "and": "y"
+    "and": "y",
+    "mission": "Hacemos lo mejor para transformar el mundo en un lugar mejor.",
+    "hours": "Horarios",
+    "mondayToThursday": "Lunes a Jueves",
+    "fridayAndSaturday": "Viernes y Sábado",
+    "sunday": "Domingo",
+    "address": "Dirección",
+    "viewOnMap": "Ver en el mapa",
+    "contact": "Contacto",
+    "phone": "Teléfono",
+    "email": "Correo",
+    "socialMedia": "Redes Sociales"
   },
   "messages": {
     "loginRequired": "Por favor inicia sesión para continuar",

@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import { MapPin, Clock, Phone, Mail, Leaf } from "lucide-react";
+import { MapPin, Clock, Phone, Leaf } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 function Footer() {
+  const t = useTranslations("footer");
   return (
     <footer className="mt-60 relative">
       {/* SVG Mountains - efeito de montes suaves com 3 camadas bem visíveis */}
@@ -48,7 +52,7 @@ function Footer() {
               <Leaf className="absolute -top-2 -right-2 w-8 h-8 text-vegYellow opacity-60 rotate-12" />
             </div>
             <p className="text-background text-center lg:text-left text-base leading-relaxed font-medium">
-              Fazemos nosso melhor para transformar o mundo num lugar melhor.
+              {t("mission")}
             </p>
           </div>
 
@@ -57,14 +61,14 @@ function Footer() {
             <div className="flex items-center gap-2 mb-6">
               <Clock className="w-6 h-6 text-vegYellow" />
               <h3 className="text-background text-2xl font-bold">
-                Funcionamento
+                {t("hours")}
               </h3>
             </div>
             <ul className="space-y-3">
               <li className="text-background/90 text-base flex items-start gap-2">
                 <span className="text-vegYellow mt-1">•</span>
                 <span>
-                  Segunda a Quinta
+                  {t("mondayToThursday")}
                   <br />
                   12h - 22h
                 </span>
@@ -72,7 +76,7 @@ function Footer() {
               <li className="text-background/90 text-base flex items-start gap-2">
                 <span className="text-vegYellow mt-1">•</span>
                 <span>
-                  Sexta e Sábado
+                  {t("fridayAndSaturday")}
                   <br />
                   12h - 00h
                 </span>
@@ -80,7 +84,7 @@ function Footer() {
               <li className="text-background/90 text-base flex items-start gap-2">
                 <span className="text-vegYellow mt-1">•</span>
                 <span>
-                  Domingo
+                  {t("sunday")}
                   <br />
                   12h - 22h
                 </span>
@@ -92,7 +96,7 @@ function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <MapPin className="w-6 h-6 text-vegYellow" />
-              <h3 className="text-background text-2xl font-bold">Endereço</h3>
+              <h3 className="text-background text-2xl font-bold">{t("address")}</h3>
             </div>
             <p className="text-background/90 text-base leading-relaxed">
               Rua dos bobos, 0<br />
@@ -104,7 +108,7 @@ function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-4 text-vegYellow hover:text-background transition-colors font-semibold"
             >
-              Ver no mapa
+              {t("viewOnMap")}
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -125,12 +129,12 @@ function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <Phone className="w-6 h-6 text-vegYellow" />
-              <h3 className="text-background text-2xl font-bold">Contato</h3>
+              <h3 className="text-background text-2xl font-bold">{t("contact")}</h3>
             </div>
             <div className="space-y-4">
               <div>
                 <p className="text-background/70 text-sm font-semibold mb-1">
-                  Telefone
+                  {t("phone")}
                 </p>
                 <a
                   href="tel:+5511951138721"
@@ -141,7 +145,7 @@ function Footer() {
               </div>
               <div>
                 <p className="text-background/70 text-sm font-semibold mb-1">
-                  Email
+                  {t("email")}
                 </p>
                 <a
                   href="mailto:alepbravo1702@gmail.com"
@@ -156,7 +160,7 @@ function Footer() {
           {/* Redes Sociais */}
           <div>
             <h3 className="text-background text-2xl font-bold mb-6">
-              Redes Sociais
+              {t("socialMedia")}
             </h3>
             <div className="grid grid-cols-4 gap-4">
               <a
@@ -246,7 +250,7 @@ function Footer() {
       <div className="w-full bg-vegYellow py-6 px-[10%]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-vegBrown-dark text-sm text-center md:text-left font-medium">
-            © 2024, Osasco - Todos os direitos reservados
+            © 2024, Osasco - {t("allRightsReserved")}
           </p>
           <p className="text-vegBrown-dark text-sm font-semibold">
             Gabriel Alexander Pinheiro Bravo

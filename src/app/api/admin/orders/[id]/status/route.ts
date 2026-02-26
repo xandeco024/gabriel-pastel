@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     // Verificar autenticação e permissão de admin
@@ -18,6 +18,7 @@ export async function PATCH(
       return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
     }
 
+    const { id } = await params;
     const { status } = await req.json();
 
     // Validar status
@@ -35,7 +36,7 @@ export async function PATCH(
 
     // Buscar pedido atual
     const currentOrder = await prisma.order.findUnique({
-      where: { id: params.id },
+      where: { id },
       select: { statusHistory: true },
     });
 
@@ -59,7 +60,7 @@ export async function PATCH(
 
     // Atualizar pedido
     const order = await prisma.order.update({
-      where: { id: params.id },
+      where: { id },
       data: {
         status,
         statusHistory,

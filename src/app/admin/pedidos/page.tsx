@@ -1,5 +1,6 @@
 import { requireAdmin } from "@/lib/admin";
 import { prisma } from "@/lib/prisma";
+import { Prisma, OrderStatus } from "@/generated/prisma";
 import Link from "next/link";
 import { Sparkles, Filter } from "lucide-react";
 import OrdersTableThemed from "@/components/admin/OrdersTableThemed";
@@ -7,15 +8,16 @@ import OrdersTableThemed from "@/components/admin/OrdersTableThemed";
 export default async function PedidosPage({
   searchParams,
 }: {
-  searchParams: { status?: string };
+  searchParams: Promise<{ status?: string }>;
 }) {
   await requireAdmin();
+  const params = await searchParams;
 
   // Filtros
-  const where: any = {};
+  const where: Prisma.OrderWhereInput = {};
 
-  if (searchParams.status && searchParams.status !== "all") {
-    where.status = searchParams.status;
+  if (params.status && params.status !== "all") {
+    where.status = params.status as OrderStatus;
   }
 
   // Buscar pedidos
@@ -79,8 +81,8 @@ export default async function PedidosPage({
         <div className="flex flex-wrap gap-3">
           {filterButtons.map((btn) => {
             const isActive =
-              (!searchParams.status && btn.value === "all") ||
-              searchParams.status === btn.value;
+              (!params.status && btn.value === "all") ||
+              params.status === btn.value;
             const colorClasses = {
               vegBrown: isActive
                 ? "bg-vegBrown text-background"
