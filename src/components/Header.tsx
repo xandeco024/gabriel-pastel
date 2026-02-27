@@ -56,7 +56,7 @@ export default function Header() {
   // Fechar menu mobile ao redimensionar para desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1280) {
         setMobileMenuOpen(false);
       }
     };
@@ -99,7 +99,7 @@ export default function Header() {
   }, [userMenuOpen]);
 
   return (
-    <header className={`w-full h-16 sm:h-20 lg:h-24 px-4 sm:px-6 lg:px-16 flex items-center justify-between z-[1000] top-0 fixed transition-all duration-300 ${
+    <header className={`w-full h-16 sm:h-20 xl:h-24 px-4 sm:px-6 xl:px-16 flex items-center justify-between z-[1000] top-0 fixed transition-all duration-300 ${
       !isTransparent
         ? "bg-background shadow-lg border-b-2 border-vegGreen/10 backdrop-blur-sm"
         : "bg-vegYellow shadow-none border-b-2 border-transparent"
@@ -109,7 +109,7 @@ export default function Header() {
       <Leaf className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 text-vegGreen/10 -rotate-12" />
 
       {/* logo e nome */}
-      <Link href="/home" className="flex items-center gap-2 sm:gap-3 lg:gap-4 group">
+      <Link href="/home" className="flex items-center gap-2 sm:gap-3 xl:gap-4 group">
         {/* Logo - escondida em telas muito pequenas */}
         <div className="relative hidden sm:block">
           <Image
@@ -118,12 +118,12 @@ export default function Header() {
             height={110}
             alt="Logo Gabriel Pastel"
             quality={100}
-            className="h-[55px] w-[52px] lg:h-[70px] lg:w-[66px] transition-transform duration-300 group-hover:scale-110 drop-shadow-md"
+            className="h-[55px] w-[52px] xl:h-[70px] xl:w-[66px] transition-transform duration-300 group-hover:scale-110 drop-shadow-md"
           />
           <div className="absolute inset-0 bg-vegYellow/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
         </div>
         <div className="flex flex-col">
-          <span className={`text-vegGreen text-base sm:text-2xl lg:text-4xl font-holtwood tracking-wide transition-colors duration-300 whitespace-nowrap ${!isTransparent ? "group-hover:text-vegYellow" : "group-hover:text-vegBrown-dark"}`}>
+          <span className={`text-vegGreen text-base sm:text-2xl xl:text-4xl font-holtwood tracking-wide transition-colors duration-300 whitespace-nowrap ${!isTransparent ? "group-hover:text-vegYellow" : "group-hover:text-vegBrown-dark"}`}>
             GABRIEL PASTEL
           </span>
           <span className="text-vegGreen-light text-[8px] sm:text-xs font-semibold tracking-[0.1em] sm:tracking-[0.2em] -mt-0.5 sm:-mt-1 uppercase">
@@ -133,24 +133,24 @@ export default function Header() {
       </Link>
 
       {/* Desktop menu */}
-      <nav className="hidden lg:flex items-center gap-4 xl:gap-6 mr-4">
+      <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 mr-4">
         <Link
           href="/home"
-          className={`relative text-base xl:text-lg font-semibold text-vegGreen transition-all duration-300 group ${!isTransparent ? "hover:text-vegYellow" : "hover:text-vegBrown-dark"}`}
+          className={`relative text-sm 2xl:text-base font-semibold text-vegGreen transition-all duration-300 group ${!isTransparent ? "hover:text-vegYellow" : "hover:text-vegBrown-dark"}`}
         >
           {t("home").toUpperCase()}
           <span className={`absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${!isTransparent ? "bg-vegYellow" : "bg-vegBrown-dark/50"}`}></span>
         </Link>
         <Link
           href="/nossa-historia"
-          className={`relative text-base xl:text-lg font-semibold text-vegGreen transition-all duration-300 group ${!isTransparent ? "hover:text-vegYellow" : "hover:text-vegBrown-dark"}`}
+          className={`relative text-sm 2xl:text-base font-semibold text-vegGreen transition-all duration-300 group ${!isTransparent ? "hover:text-vegYellow" : "hover:text-vegBrown-dark"}`}
         >
           {t("ourStory").toUpperCase()}
           <span className={`absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${!isTransparent ? "bg-vegYellow" : "bg-vegBrown-dark/50"}`}></span>
         </Link>
         <Link
           href="/nosso-impacto"
-          className={`relative text-base xl:text-lg font-semibold text-vegGreen transition-all duration-300 group ${!isTransparent ? "hover:text-vegYellow" : "hover:text-vegBrown-dark"}`}
+          className={`relative text-sm 2xl:text-base font-semibold text-vegGreen transition-all duration-300 group ${!isTransparent ? "hover:text-vegYellow" : "hover:text-vegBrown-dark"}`}
         >
           {t("ourImpact").toUpperCase()}
           <span className={`absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${!isTransparent ? "bg-vegYellow" : "bg-vegBrown-dark/50"}`}></span>
@@ -281,7 +281,7 @@ export default function Header() {
       </nav>
 
       {/* Mobile Controls */}
-      <div className="flex lg:hidden items-center gap-1.5 sm:gap-3">
+      <div className="flex xl:hidden items-center gap-1.5 sm:gap-3">
         {/* Order Button - xs em telas pequenas, md em tablets */}
         <OrderNowBtn size="xs" className="sm:hidden" />
         <OrderNowBtn size="md" className="hidden sm:block" />
@@ -305,7 +305,7 @@ export default function Header() {
       {typeof window !== "undefined" &&
         mobileMenuOpen &&
         createPortal(
-          <div className="lg:hidden fixed inset-0 z-[1001]">
+          <div className="xl:hidden fixed inset-0 z-[1001]">
             {/* Backdrop */}
             <div
               className="absolute inset-0 bg-black/60 backdrop-blur-sm"
@@ -314,11 +314,14 @@ export default function Header() {
 
             {/* Drawer - 80% da tela, começa do topo */}
             <nav
-              className="absolute top-0 right-0 w-[80%] max-w-xs h-full bg-pastel shadow-2xl border-l-2 border-vegGreen/30 overflow-y-auto animate-slide-in-right flex flex-col"
+              className="absolute top-0 right-0 bottom-0 w-[80%] max-w-xs bg-pastel shadow-2xl border-l-2 border-vegGreen/30 animate-slide-in-right flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
             {/* Spacer para ficar abaixo do header */}
             <div className="h-16 sm:h-20 flex-shrink-0" />
+
+            {/* Conteúdo scrollable */}
+            <div className="flex-1 overflow-y-auto min-h-0">
 
             {/* User Header */}
             {session ? (
@@ -474,11 +477,11 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Spacer flexível */}
-            <div className="flex-1" />
+            </div>
+            {/* Fim do conteúdo scrollable */}
 
-            {/* Footer com montanhas */}
-            <div className="mt-auto">
+            {/* Footer com montanhas - fixo no fundo */}
+            <div className="flex-shrink-0">
               <svg
                 viewBox="0 0 320 80"
                 fill="none"
@@ -502,6 +505,8 @@ export default function Header() {
                   fill="#10806e"
                 />
               </svg>
+              {/* Base verde - "terra" */}
+              <div className="h-10 bg-[#10806e] -mt-px"></div>
             </div>
           </nav>
         </div>,

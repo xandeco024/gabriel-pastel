@@ -21,188 +21,206 @@ export default function OurHistoryPage() {
   return (
     <div className="min-h-screen mt-24 pt-24 space-y-16 sm:space-y-24 md:space-y-32 lg:space-y-48 relative overflow-hidden">
       {/* Hero Section */}
-      <div className="relative">
-        <div className="w-2/3 mx-auto text-center space-y-6">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-holtwood text-vegBrown-dark flex items-center gap-4 justify-center">
-            <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-vegYellow" />
+      <div className="relative px-4">
+        <div className="w-full sm:w-5/6 md:w-2/3 mx-auto text-center space-y-4 sm:space-y-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-holtwood text-vegBrown-dark flex items-center gap-2 sm:gap-4 justify-center">
+            <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-vegYellow" />
             {t("title")}
           </h1>
           <p
-            className="text-lg sm:text-xl md:text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-vegBrown-light max-w-3xl mx-auto leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t.raw("subtitle") }}
           />
         </div>
       </div>
 
       {/* Timeline Section */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-60">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48">
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-vegGreen/20"></div>
+          {/* Timeline line - à esquerda em mobile, centralizada em md+ */}
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 h-full w-1 bg-vegGreen/20"></div>
 
           {/* Timeline Item 1 */}
-          <div className="relative mb-24">
+          <div className="relative mb-16 md:mb-24">
+            {/* Mobile dot */}
+            <div className="absolute left-4 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-vegYellow border-4 border-background md:hidden"></div>
+            {/* Desktop dot */}
+            <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegYellow border-4 border-background hidden md:block"></div>
+
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
-              <div className="md:text-right mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
+              <div className="pl-10 md:pl-0 md:text-right mb-8 md:mb-0">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1.5 md:px-5 md:py-2 text-sm md:text-lg font-semibold text-vegYellow mb-3 md:mb-4 shadow-md">
                   {t("timeline.2018.badge")}
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-holtwood mb-4 md:mb-6 text-vegBrown-dark">
                   {t("timeline.2018.title")}
                 </h2>
                 <p
-                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.2018.description1"),
                   }}
                 />
                 <p
-                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed mt-4"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-vegBrown-light leading-relaxed mt-3 md:mt-4"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.2018.description2"),
                   }}
                 />
               </div>
-              <div className="relative"></div>
+              <div className="relative hidden md:block"></div>
             </div>
-            {/* Timeline dot */}
-            <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegYellow border-4 border-background hidden md:block"></div>
           </div>
 
           {/* Timeline Item 2 */}
-          <div className="relative mb-24">
+          <div className="relative mb-16 md:mb-24">
+            {/* Mobile dot */}
+            <div className="absolute left-4 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-vegGreen-light border-4 border-background md:hidden"></div>
+            {/* Desktop dot */}
+            <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegGreen-light border-4 border-background hidden md:block"></div>
+
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1 relative"></div>
-              <div className="order-1 md:order-2 mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
+              <div className="hidden md:block"></div>
+              <div className="pl-10 md:pl-0 mb-8 md:mb-0">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1.5 md:px-5 md:py-2 text-sm md:text-lg font-semibold text-vegYellow mb-3 md:mb-4 shadow-md">
                   {t("timeline.partnership.badge")}
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-holtwood mb-4 md:mb-6 text-vegBrown-dark">
                   {t("timeline.partnership.title")}
                 </h2>
                 <p
-                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.partnership.description1"),
                   }}
                 />
                 <p
-                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed mt-4"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-vegBrown-light leading-relaxed mt-3 md:mt-4"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.partnership.description2"),
                   }}
                 />
               </div>
             </div>
-            {/* Timeline dot */}
-            <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegGreen-light border-4 border-background hidden md:block"></div>
           </div>
 
           {/* Timeline Item 3 */}
-          <div className="relative mb-24">
+          <div className="relative mb-16 md:mb-24">
+            {/* Mobile dot */}
+            <div className="absolute left-4 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-vegYellow border-4 border-background md:hidden"></div>
+            {/* Desktop dot */}
+            <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegYellow border-4 border-background hidden md:block"></div>
+
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
-              <div className="md:text-right mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
+              <div className="pl-10 md:pl-0 md:text-right mb-8 md:mb-0">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1.5 md:px-5 md:py-2 text-sm md:text-lg font-semibold text-vegYellow mb-3 md:mb-4 shadow-md">
                   {t("timeline.firstSite.badge")}
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-holtwood mb-4 md:mb-6 text-vegBrown-dark">
                   {t("timeline.firstSite.title")}
                 </h2>
                 <p
-                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.firstSite.description"),
                   }}
                 />
-                <div className="mt-6">
+                <div className="mt-4 md:mt-6">
                   <Link
                     href="/site-original"
-                    className="inline-flex items-center text-vegGreen hover:text-vegYellow hover:scale-105 text-xl transition-all duration-200 font-semibold"
+                    className="inline-flex items-center text-vegGreen hover:text-vegYellow hover:scale-105 text-base md:text-xl transition-all duration-200 font-semibold"
                   >
                     {t("timeline.firstSite.linkText")}{" "}
-                    <ExternalLink className="ml-2 h-5 w-5" />
+                    <ExternalLink className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                   </Link>
                 </div>
               </div>
-              <div className="relative"></div>
+              <div className="relative hidden md:block"></div>
             </div>
-            {/* Timeline dot */}
-            <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegYellow border-4 border-background hidden md:block"></div>
           </div>
 
           {/* Timeline Item 4 - Plant Based */}
-          <div className="relative mb-24">
+          <div className="relative mb-16 md:mb-24">
+            {/* Mobile dot */}
+            <div className="absolute left-4 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-vegGreen-light border-4 border-background md:hidden"></div>
+            {/* Desktop dot */}
+            <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegGreen-light border-4 border-background hidden md:block"></div>
+
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1 relative"></div>
-              <div className="order-1 md:order-2 mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
+              <div className="hidden md:block"></div>
+              <div className="pl-10 md:pl-0 mb-8 md:mb-0">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1.5 md:px-5 md:py-2 text-sm md:text-lg font-semibold text-vegYellow mb-3 md:mb-4 shadow-md">
                   {t("timeline.plantBased.badge")}
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-holtwood mb-4 md:mb-6 text-vegBrown-dark">
                   {t("timeline.plantBased.title")}
                 </h2>
                 <p
-                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.plantBased.description1"),
                   }}
                 />
                 <p
-                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed mt-4"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-vegBrown-light leading-relaxed mt-3 md:mt-4"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.plantBased.description2"),
                   }}
                 />
               </div>
             </div>
-            {/* Timeline dot */}
-            <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegGreen-light border-4 border-background hidden md:block"></div>
           </div>
 
           {/* Timeline Item 5 - Relaunch */}
-          <div className="relative mb-24">
+          <div className="relative mb-16 md:mb-24">
+            {/* Mobile dot */}
+            <div className="absolute left-4 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-vegYellow border-4 border-background md:hidden"></div>
+            {/* Desktop dot */}
+            <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegYellow border-4 border-background hidden md:block"></div>
+
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
-              <div className="md:text-right mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
+              <div className="pl-10 md:pl-0 md:text-right mb-8 md:mb-0">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1.5 md:px-5 md:py-2 text-sm md:text-lg font-semibold text-vegYellow mb-3 md:mb-4 shadow-md">
                   {t("timeline.relaunch.badge")}
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-holtwood mb-4 md:mb-6 text-vegBrown-dark">
                   {t("timeline.relaunch.title")}
                 </h2>
                 <p
-                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.relaunch.description"),
                   }}
                 />
               </div>
-              <div className="relative"></div>
+              <div className="relative hidden md:block"></div>
             </div>
-            {/* Timeline dot */}
-            <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegYellow border-4 border-background hidden md:block"></div>
           </div>
 
           {/* Timeline Item 6 - Mission */}
           <div className="relative">
+            {/* Mobile dot */}
+            <div className="absolute left-4 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-vegGreen-light border-4 border-background md:hidden"></div>
+            {/* Desktop dot */}
+            <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegGreen-light border-4 border-background hidden md:block"></div>
+
             <div className="md:grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1 relative"></div>
-              <div className="order-1 md:order-2 mb-8 md:mb-0">
-                <div className="inline-block rounded-full bg-vegYellow/20 px-5 py-2 text-lg font-semibold text-vegYellow mb-4 shadow-md">
+              <div className="hidden md:block"></div>
+              <div className="pl-10 md:pl-0 mb-8 md:mb-0">
+                <div className="inline-block rounded-full bg-vegYellow/20 px-4 py-1.5 md:px-5 md:py-2 text-sm md:text-lg font-semibold text-vegYellow mb-3 md:mb-4 shadow-md">
                   {t("timeline.mission.badge")}
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-holtwood mb-6 text-vegBrown-dark">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-holtwood mb-4 md:mb-6 text-vegBrown-dark">
                   {t("timeline.mission.title")}
                 </h2>
                 <p
-                  className="text-base sm:text-lg md:text-xl text-vegBrown-light leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-vegBrown-light leading-relaxed"
                   dangerouslySetInnerHTML={{
                     __html: t.raw("timeline.mission.description"),
                   }}
                 />
               </div>
             </div>
-            {/* Timeline dot */}
-            <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-vegGreen-light border-4 border-background hidden md:block"></div>
           </div>
         </div>
       </div>
@@ -261,7 +279,7 @@ export default function OurHistoryPage() {
       </div>
 
       {/* Tech Stack Section */}
-      <div className="py-16 md:py-24 px-4 sm:px-6 lg:px-60">
+      <div className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48">
         <div className="container mx-auto">
           <div className="md:grid md:grid-cols-2 gap-12 items-center">
             <div>
