@@ -85,7 +85,7 @@ export default async function AnalyticsPage() {
 
       {/* Métricas Principais */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6">
+        <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">Total de Pedidos</p>
@@ -97,7 +97,7 @@ export default async function AnalyticsPage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegYellow/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6">
+        <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-vegYellow/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">Receita Total</p>
@@ -111,7 +111,7 @@ export default async function AnalyticsPage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegOrange/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
+        <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-vegOrange/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">Ticket Médio</p>
@@ -129,8 +129,8 @@ export default async function AnalyticsPage() {
       {/* Top Produtos */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Top Ingredientes */}
-        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-vegGreen/10 to-vegYellow/10 px-4 sm:px-6 py-3 sm:py-4 border-b-2 border-vegGreen/20">
+        <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg overflow-hidden">
+          <div className="bg-vegGreen/10 px-4 sm:px-6 py-3 sm:py-4 border-b border-vegGreen/20">
             <h2 className="text-base sm:text-lg lg:text-xl font-holtwood text-vegBrown-dark">
               Ingredientes Mais Populares
             </h2>
@@ -165,8 +165,8 @@ export default async function AnalyticsPage() {
         </div>
 
         {/* Top Pastéis */}
-        <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegOrange/20 shadow-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-vegOrange/10 to-vegYellow/10 px-4 sm:px-6 py-3 sm:py-4 border-b-2 border-vegOrange/20">
+        <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-vegOrange/20 shadow-lg overflow-hidden">
+          <div className="bg-vegOrange/10 px-4 sm:px-6 py-3 sm:py-4 border-b border-vegOrange/20">
             <h2 className="text-base sm:text-lg lg:text-xl font-holtwood text-vegBrown-dark">
               Pastéis Mais Vendidos
             </h2>

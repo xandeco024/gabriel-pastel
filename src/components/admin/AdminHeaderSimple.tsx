@@ -69,7 +69,7 @@ export default function AdminHeaderSimple({ session }: AdminHeaderSimpleProps) {
           {/* Voltar ao site */}
           <Link
             href="/home"
-            className="px-3 2xl:px-4 py-2 bg-gradient-to-r from-vegGreen to-vegGreen-light text-background rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 font-semibold text-xs 2xl:text-sm"
+            className="px-3 2xl:px-4 py-2 bg-vegGreen hover:bg-vegYellow text-white rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 font-semibold text-xs 2xl:text-sm"
           >
             ← VOLTAR
           </Link>
@@ -95,22 +95,25 @@ export default function AdminHeaderSimple({ session }: AdminHeaderSimpleProps) {
 
       {/* Mobile/Tablet drawer (aparece abaixo de 1280px) */}
       {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-0 z-[1001] bg-black/50" onClick={() => setMobileMenuOpen(false)}>
+        <div className="xl:hidden fixed inset-0 z-[1001] bg-black/60 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)}>
           <nav
-            className="absolute right-0 top-0 h-full w-72 sm:w-80 bg-pastel shadow-2xl opacity-100 translate-x-0"
+            className="absolute right-0 top-0 h-full w-[80%] max-w-xs bg-pastel shadow-2xl border-l-2 border-vegGreen/30 overflow-y-auto flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Spacer para ficar abaixo do header */}
+            <div className="h-16 sm:h-20 flex-shrink-0" />
+
             {/* Header do drawer com info do usuário */}
-            <div className="bg-gradient-to-br from-vegOrange/10 to-vegYellow/5 p-5 border-b-2 border-vegOrange/20">
+            <div className="bg-vegGreen/10 p-4 border-b border-vegGreen/20">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-vegOrange to-vegYellow flex items-center justify-center text-background font-bold text-xl shadow-md">
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-vegGreen to-vegGreen-light flex items-center justify-center text-background font-bold text-lg shadow-md">
                   {session.user?.name?.charAt(0).toUpperCase() || "A"}
                 </div>
                 <div className="flex-1 overflow-hidden">
-                  <p className="font-bold text-vegBrown-dark text-lg truncate">
+                  <p className="font-bold text-vegBrown-dark truncate">
                     {session.user?.name}
                   </p>
-                  <p className="text-xs text-vegBrown-light truncate">
+                  <p className="text-xs text-vegOrange font-semibold truncate">
                     {session.user.role === "SUPER_ADMIN" ? "Super Admin" : "Admin"}
                   </p>
                 </div>
@@ -118,7 +121,7 @@ export default function AdminHeaderSimple({ session }: AdminHeaderSimpleProps) {
             </div>
 
             {/* Links de navegação */}
-            <div className="p-4 space-y-1">
+            <div className="p-3 space-y-0.5">
               {navLinks.map((link) => {
                 const Icon = link.icon;
                 return (
@@ -126,33 +129,62 @@ export default function AdminHeaderSimple({ session }: AdminHeaderSimpleProps) {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-vegGreen hover:bg-vegGreen/10 hover:text-vegYellow transition-all font-semibold"
+                    className="flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-vegBrown-dark hover:bg-vegGreen/10 hover:text-vegGreen rounded-lg transition-all"
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4" />
                     {link.label}
                   </Link>
                 );
               })}
 
-              <div className="border-t border-vegGreen/20 my-4"></div>
+              <div className="border-t border-vegGreen/20 my-3"></div>
 
               <Link
                 href="/home"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-vegGreen text-background hover:bg-vegGreen-light transition-all font-semibold"
+                className="flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-vegBrown-dark hover:bg-vegGreen/10 hover:text-vegGreen rounded-lg transition-all"
               >
-                <Home className="w-5 h-5" />
+                <Home className="w-4 h-4" />
                 VOLTAR AO SITE
               </Link>
+
+              <div className="border-t border-vegGreen/20 my-2"></div>
 
               <button
                 type="button"
                 onClick={() => signOut({ callbackUrl: "/" })}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-vegRed hover:bg-vegRed/10 transition-all font-semibold"
+                className="w-full flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-vegRed hover:bg-vegRed/10 rounded-lg transition-all"
               >
-                <LogOut className="w-5 h-5" />
+                <LogOut className="w-4 h-4" />
                 SAIR
               </button>
+            </div>
+
+            {/* Spacer flexível */}
+            <div className="flex-1" />
+
+            {/* Footer com montanhas - igual ao drawer do Header */}
+            <div className="mt-auto">
+              <svg
+                viewBox="0 0 320 80"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full h-auto"
+                preserveAspectRatio="xMidYMax slice"
+              >
+                <path
+                  d="M0 80V35C40 28 80 22 120 20C160 18 200 22 240 30C280 38 300 42 320 40V80Z"
+                  fill="#064d40"
+                />
+                <path
+                  d="M0 80V50C50 44 90 40 130 38C170 36 210 40 250 48C290 56 310 58 320 56V80Z"
+                  fill="#087a68"
+                />
+                <path
+                  d="M0 80V65C40 62 80 60 120 58C160 56 200 54 240 56C280 58 300 62 320 64V80Z"
+                  fill="#10806e"
+                />
+              </svg>
             </div>
           </nav>
         </div>

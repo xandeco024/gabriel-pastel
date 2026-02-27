@@ -123,7 +123,7 @@ export default async function DashboardPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Link
           href="/admin/pedidos"
-          className="group bg-gradient-to-br from-vegGreen/10 to-vegGreen/5 hover:from-vegGreen/20 hover:to-vegGreen/10 rounded-2xl p-6 border-2 border-vegGreen/20 hover:border-vegGreen shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          className="group bg-white hover:bg-vegGreen/5 rounded-2xl p-6 border-2 border-vegGreen/20 hover:border-vegGreen shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
         >
           <ShoppingBag className="w-10 h-10 text-vegGreen mb-3 group-hover:scale-110 transition-transform" />
           <h3 className="text-xl font-holtwood text-vegBrown-dark">Pedidos</h3>
@@ -132,7 +132,7 @@ export default async function DashboardPage() {
 
         <Link
           href="/admin/ingredientes"
-          className="group bg-gradient-to-br from-vegYellow/10 to-vegYellow/5 hover:from-vegYellow/20 hover:to-vegYellow/10 rounded-2xl p-6 border-2 border-vegYellow/20 hover:border-vegYellow shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          className="group bg-white hover:bg-vegYellow/5 rounded-2xl p-6 border-2 border-vegYellow/20 hover:border-vegYellow shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
         >
           <Sparkles className="w-10 h-10 text-vegYellow mb-3 group-hover:scale-110 transition-transform" />
           <h3 className="text-xl font-holtwood text-vegBrown-dark">
@@ -143,7 +143,7 @@ export default async function DashboardPage() {
 
         <Link
           href="/admin/pasteis"
-          className="group bg-gradient-to-br from-vegOrange/10 to-vegOrange/5 hover:from-vegOrange/20 hover:to-vegOrange/10 rounded-2xl p-6 border-2 border-vegOrange/20 hover:border-vegOrange shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          className="group bg-white hover:bg-vegOrange/5 rounded-2xl p-6 border-2 border-vegOrange/20 hover:border-vegOrange shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
         >
           <Sparkles className="w-10 h-10 text-vegOrange mb-3 group-hover:scale-110 transition-transform" />
           <h3 className="text-xl font-holtwood text-vegBrown-dark">Pastéis</h3>
@@ -152,7 +152,7 @@ export default async function DashboardPage() {
 
         <Link
           href="/admin/analytics"
-          className="group bg-gradient-to-br from-vegBrown/10 to-vegBrown/5 hover:from-vegBrown/20 hover:to-vegBrown/10 rounded-2xl p-6 border-2 border-vegBrown/20 hover:border-vegBrown shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          className="group bg-white hover:bg-vegBrown/5 rounded-2xl p-6 border-2 border-vegBrown/20 hover:border-vegBrown shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
         >
           <TrendingUp className="w-10 h-10 text-vegBrown mb-3 group-hover:scale-110 transition-transform" />
           <h3 className="text-xl font-holtwood text-vegBrown-dark">
@@ -167,10 +167,10 @@ export default async function DashboardPage() {
         {stats.map((stat) => {
           const Icon = stat.icon;
           const colorClasses = {
-            vegGreen: "from-vegGreen/10 to-vegGreen/5 border-vegGreen/30",
-            vegYellow: "from-vegYellow/10 to-vegYellow/5 border-vegYellow/30",
-            vegOrange: "from-vegOrange/10 to-vegOrange/5 border-vegOrange/30",
-            vegBrown: "from-vegBrown/10 to-vegBrown/5 border-vegBrown/30",
+            vegGreen: "border-vegGreen/30",
+            vegYellow: "border-vegYellow/30",
+            vegOrange: "border-vegOrange/30",
+            vegBrown: "border-vegBrown/30",
           };
 
           const iconColors = {
@@ -184,7 +184,7 @@ export default async function DashboardPage() {
             <Link
               key={stat.label}
               href={stat.href}
-              className={`group bg-gradient-to-br ${colorClasses[stat.color as keyof typeof colorClasses]} rounded-2xl p-6 border-2 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 ${
+              className={`group bg-white ${colorClasses[stat.color as keyof typeof colorClasses]} rounded-2xl p-6 border-2 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 ${
                 stat.alert ? "ring-4 ring-vegRed/30 animate-pulse" : ""
               }`}
             >
@@ -205,8 +205,8 @@ export default async function DashboardPage() {
       </div>
 
       {/* Pedidos Recentes com estética do site */}
-      <div className="bg-gradient-to-br from-pastel to-background rounded-2xl sm:rounded-3xl border-2 border-vegGreen/20 shadow-xl overflow-hidden">
-        <div className="bg-gradient-to-r from-vegGreen/10 to-vegYellow/10 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border-b-2 border-vegGreen/20">
+      <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-vegGreen/20 shadow-xl overflow-hidden">
+        <div className="bg-vegGreen/10 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border-b border-vegGreen/20">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-holtwood text-vegBrown-dark">
             Pedidos Recentes
           </h2>

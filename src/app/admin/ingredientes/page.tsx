@@ -23,7 +23,7 @@ export default async function IngredientesPage() {
         </p>
         <Link
           href="/admin/ingredientes/novo"
-          className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-vegGreen to-vegGreen-light text-background rounded-lg sm:rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 font-bold text-sm sm:text-base"
+          className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-vegGreen hover:bg-vegYellow text-white rounded-lg sm:rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 font-bold text-sm sm:text-base"
         >
           <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
           Novo Ingrediente
@@ -34,7 +34,7 @@ export default async function IngredientesPage() {
         {ingredients.map((ingredient) => (
           <div
             key={ingredient.id}
-            className="group bg-gradient-to-br from-pastel to-background rounded-2xl border-2 border-vegGreen/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+            className="group bg-white rounded-2xl border-2 border-vegGreen/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
           >
             <div className="relative h-48 bg-vegGreen/5">
               <Image

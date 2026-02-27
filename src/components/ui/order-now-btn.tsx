@@ -6,7 +6,7 @@ import { ButtonHTMLAttributes } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
-type ButtonSize = "sm" | "md" | "lg" | "xl" | "xl2";
+type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl" | "xl2";
 
 interface OrderNowBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
@@ -19,6 +19,7 @@ interface OrderNowBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const sizeStyles: Record<ButtonSize, string> = {
+  xs: "text-xs px-2 py-0.5",
   sm: "text-sm px-2 py-0.5",
   md: "text-base px-3 py-0.5",
   lg: "text-lg px-2.5 py-[0.75]",

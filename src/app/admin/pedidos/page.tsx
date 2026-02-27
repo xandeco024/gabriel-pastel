@@ -21,33 +21,26 @@ export default async function PedidosPage({
   }
 
   // Buscar pedidos
-  const orders = await prisma.order.findMany({
+  const rawOrders = await prisma.order.findMany({
     where,
-    include: {
-      user: {
-        select: {
-          name: true,
-          email: true,
-        },
-      },
-      orderItems: {
-        include: {
-          premadePastel: true,
-          customPastel: {
-            include: {
-              ingredients: {
-                include: {
-                  ingredient: true,
-                },
-              },
-            },
-          },
-        },
-      },
+    select: {
+      id: true,
+      customerName: true,
+      customerEmail: true,
+      total: true,
+      status: true,
+      createdAt: true,
     },
     orderBy: { createdAt: "desc" },
     take: 50,
   });
+
+  // Serializar campos Decimal antes de passar ao Client Component
+  const orders = rawOrders.map((o) => ({
+    ...o,
+    total: Number(o.total),
+    createdAt: o.createdAt.toISOString(),
+  }));
 
   const filterButtons = [
     { label: "Todos", value: "all", color: "vegBrown" },
@@ -71,7 +64,7 @@ export default async function PedidosPage({
       </div>
 
       {/* Filtros com estética do site */}
-      <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg p-4 sm:p-6">
+      <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg p-4 sm:p-6">
         <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
           <Filter className="w-5 h-5 sm:w-6 sm:h-6 text-vegGreen" />
           <h3 className="text-base sm:text-lg lg:text-xl font-holtwood text-vegBrown-dark">

@@ -65,11 +65,11 @@ export default function UserManagementTable({
   };
 
   return (
-    <div className="bg-gradient-to-br from-pastel to-background rounded-xl sm:rounded-2xl lg:rounded-3xl border-2 border-vegGreen/20 shadow-xl overflow-hidden">
+    <div className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl border-2 border-vegGreen/20 shadow-xl overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full min-w-[600px]">
           <thead>
-            <tr className="bg-gradient-to-r from-vegGreen/10 to-vegYellow/10 border-b-2 border-vegGreen/20">
+            <tr className="bg-vegGreen/10 border-b border-vegGreen/20">
               <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-holtwood text-vegBrown-dark uppercase tracking-wider">
                 Nome
               </th>

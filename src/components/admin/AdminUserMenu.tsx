@@ -33,18 +33,18 @@ export default function AdminUserMenu({ session }: AdminUserMenuProps) {
     <div className="relative ml-2" ref={menuRef}>
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="group flex items-center justify-center w-12 h-12 bg-background border-[3px] border-vegOrange hover:border-vegYellow hover:bg-vegOrange/5 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 relative"
+        className="group flex items-center justify-center w-12 h-12 bg-background border-[3px] border-vegGreen hover:border-vegYellow hover:bg-vegGreen/5 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 relative"
         aria-label="Menu do usuário"
       >
-        <User className="w-6 h-6 text-vegOrange group-hover:text-vegYellow transition-colors" />
-        <span className="absolute -top-1 -right-1 w-4 h-4 bg-vegOrange rounded-full border-2 border-background"></span>
+        <User className="w-6 h-6 text-vegGreen group-hover:text-vegYellow transition-colors" />
+        <span className="absolute -top-1 -right-1 w-4 h-4 bg-vegGreen rounded-full border-2 border-background"></span>
       </button>
 
       {menuOpen && (
-        <div className="absolute right-0 mt-3 w-64 bg-background rounded-2xl shadow-2xl border-2 border-vegOrange/30 z-50 overflow-hidden animate-dropdown-in">
-          <div className="bg-gradient-to-br from-vegOrange/10 to-vegYellow/5 p-5 border-b-2 border-vegOrange/20">
+        <div className="absolute right-0 mt-3 w-64 bg-background rounded-2xl shadow-2xl border-2 border-vegGreen/20 z-50 overflow-hidden animate-dropdown-in">
+          <div className="bg-vegGreen/10 p-5 border-b border-vegGreen/20">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-vegOrange to-vegYellow flex items-center justify-center text-background font-bold text-xl shadow-md">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-vegGreen to-vegGreen-light flex items-center justify-center text-background font-bold text-xl shadow-md">
                 {session.user?.name?.charAt(0).toUpperCase() || "A"}
               </div>
               <div className="flex-1 overflow-hidden">
