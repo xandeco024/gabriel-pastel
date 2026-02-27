@@ -88,8 +88,12 @@ export default async function AnalyticsPage() {
         <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-vegGreen/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">Total de Pedidos</p>
-              <p className="text-2xl sm:text-3xl font-holtwood text-vegBrown-dark mt-2">{totalOrders}</p>
+              <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">
+                Total de Pedidos
+              </p>
+              <p className="text-2xl sm:text-3xl font-holtwood text-vegBrown-dark mt-2">
+                {totalOrders}
+              </p>
             </div>
             <div className="bg-vegGreen p-3 sm:p-4 rounded-xl">
               <BarChart3 className="w-6 h-6 sm:w-8 sm:h-8 text-background" />
@@ -100,7 +104,9 @@ export default async function AnalyticsPage() {
         <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-vegYellow/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">Receita Total</p>
+              <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">
+                Receita Total
+              </p>
               <p className="text-2xl sm:text-3xl font-holtwood text-vegBrown-dark mt-2">
                 R$ {Number(totalRevenue._sum.total || 0).toFixed(2)}
               </p>
@@ -114,7 +120,9 @@ export default async function AnalyticsPage() {
         <div className="bg-white rounded-xl sm:rounded-2xl border-2 border-vegOrange/20 shadow-lg hover:shadow-xl transition-all p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">Ticket Médio</p>
+              <p className="text-xs sm:text-sm text-vegBrown-light font-semibold uppercase tracking-wider">
+                Ticket Médio
+              </p>
               <p className="text-2xl sm:text-3xl font-holtwood text-vegBrown-dark mt-2">
                 R$ {Number(averageOrderValue._avg.total || 0).toFixed(2)}
               </p>

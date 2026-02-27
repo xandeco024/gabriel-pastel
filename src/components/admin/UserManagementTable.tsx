@@ -89,14 +89,19 @@ export default function UserManagementTable({
           </thead>
           <tbody className="divide-y divide-vegGreen/10">
             {users.map((user) => (
-              <tr key={user.id} className="hover:bg-vegGreen/5 transition-colors duration-200">
+              <tr
+                key={user.id}
+                className="hover:bg-vegGreen/5 transition-colors duration-200"
+              >
                 <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
                   <p className="font-semibold text-vegBrown-dark text-sm sm:text-base">
                     {user.name || "Sem nome"}
                   </p>
                 </td>
                 <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
-                  <p className="text-xs sm:text-sm text-vegBrown-light">{user.email}</p>
+                  <p className="text-xs sm:text-sm text-vegBrown-light">
+                    {user.email}
+                  </p>
                 </td>
                 <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
                   <select

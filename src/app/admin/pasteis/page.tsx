@@ -60,7 +60,9 @@ export default async function PasteisPage() {
                   R$ {Number(pastel.price).toFixed(2)}
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-vegBrown-light mt-2 line-clamp-2">{pastel.description}</p>
+              <p className="text-xs sm:text-sm text-vegBrown-light mt-2 line-clamp-2">
+                {pastel.description}
+              </p>
               <div className="mt-3">
                 <p className="text-xs font-semibold text-vegBrown-dark mb-1">
                   Ingredientes:

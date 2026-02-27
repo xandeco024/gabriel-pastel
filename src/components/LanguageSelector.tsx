@@ -6,7 +6,11 @@ import { locales, localeNames, type Locale } from "@/i18n/request";
 import { Globe, Check } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
-export default function LanguageSelector({ scrolled = true }: { scrolled?: boolean }) {
+export default function LanguageSelector({
+  scrolled = true,
+}: {
+  scrolled?: boolean;
+}) {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
@@ -48,8 +52,12 @@ export default function LanguageSelector({ scrolled = true }: { scrolled?: boole
         className="group flex items-center justify-center gap-1.5 h-12 px-3 rounded-full transition-all duration-300 hover:scale-105"
         aria-label="Selecionar idioma"
       >
-        <Globe className={`w-5 h-5 text-vegGreen transition-colors ${scrolled ? "group-hover:text-vegYellow" : "group-hover:text-vegBrown-dark"}`} />
-        <span className={`font-bold text-sm text-vegGreen transition-colors uppercase ${scrolled ? "group-hover:text-vegYellow" : "group-hover:text-vegBrown-dark"}`}>
+        <Globe
+          className={`w-5 h-5 text-vegGreen transition-colors ${scrolled ? "group-hover:text-vegYellow" : "group-hover:text-vegBrown-dark"}`}
+        />
+        <span
+          className={`font-bold text-sm text-vegGreen transition-colors uppercase ${scrolled ? "group-hover:text-vegYellow" : "group-hover:text-vegBrown-dark"}`}
+        >
           {locale}
         </span>
       </button>

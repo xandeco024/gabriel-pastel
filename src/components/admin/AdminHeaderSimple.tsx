@@ -3,7 +3,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Session } from "next-auth";
-import { Leaf, Menu, X, LayoutDashboard, ShoppingBag, Carrot, Cookie, BarChart3, Home, LogOut } from "lucide-react";
+import {
+  Leaf,
+  Menu,
+  X,
+  LayoutDashboard,
+  ShoppingBag,
+  Carrot,
+  Cookie,
+  BarChart3,
+  Home,
+  LogOut,
+} from "lucide-react";
 import AdminUserMenu from "./AdminUserMenu";
 import { useState } from "react";
 import { signOut } from "next-auth/react";
@@ -31,7 +42,10 @@ export default function AdminHeaderSimple({ session }: AdminHeaderSimpleProps) {
         <Leaf className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 xl:w-8 xl:h-8 text-vegGreen/10 -rotate-12 hidden sm:block" />
 
         {/* logo e nome */}
-        <Link href="/home" className="flex items-center gap-2 sm:gap-3 xl:gap-4 group">
+        <Link
+          href="/home"
+          className="flex items-center gap-2 sm:gap-3 xl:gap-4 group"
+        >
           <div className="relative">
             <Image
               src="/icon.png"
@@ -95,7 +109,10 @@ export default function AdminHeaderSimple({ session }: AdminHeaderSimpleProps) {
 
       {/* Mobile/Tablet drawer (aparece abaixo de 1280px) */}
       {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-0 z-[1001] bg-black/60 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)}>
+        <div
+          className="xl:hidden fixed inset-0 z-[1001] bg-black/60 backdrop-blur-sm"
+          onClick={() => setMobileMenuOpen(false)}
+        >
           <nav
             className="absolute right-0 top-0 h-full w-[80%] max-w-xs bg-pastel shadow-2xl border-l-2 border-vegGreen/30 overflow-y-auto flex flex-col"
             onClick={(e) => e.stopPropagation()}
@@ -114,7 +131,9 @@ export default function AdminHeaderSimple({ session }: AdminHeaderSimpleProps) {
                     {session.user?.name}
                   </p>
                   <p className="text-xs text-vegOrange font-semibold truncate">
-                    {session.user.role === "SUPER_ADMIN" ? "Super Admin" : "Admin"}
+                    {session.user.role === "SUPER_ADMIN"
+                      ? "Super Admin"
+                      : "Admin"}
                   </p>
                 </div>
               </div>
