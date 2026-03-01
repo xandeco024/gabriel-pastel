@@ -74,9 +74,6 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   manifest: "/manifest.json",
-  verification: {
-    google: "lHnptm2jWU14SE7b3JneqUnYllof4XHk5QwA3LmBEz8",
-  },
   other: {
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-capable": "yes",
