@@ -75,10 +75,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   verification: {
-    // Adicione seus códigos de verificação aqui depois:
-    // google: 'seu-codigo-google-search-console',
-    // yandex: 'seu-codigo-yandex',
-    // bing: 'seu-codigo-bing',
+    google: 'lHnptm2jWU14SE7b3JneqUnYllof4XHk5QwA3LmBEz8',
   },
   other: {
     "mobile-web-app-capable": "yes",
