@@ -1,0 +1,25 @@
+{
+  "name": "Gabriel Pastel - Pastéis Veganos Artesanais",
+  "short_name": "Gabriel Pastel",
+  "description": "Pastéis veganos artesanais feitos com ingredientes frescos e orgânicos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8ea",
+  "theme_color": "#10806e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["food", "shopping"],
+  "lang": "pt-BR",
+  "dir": "ltr"
+}

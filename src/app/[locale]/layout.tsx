@@ -6,6 +6,7 @@ import { holtwood, gluten } from "@/assets/fonts";
 import "../globals.css";
 import { SessionProvider } from "@/components/SessionProvider";
 import { Toaster } from "sonner";
+import { StructuredData } from "@/components/StructuredData";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -38,6 +39,11 @@ export default async function LocaleLayout({
         <link rel="alternate" hrefLang="en" href="/en" />
         <link rel="alternate" hrefLang="es" href="/es" />
         <link rel="alternate" hrefLang="x-default" href="/en" />
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        {/* Theme color for mobile browsers */}
+        <meta name="theme-color" content="#10806e" />
+        <StructuredData />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
