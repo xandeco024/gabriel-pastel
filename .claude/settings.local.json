@@ -11,7 +11,9 @@
       "Bash(npx next build:*)",
       "Bash(npm update:*)",
       "Bash(npm ls:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "mcp__Neon_-_DB__create_project",
+      "mcp__Neon_-_DB__delete_project"
     ],
     "deny": [],
     "ask": []
